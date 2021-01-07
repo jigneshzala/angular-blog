@@ -6,6 +6,7 @@ const cors = require("cors");
 const dotenv = require('dotenv');
 
 const postRouter = require('./routes/postRoutes');
+const categoryRouter = require('./routes/categoryRoutes');
 
 const app = express();
 
@@ -31,6 +32,7 @@ const port = 3000;
 
 //Routes
 app.use('/posts', postRouter);
+app.use('/categories', categoryRouter);
 
 app.listen(port, () => {
   console.log(`App running on port ${port}...`);
