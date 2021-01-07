@@ -6,6 +6,7 @@ import { ManageComponent } from "./manage.component";
 import { RouterModule, Routes } from "@angular/router";
 import { ManagePostsComponent } from "./manage-posts/manage-posts.component";
 import { PostNewComponent } from "./post-new/post-new.component";
+import { EditorModule } from '@tinymce/tinymce-angular';
 
 const routes: Routes = [
   {
@@ -26,6 +27,6 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [ManageComponent, ManagePostsComponent, PostNewComponent],
-  imports: [CommonModule, FormsModule, RouterModule.forChild(routes)],
+  imports: [CommonModule, FormsModule, EditorModule,RouterModule.forChild(routes)],
 })
 export class ManageModule {}

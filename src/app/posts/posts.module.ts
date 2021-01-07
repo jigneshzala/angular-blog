@@ -4,6 +4,7 @@ import { PostsComponent } from "./posts.component";
 import { PostListingComponent } from "./post-listing/post-listing.component";
 import { RouterModule, Routes } from "@angular/router";
 import { PostService } from "./shared/post.service";
+import { PostDetailComponent } from './post-detail/post-detail.component';
 const routes: Routes = [
   {
     path: "posts",
@@ -13,12 +14,16 @@ const routes: Routes = [
         path: "",
         component: PostListingComponent,
       },
+      {
+        path:":postId",
+        component:PostDetailComponent
+      }
     ],
   },
 ];
 
 @NgModule({
-  declarations: [PostsComponent, PostListingComponent],
+  declarations: [PostsComponent, PostListingComponent, PostDetailComponent],
   providers: [PostService],
   imports: [CommonModule, RouterModule.forChild(routes)],
 })

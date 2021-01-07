@@ -61,3 +61,16 @@ exports.updateBlogPost = async (req, res) => {
     });
   }
 }
+
+exports.getPostById = async (req, res) => {
+  try {
+    const id = req.params.postId;
+    const result = await Post.findById(id);
+    res.status(200).json(result);
+
+  } catch (err) {
+    res.status(500).json({
+      error: err
+    });
+  }
+}
