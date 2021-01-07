@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+const cors = require("cors");
 
 const dotenv = require('dotenv');
 
@@ -22,6 +23,8 @@ mongoose.connect(DB, {
 }).then(() => console.log('DB Connection successfull!'));
 
 // Middleware
+//Handle CORS errors
+app.use(cors());
 app.use(bodyParser.json());
 
 const port = 3000;

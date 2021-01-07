@@ -1,0 +1,12 @@
+<div class="card-deck">
+  <div class="card" *ngFor="let post of posts">
+    <img class="card-img-top" src="..." alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">{{post.title}}</h5>
+      <p class="card-text">{{post.content}}</p>
+    </div>
+    <div class="card-footer">
+      <small class="text-muted">{{post.createdAt}}</small>
+    </div>
+  </div>
+</div>
