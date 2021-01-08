@@ -6,8 +6,7 @@ import { AppComponent } from "./app.component";
 import { HomeModule } from "./modules/home/home.module";
 import { PostsModule } from "./posts/posts.module";
 import { ManageModule } from "./manage/manage.module";
-
-
+import { HighlightService } from "./shared/services/highlight.service";
 
 @NgModule({
   declarations: [AppComponent],
@@ -17,9 +16,9 @@ import { ManageModule } from "./manage/manage.module";
     HttpClientModule,
     HomeModule,
     PostsModule,
-    ManageModule
+    ManageModule,
   ],
-  providers: [],
+  providers: [HighlightService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
