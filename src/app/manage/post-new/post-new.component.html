@@ -13,6 +13,11 @@
             <input [(ngModel)]="newPost.category" name="category" required type="text" class="form-control" id="category">
           </div>
 
+          <div class="form-group">
+            <label>Image</label>
+            <app-image-upload (imageUploaded)="attachImageToPost($event)"></app-image-upload>
+          </div>
+
   <!--         <div class="form-group">
             <label for="category">Category</label>
 

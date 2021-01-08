@@ -4,7 +4,7 @@ const Post = require('./../models/postModel');
 exports.allBlogPost = async (req, res) => {
   try {
 
-    const posts = await Post.find();
+    const posts = await Post.find().populate('image');
 
     res.status(200).json(posts);
   } catch (err) {
@@ -15,12 +15,16 @@ exports.allBlogPost = async (req, res) => {
 
 exports.addBlogPost = async (req, res) => {
   try {
-    const post = new Post({
+    const postData = req.body;
+
+   /*  const post = new Post({
       title: req.body.title,
       content: req.body.content,
       category: req.body.category,
       author: req.body.author
-    });
+    }); */
+
+    const post = new Post(postData);
 
     let newPost = await post.save();
     res.status(201).json({

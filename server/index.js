@@ -5,8 +5,10 @@ const cors = require("cors");
 
 const dotenv = require('dotenv');
 
+// routes
 const postRouter = require('./routes/postRoutes');
 const categoryRouter = require('./routes/categoryRoutes');
+const imageUploadRoutes = require('./routes/image-upload');
 
 const app = express();
 
@@ -15,6 +17,8 @@ dotenv.config({
 });
 
 const DB = process.env.DATABASE.replace('<PASSWORD>', process.env.DATABASE_PASSWORD)
+
+require('./models/cloudinary-image');
 
 mongoose.connect(DB, {
   useNewUrlParser: true,
@@ -33,6 +37,7 @@ const port = 3000;
 //Routes
 app.use('/posts', postRouter);
 app.use('/categories', categoryRouter);
+app.use('/image-upload', imageUploadRoutes);
 
 app.listen(port, () => {
   console.log(`App running on port ${port}...`);

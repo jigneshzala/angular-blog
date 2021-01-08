@@ -10,13 +10,17 @@ declare var tinymce: any;
 })
 export class PostNewComponent implements OnInit {
   constructor(private postService: PostService) {}
-  newPost: any = {};
+  newPost: any = {
+    "image":{
+      "_id":''
+    }
+  };
   dataModel: any;
   tinyConfig: any = {
     height: 300,
     plugins: ["image imagetools codesample code link "],
-    imagetools_cors_hosts: ['localhost'],
-    imagetools_proxy: 'proxy.php',
+    imagetools_cors_hosts: ["localhost"],
+    imagetools_proxy: "proxy.php",
     menubar: "insert",
     toolbar:
       "undo redo | formatselect | bold italic backcolor | \
@@ -26,9 +30,10 @@ export class PostNewComponent implements OnInit {
       { title: "My image 1", value: "https://www.tinymce.com/my1.gif" },
       { title: "My image 2", value: "http://www.moxiecode.com/my2.gif" },
     ],
-    default_link_target: '_blank'
+    default_link_target: "_blank",
   };
   ngOnInit() {
+    this.newPost.image['_id']='ss';
     /*     tinymce.init({
       selector: "#mymce1",
       plugins:'code codesample',
@@ -44,10 +49,17 @@ export class PostNewComponent implements OnInit {
       return;
     }
 
+    console.log(this.newPost);
     // this.errors = [];
     this.postService.createPost(this.newPost).subscribe(
       (data) => alert("Post Creted"),
       (errors) => console.log(errors)
     );
+  }
+
+  attachImageToPost(imageId: string) {
+    console.log(imageId);
+    this.newPost['image']['_id'] = imageId;
+    console.log(this.newPost);
   }
 }
