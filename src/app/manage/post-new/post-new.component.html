@@ -37,17 +37,7 @@
                 <!-- <textarea id="mymce1"></textarea> -->
                 <!-- <editor name="content" [(ngModel)]="newPost.content"></editor> -->
                 <editor
-                [init]="{
-                  height: 300,
-                  menubar: true,
-                  plugins: [
-                  'codesample code '
-                ],
-                  toolbar:
-                    'undo redo | formatselect | bold italic backcolor | \
-                    alignleft aligncenter alignright alignjustify | \
-                    bullist numlist outdent indent | removeformat | codesample'
-                }"
+                [init]="tinyConfig"
                 [(ngModel)]="newPost.content" name="content"></editor>
 
                 {{newPost.content}}

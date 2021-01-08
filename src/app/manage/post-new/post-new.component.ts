@@ -11,10 +11,25 @@ declare var tinymce: any;
 export class PostNewComponent implements OnInit {
   constructor(private postService: PostService) {}
   newPost: any = {};
-  dataModel:any;
+  dataModel: any;
+  tinyConfig: any = {
+    height: 300,
+    plugins: ["image imagetools codesample code link "],
+    imagetools_cors_hosts: ['localhost'],
+    imagetools_proxy: 'proxy.php',
+    menubar: "insert",
+    toolbar:
+      "undo redo | formatselect | bold italic backcolor | \
+      alignleft aligncenter alignright alignjustify | \
+      bullist numlist outdent indent | link | removeformat | image | codesample",
+    image_list: [
+      { title: "My image 1", value: "https://www.tinymce.com/my1.gif" },
+      { title: "My image 2", value: "http://www.moxiecode.com/my2.gif" },
+    ],
+    default_link_target: '_blank'
+  };
   ngOnInit() {
-    
-/*     tinymce.init({
+    /*     tinymce.init({
       selector: "#mymce1",
       plugins:'code codesample',
       menubar: 'file edit view insert format tools table tc help',
