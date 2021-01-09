@@ -4,11 +4,15 @@ const bodyParser = require('body-parser');
 const cors = require("cors");
 
 const dotenv = require('dotenv');
+const {
+  provideErrorHandler
+} = require('./middlewares');
 
 // routes
 const postRouter = require('./routes/postRoutes');
 const categoryRouter = require('./routes/categoryRoutes');
 const imageUploadRoutes = require('./routes/image-upload');
+const usersRoutes = require('./routes/users');
 
 const app = express();
 
@@ -31,6 +35,7 @@ mongoose.connect(DB, {
 //Handle CORS errors
 app.use(cors());
 app.use(bodyParser.json());
+app.use(provideErrorHandler);
 
 const port = 3000;
 
@@ -38,6 +43,7 @@ const port = 3000;
 app.use('/posts', postRouter);
 app.use('/categories', categoryRouter);
 app.use('/image-upload', imageUploadRoutes);
+app.use('/users', usersRoutes);
 
 app.listen(port, () => {
   console.log(`App running on port ${port}...`);

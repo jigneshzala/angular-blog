@@ -1,16 +1,18 @@
 import { Component, OnInit } from "@angular/core";
 import { NgForm } from "@angular/forms";
+import { ActivatedRoute } from "@angular/router";
 import { CategoryService } from "src/app/categories/shared/category.service";
 import { PostService } from "src/app/posts/shared/post.service";
 declare var tinymce: any;
 
 @Component({
-  selector: "app-post-new",
-  templateUrl: "./post-new.component.html",
-  styleUrls: ["./post-new.component.scss"],
+  selector: "app-update-post",
+  templateUrl: "./update-post.component.html",
+  styleUrls: ["./update-post.component.scss"],
 })
-export class PostNewComponent implements OnInit {
+export class UpdatePostComponent implements OnInit {
   constructor(
+    private route: ActivatedRoute,
     private postService: PostService,
     private categoryService: CategoryService
   ) {}
@@ -19,7 +21,7 @@ export class PostNewComponent implements OnInit {
       _id: "",
     },
   };
-  dataModel: any;
+  post: any;
   tinyConfig: any = {
     height: 300,
     plugins: ["image imagetools codesample code link "],
@@ -37,39 +39,43 @@ export class PostNewComponent implements OnInit {
     default_link_target: "_blank",
   };
   categoriesList: any = [];
+  postId: any;
   ngOnInit() {
     this.newPost.image["_id"] = "";
-    this.getAllCateogry();
-    /*     tinymce.init({
-      selector: "#mymce1",
-      plugins:'code codesample',
-      menubar: 'file edit view insert format tools table tc help',
-      toolbar: 'undo redo | bold italic underline strikethrough | fontselect fontsizeselect formatselect | alignleft aligncenter alignright alignjustify | outdent indent |  numlist bullist | forecolor backcolor removeformat | pagebreak | charmap emoticons | fullscreen  preview save print | insertfile image media template link anchor codesample | ltr rtl',
-      toolbar_mode: 'sliding',
-    }); */
+    this.route.params.subscribe((params) => {
+      this.postId = params["id"];
+      this.getAllCateogry();
+    });
   }
 
-  createPost(postForm: NgForm) {
-    //   validateInputs(postForm);
-    if (postForm.invalid) {
-      return;
-    }
-
-    // this.errors = [];
-    this.postService.createPost(this.newPost).subscribe(
-      (data) => alert("Post Creted"),
-      (errors) => console.log(errors)
+  updatePost(postForm: NgForm) {
+    this.postService.updatePost(this.newPost._id, this.newPost).subscribe(
+      (updatedPost) => {
+        this.newPost = updatedPost;
+        alert("Post Updated");
+      },
+      (error) => {
+        alert("Update Error!");
+      }
     );
   }
 
-  attachImageToPost(imageId: string) {
-    this.newPost["image"]["_id"] = imageId;
+  attachImageToPost(postEvent: any) {
+    delete this.newPost["image"];
+    this.newPost.image = {};
+    this.newPost["image"]["_id"] = postEvent.data.image;
   }
 
   private getAllCateogry() {
     this.categoryService.getAllCateogry().subscribe((data) => {
       this.categoriesList = data;
-      this.newPost.category = this.categoriesList[0].name;
+      this.postService.getPostById(this.postId).subscribe((post) => {
+        this.newPost = post;
+      });
+      //this.newPost.category = this.categoriesList[0].name;
     });
   }
+  transformImage = (image: any): string => {
+    return image.url;
+  };
 }

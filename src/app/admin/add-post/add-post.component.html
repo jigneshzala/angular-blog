@@ -8,41 +8,39 @@
             <label for="title">Title</label>
             <input [(ngModel)]="newPost.title" name="title" required type="text" class="form-control" id="title">
           </div>
-          
+
 
           <div class="form-group">
             <label>Image</label>
             <app-image-upload (imageUploaded)="attachImageToPost($event)"></app-image-upload>
           </div>
 
-           <div class="form-group">
+          <div class="form-group">
             <label for="category">Category</label>
 
             <select [(ngModel)]="newPost.category" name="category" required class="form-control" id="category">
               <option *ngFor="let category of categoriesList" [value]="category.name"> {{category.name}} </option>
 
             </select>
-          </div> 
+          </div>
 
-<!--           <div class="form-group">
-            <label>Image</label>
-            <app-image-upload (imageUploaded)="attachImageToRental($event)"></app-image-upload>
-          </div> -->
+          <!--           <div class="form-group">
+              <label>Image</label>
+              <app-image-upload (imageUploaded)="attachImageToRental($event)"></app-image-upload>
+            </div> -->
 
           <div class="form-group">
             <label for="content">content</label>
-       <!--    <textarea  id="mymce1" [(ngModel)]="newPost.content" name="content" required rows="5" type="text"
-              class="form-control" id="content">
-                </textarea> -->
+            <!--    <textarea  id="mymce1" [(ngModel)]="newPost.content" name="content" required rows="5" type="text"
+                class="form-control" id="content">
+                  </textarea> -->
 
-                <!-- {{newPost.content}} -->
-                <!-- <textarea id="mymce1"></textarea> -->
-                <!-- <editor name="content" [(ngModel)]="newPost.content"></editor> -->
-                <editor
-                [init]="tinyConfig"
-                [(ngModel)]="newPost.content" name="content"></editor>
+            <!-- {{newPost.content}} -->
+            <!-- <textarea id="mymce1"></textarea> -->
+            <!-- <editor name="content" [(ngModel)]="newPost.content"></editor> -->
+            <editor [init]="tinyConfig" [(ngModel)]="newPost.content" name="content"></editor>
 
-                {{newPost.content}}
+            {{newPost.content}}
 
 
           </div>
@@ -51,19 +49,18 @@
             <label for="street">author</label>
             <input [(ngModel)]="newPost.author" name="author" required type="text" class="form-control" id="author">
           </div>
-   
-      
-          <button type="button" (click)="createPost(postForm)"
-            class="btn bwm-btn-main">Create
+
+
+          <button type="button" (click)="createPost(postForm)" class="btn bwm-btn-main">Create
           </button>
         </form>
         <!-- <div *ngIf="errors.length > 0" class="alert alert-danger">
-          <p *ngFor="let error of errors">
-            {{error.detail}}
-          </p>
-        </div> -->
+            <p *ngFor="let error of errors">
+              {{error.detail}}
+            </p>
+          </div> -->
       </div>
-    
+
     </div>
   </div>
 </section>
