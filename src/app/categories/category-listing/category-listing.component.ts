@@ -13,16 +13,17 @@ export class CategoryListingComponent implements OnInit {
     private categoryService: CategoryService
   ) {}
   posts: any;
-  category:string;
+  category: string;
   ngOnInit() {
     this.route.params.subscribe((params) => {
       this.category = params["catId"];
-      this.categoryService
-        .getPostByCateogry(this.category)
-        .subscribe((posts) => {
-          this.posts = posts;
-        });
+      this.getPostByCategory();
     });
-    //this.categoryService.getPostByCateogry()
+  }
+
+  private getPostByCategory() {
+    this.categoryService.getPostByCateogry(this.category).subscribe((posts) => {
+      this.posts = posts;
+    });
   }
 }

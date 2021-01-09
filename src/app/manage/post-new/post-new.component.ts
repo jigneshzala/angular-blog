@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { NgForm } from "@angular/forms";
+import { CategoryService } from "src/app/categories/shared/category.service";
 import { PostService } from "src/app/posts/shared/post.service";
 declare var tinymce: any;
 
@@ -9,11 +10,14 @@ declare var tinymce: any;
   styleUrls: ["./post-new.component.scss"],
 })
 export class PostNewComponent implements OnInit {
-  constructor(private postService: PostService) {}
+  constructor(
+    private postService: PostService,
+    private categoryService: CategoryService
+  ) {}
   newPost: any = {
-    "image":{
-      "_id":''
-    }
+    image: {
+      _id: "",
+    },
   };
   dataModel: any;
   tinyConfig: any = {
@@ -32,8 +36,10 @@ export class PostNewComponent implements OnInit {
     ],
     default_link_target: "_blank",
   };
+  categoriesList: any = [];
   ngOnInit() {
-    this.newPost.image['_id']='ss';
+    this.newPost.image["_id"] = "";
+    this.getAllCateogry();
     /*     tinymce.init({
       selector: "#mymce1",
       plugins:'code codesample',
@@ -49,7 +55,6 @@ export class PostNewComponent implements OnInit {
       return;
     }
 
-    console.log(this.newPost);
     // this.errors = [];
     this.postService.createPost(this.newPost).subscribe(
       (data) => alert("Post Creted"),
@@ -58,8 +63,13 @@ export class PostNewComponent implements OnInit {
   }
 
   attachImageToPost(imageId: string) {
-    console.log(imageId);
-    this.newPost['image']['_id'] = imageId;
-    console.log(this.newPost);
+    this.newPost["image"]["_id"] = imageId;
+  }
+
+  private getAllCateogry() {
+    this.categoryService.getAllCateogry().subscribe((data) => {
+      this.categoriesList = data;
+      this.newPost.category = this.categoriesList[0].name;
+    });
   }
 }

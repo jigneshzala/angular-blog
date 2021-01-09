@@ -10,6 +10,9 @@ export class CategoryService {
   getPostByCateogry(category: string) {
     return this.http.get(`${this.API_URL}posts?category=${category}`);
   }
+  getAllCateogry() {
+    return this.http.get(`${this.API_URL}categories`);
+  }
   /*  createPost(newPost) {
     return this.http.post(`${this.API_URL}posts`, newPost);
   }
