@@ -4,7 +4,15 @@ const Post = require('./../models/postModel');
 exports.allBlogPost = async (req, res) => {
   try {
 
-    const posts = await Post.find().populate('image');
+    const {
+      category
+    } = req.query;
+
+    const query = category ? {
+      category: category.toLowerCase()
+    } : {};
+
+    const posts = await Post.find(query).populate('image');
 
     res.status(200).json(posts);
   } catch (err) {
@@ -17,12 +25,12 @@ exports.addBlogPost = async (req, res) => {
   try {
     const postData = req.body;
 
-   /*  const post = new Post({
-      title: req.body.title,
-      content: req.body.content,
-      category: req.body.category,
-      author: req.body.author
-    }); */
+    /*  const post = new Post({
+       title: req.body.title,
+       content: req.body.content,
+       category: req.body.category,
+       author: req.body.author
+     }); */
 
     const post = new Post(postData);
 

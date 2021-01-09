@@ -5,6 +5,7 @@ import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { HomeModule } from "./modules/home/home.module";
 import { PostsModule } from "./posts/posts.module";
+import { CategoriesModule } from "./categories/categories.module";
 import { ManageModule } from "./manage/manage.module";
 import { HighlightService } from "./shared/services/highlight.service";
 
@@ -16,6 +17,7 @@ import { HighlightService } from "./shared/services/highlight.service";
     HttpClientModule,
     HomeModule,
     PostsModule,
+    CategoriesModule,
     ManageModule,
   ],
   providers: [HighlightService],

@@ -1,0 +1,61 @@
+<div id="content" class="site-content ">
+
+  <div class="site-content__wrap container">
+
+    <header class="page-header">
+      <h1 class="page-title text-capitalize">Category: {{category}}</h1>
+    </header>
+
+    <div class="row">
+
+
+      <div id="primary" class="col-xs-12">
+
+
+        <main id="main" class="site-main">
+          <div class="posts-list posts-list--grid list-style-default">
+            <article *ngFor="let post of posts"
+              class="posts-list__item grid-item post type-post status-publish format-gallery has-post-thumbnail hentry category-light post_format-post-format-gallery">
+              <figure class="post-thumbnail"><a class="post-thumbnail__link" routerLink="/posts/{{post._id}}"
+                  aria-hidden="true"><img width="570" height="397"
+                    src="https://ld-wp.template-help.com/monstroid2/default/wp-content/uploads/2018/08/light-img-post-7.jpg"
+                    class="attachment-monstroid2-thumb-m-2 size-monstroid2-thumb-m-2 wp-post-image" alt=""
+                    sizes="(max-width: 570px) 100vw, 570px"></a></figure>
+              <header class="entry-header">
+                <div class="entry-meta">
+                  <span class="posted-on">Posted <time
+                      datetime="2018-08-15T13:47:24+00:00">{{post.createdAt}}</time></span> </div>
+                <h4 class="entry-title"><a routerLink="/posts/{{post._id}}">{{post.title}}</a></h4>
+              </header>
+
+              <div class="entry-content">
+                <p>{{post.content}}</p>
+              </div>
+              <footer class="entry-footer">
+                <div class="entry-meta">
+                  <div class="space-between-content"><a routerLink="/posts/{{post._id}}" class="btn ">More</a></div>
+                </div>
+              </footer>
+            </article>
+          </div>
+          <nav class="navigation posts-navigation" role="navigation">
+            <h2 class="screen-reader-text">Posts navigation</h2>
+            <div class="nav-links">
+              <div class="nav-previous"><a
+                  href="https://ld-wp.template-help.com/monstroid2/default/category/light/page/2/?ld&amp;blog_layout_type=grid&amp;blog_style=default&amp;blog_post_excerpt_words_count=12&amp;blog_post_categories=0&amp;blog_post_author=0&amp;blog_post_comments=0&amp;blog_post_tags=0&amp;posts_per_page=6">
+                  <span class="screen-reader-text">Older Posts</span>
+                  <i class="fa fa-angle-left" aria-hidden="true"></i> Older Posts</a></div>
+            </div>
+          </nav>
+        </main>
+
+
+      </div>
+
+
+
+    </div>
+  </div>
+
+
+</div>
