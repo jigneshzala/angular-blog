@@ -1,0 +1,50 @@
+<section id="newPost">
+  <div class="bwm-form">
+    <div class="row">
+      <div class="col-md-12">
+        <h1 class="page-title">Edit post</h1>
+        <form #postForm="ngForm">
+          <div class="form-group">
+            <label for="title">Title</label>
+            <input [(ngModel)]="newPost.title" name="title" required type="text" class="form-control" id="title">
+          </div>
+
+          <app-editable-image (entityUpdated)="attachImageToPost($event)" [transformView]="transformImage"
+            [entity]="newPost" [field]="'image'" className="rental-image">
+          </app-editable-image>
+
+          <div class="form-group">
+            <label for="category">Category</label>
+
+            <select [(ngModel)]="newPost.category" name="category" required class="form-control" id="category">
+              <option *ngFor="let category of categoriesList" [value]="category.name"> {{category.name}} </option>
+
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="content">content</label>
+
+            <editor [init]="tinyConfig" [(ngModel)]="newPost.content" name="content"></editor>
+
+          </div>
+
+          <div class="form-group">
+            <label for="street">author</label>
+            <input [(ngModel)]="newPost.author" name="author" required type="text" class="form-control" id="author">
+          </div>
+
+
+          <button type="button" (click)="updatePost(postForm)" class="btn bwm-btn-main">Create
+          </button>
+        </form>
+        <!-- <div *ngIf="errors.length > 0" class="alert alert-danger">
+            <p *ngFor="let error of errors">
+              {{error.detail}}
+            </p>
+          </div> -->
+      </div>
+
+    </div>
+  </div>
+</section>

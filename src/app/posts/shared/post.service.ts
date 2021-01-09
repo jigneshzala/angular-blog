@@ -15,4 +15,7 @@ export class PostService {
   getPostById(postId) {
     return this.http.get(`${this.API_URL}posts/${postId}`);
   }
+  updatePost(postId: string, postData:any) {
+    return this.http.patch(`${this.API_URL}posts/${postId}`, postData);
+  }
 }

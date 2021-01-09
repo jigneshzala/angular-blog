@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PostService } from 'src/app/posts/shared/post.service';
 
 @Component({
   selector: 'app-manage-posts',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ManagePostsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private postService: PostService) {}
 
-  ngOnInit(): void {
+  posts: any = [];
+  ngOnInit() {
+    this.postService.getPosts().subscribe((posts) => {
+      this.posts = posts;
+    });
   }
 
 }

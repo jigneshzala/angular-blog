@@ -8,6 +8,8 @@ import { ManagePostsComponent } from "./manage-posts/manage-posts.component";
 import { PostNewComponent } from "./post-new/post-new.component";
 import { EditorModule } from "@tinymce/tinymce-angular";
 import { ImageUploadModule } from "../shared/modules/image-upload/image-upload.module";
+import { PostEditComponent } from './post-edit/post-edit.component';
+import { EditableModule } from "../shared/modules/editable/editable.module";
 
 const routes: Routes = [
   {
@@ -19,6 +21,10 @@ const routes: Routes = [
         component: ManagePostsComponent,
       },
       {
+        path: "posts/:postId",
+        component: PostEditComponent,
+      },
+      {
         path: "new",
         component: PostNewComponent,
       },
@@ -27,12 +33,13 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [ManageComponent, ManagePostsComponent, PostNewComponent],
+  declarations: [ManageComponent, ManagePostsComponent, PostNewComponent, PostEditComponent],
   imports: [
     CommonModule,
     FormsModule,
     EditorModule,
     ImageUploadModule,
+    EditableModule,
     RouterModule.forChild(routes),
   ],
 })
