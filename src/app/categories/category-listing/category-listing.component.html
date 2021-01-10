@@ -18,7 +18,7 @@
               class="posts-list__item grid-item post type-post status-publish format-gallery has-post-thumbnail hentry category-light post_format-post-format-gallery">
               <figure class="post-thumbnail"><a class="post-thumbnail__link" routerLink="/posts/{{post._id}}"
                   aria-hidden="true"><img width="570" height="397"
-                    src="https://ld-wp.template-help.com/monstroid2/default/wp-content/uploads/2018/08/light-img-post-7.jpg"
+                    [src]="post.image?.url"
                     class="attachment-monstroid2-thumb-m-2 size-monstroid2-thumb-m-2 wp-post-image" alt=""
                     sizes="(max-width: 570px) 100vw, 570px"></a></figure>
               <header class="entry-header">
@@ -29,7 +29,7 @@
               </header>
 
               <div class="entry-content">
-                <p>{{post.content}}</p>
+                <p [innerHtml]="post.content"></p>
               </div>
               <footer class="entry-footer">
                 <div class="entry-meta">
