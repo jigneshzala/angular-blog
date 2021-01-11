@@ -7,6 +7,7 @@ import { PostService } from "./shared/post.service";
 import { PostDetailComponent } from "./post-detail/post-detail.component";
 
 import { SharedPostModule } from "../shared/modules/shared-post.module";
+import { SidebarModule } from "../shared/modules/sidebar.module";
 const routes: Routes = [
   {
     path: "posts",
@@ -27,6 +28,11 @@ const routes: Routes = [
 @NgModule({
   declarations: [PostsComponent, PostListingComponent, PostDetailComponent],
   providers: [PostService],
-  imports: [CommonModule, SharedPostModule, RouterModule.forChild(routes)],
+  imports: [
+    CommonModule,
+    SharedPostModule,
+    SidebarModule,
+    RouterModule.forChild(routes),
+  ],
 })
 export class PostsModule {}
