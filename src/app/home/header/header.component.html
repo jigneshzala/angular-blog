@@ -7,7 +7,7 @@
             <div class="widget-content">
               <ul id="nav1">
                 <li><a href="/">Home</a></li>
-                <li><a href="#">Sitemap</a></li>
+                <li><a href="/p/sitemap_24.html">Sitemap</a></li>
                 <li><a href="#">Support</a></li>
                 <li><a href="#">About</a></li>
                 <li><a href="#">Contact</a></li>
@@ -82,16 +82,24 @@
     <input type='checkbox' id='responsive-menu' (click)='updatemenu()'><label></label>
 
     <ul>
-      <li><a routerLink='/'>Home</a></li>
-      <li *ngFor="let cat of categories"><a routerLink='/category/{{cat.name}}'>{{cat.name}}</a></li>
-  <!--     <li><a class='dropdown-arrow' href='http://'>Services</a>
+      <li><a href='http://'>Home</a></li>
+      <li><a class='dropdown-arrow' href='http://'>Products</a>
+        <ul class='sub-menus'>
+          <li><a href='http://'>Products Sub Menu 1</a></li>
+          <li><a href='http://'>Products Sub Menu 2</a></li>
+          <li><a href='http://'>Products Sub Menu 3</a></li>
+          <li><a href='http://'>Products Sub Menu 4</a></li>
+        </ul>
+      </li>
+      <li><a href='http://'>About</a></li>
+      <li><a class='dropdown-arrow' href='http://'>Services</a>
         <ul class='sub-menus'>
           <li><a href='http://'>Services Sub Menu 1</a></li>
           <li><a href='http://'>Services Sub Menu 2</a></li>
           <li><a href='http://'>Services Sub Menu 3</a></li>
         </ul>
-      </li> -->
-      
+      </li>
+      <li><a href='http://'>Contact Us</a></li>
     </ul>
   </nav>
 
