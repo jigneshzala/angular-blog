@@ -3,16 +3,19 @@ import { NgModule } from "@angular/core";
 import { HttpClientModule } from "@angular/common/http";
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
-import { PostsModule } from "./posts/posts.module";
-import { CategoriesModule } from "./categories/categories.module";
+
 import { HighlightService } from "./shared/services/highlight.service";
 import { AuthModule } from "./auth/auth.module";
 import { AdminModule } from "./admin/admin.module";
 import { HomeModule } from "./home/home.module";
+import { FooterComponent } from "./footer/footer.component";
+import { HeaderComponent } from "./header/header.component";
+import { PostsModule } from "./posts/posts.module";
+import { CategoriesModule } from "./categories/categories.module";
 
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent,HeaderComponent, FooterComponent],
   imports: [
     BrowserModule.withServerTransition({ appId: "serverApp" }),
     AppRoutingModule,

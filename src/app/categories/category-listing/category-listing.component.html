@@ -1,61 +1,122 @@
-<div id="content" class="site-content ">
-
-  <div class="site-content__wrap container">
-
-    <header class="page-header">
-      <h1 class="page-title text-capitalize">Category: {{category}}</h1>
-    </header>
-
+<section id="main" class="margin-top-30">
+  <div class="container">
     <div class="row">
 
+      <div class="col-xs-12 col-sm-12 col-md-8">
+        <div class="content">
+          <div class="col-xs-12 col-sm-12 posts ">
+            <div class="row">
 
-      <div id="primary" class="col-xs-12">
-
-
-        <main id="main" class="site-main">
-          <div class="posts-list posts-list--grid list-style-default">
-            <article *ngFor="let post of posts"
-              class="posts-list__item grid-item post type-post status-publish format-gallery has-post-thumbnail hentry category-light post_format-post-format-gallery">
-              <figure class="post-thumbnail"><a class="post-thumbnail__link" routerLink="/posts/{{post._id}}"
-                  aria-hidden="true"><img width="570" height="397"
-                    [src]="post.image?.url"
-                    class="attachment-monstroid2-thumb-m-2 size-monstroid2-thumb-m-2 wp-post-image" alt=""
-                    sizes="(max-width: 570px) 100vw, 570px"></a></figure>
-              <header class="entry-header">
-                <div class="entry-meta">
-                  <span class="posted-on">Posted <time
-                      datetime="2018-08-15T13:47:24+00:00">{{post.createdAt}}</time></span> </div>
-                <h4 class="entry-title"><a routerLink="/posts/{{post._id}}">{{post.title}}</a></h4>
-              </header>
-
-              <div class="entry-content">
-                <p [innerHtml]="post.content"></p>
-              </div>
-              <footer class="entry-footer">
-                <div class="entry-meta">
-                  <div class="space-between-content"><a routerLink="/posts/{{post._id}}" class="btn ">More</a></div>
+              <div class="post-item-horizontal" *ngFor="let post of posts">
+                <div class="item-image">
+                  <a href="https://infinite.codingest.com/fashion">
+                    <span class="label-post-category">
+                      Fashion </span>
+                  </a>
+                  <a routerLink="/posts/{{post._id}}">
+                    <img [src]="post.image?.url" class="img-responsive lazyloaded"
+                      alt="Expound the actual teachings of the great explorer of the truth">
+                  </a>
                 </div>
-              </footer>
-            </article>
-          </div>
-          <nav class="navigation posts-navigation" role="navigation">
-            <h2 class="screen-reader-text">Posts navigation</h2>
-            <div class="nav-links">
-              <div class="nav-previous"><a
-                  href="https://ld-wp.template-help.com/monstroid2/default/category/light/page/2/?ld&amp;blog_layout_type=grid&amp;blog_style=default&amp;blog_post_excerpt_words_count=12&amp;blog_post_categories=0&amp;blog_post_author=0&amp;blog_post_comments=0&amp;blog_post_tags=0&amp;posts_per_page=6">
-                  <span class="screen-reader-text">Older Posts</span>
-                  <i class="fa fa-angle-left" aria-hidden="true"></i> Older Posts</a></div>
-            </div>
-          </nav>
-        </main>
+                <div class="item-content">
+                  <h3 class="title">
+                    <a routerLink="/posts/{{post._id}}">
+                      {{post.title}} </a>
+                  </h3>
+                  <div class="post-meta">
+                    <p class="post-meta-inner">
+                      <span>
+                        <a href="https://infinite.codingest.com/profile/author">
+                          author </a>
+                      </span>
+                      <span>
+                        <i class="icon-clock"></i>&nbsp;&nbsp;{{post.createdAt}} </span>
+                      <span>
+                        <i class="icon-comment"></i>&nbsp;
+                        10 </span>
 
+                      <span>
+                        <i class="icon-eye"></i>&nbsp;
+                        2361 </span>
+                    </p>
+                  </div>
+                  <p class="summary" [innerHtml]="post.content">
+                  </p>
+                  <div class="post-buttons">
+                    <a routerLink="/posts/{{post._id}}" class="pull-right read-more">
+                      Read More <i class="icon-arrow-right read-more-i" aria-hidden="true"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-sm-12 col-xs-12"></div>
+
+              <div class="col-sm-12 col-xs-12"></div>
+
+
+              <div class="col-sm-12 col-xs-12"></div>
+
+              <div class="col-sm-12 col-xs-12"></div>
+
+
+              <div class="col-sm-12 col-xs-12"></div>
+
+            </div>
+          </div>
+          <div class="col-xs-12 col-sm-12 col-xs-12">
+            <div class="row">
+
+
+
+
+
+
+            </div>
+          </div>
+          <!--      <div class="col-xs-12 col-sm-12 col-xs-12">
+            <div class="row">
+              <ul class="pagination">
+                <li class="disabled"></li>
+                <li class="active page-num"><a href="#">1<span class="sr-only"></span></a></li>
+                <li class="page-num"><a href="https://infinite.codingest.com/?page=2" data-ci-pagination-page="2">2</a>
+                </li>
+                <li class="page-num"><a href="https://infinite.codingest.com/?page=3" data-ci-pagination-page="3">3</a>
+                </li>
+                <li class="page-num"><a href="https://infinite.codingest.com/?page=4" data-ci-pagination-page="4">4</a>
+                </li>
+                <li class="page-num"><a href="https://infinite.codingest.com/?page=5" data-ci-pagination-page="5">5</a>
+                </li>
+                <li class="next"><a href="https://infinite.codingest.com/?page=2" data-ci-pagination-page="2"
+                    rel="next">›</a></li>
+              </ul>
+            </div>
+          </div> -->
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-12 col-md-4">
+
+        <div class="sidebar">
+
+
+          <div class="col-sm-12 col-xs-12 sidebar-widget widget-popular-posts">
+            <app-popular-post [popularPosts]="posts"></app-popular-post>
+          </div>
+
+
+          <div class="col-sm-12 col-xs-12 sidebar-widget">
+
+            <app-category-list [categoriesList]="categories"></app-category-list>
+          </div>
+
+          <div class="col-sm-12 col-xs-12 sidebar-widget">
+            <app-tags [tagsList]="categories"></app-tags>
+          </div>
+
+
+        </div>
 
       </div>
-
-
-
     </div>
   </div>
-
-
-</div>
+</section>

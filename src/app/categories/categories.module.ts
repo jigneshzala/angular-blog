@@ -4,6 +4,7 @@ import { CategoriesComponent } from "./categories.component";
 import { CategoryListingComponent } from "../categories/category-listing/category-listing.component";
 import { RouterModule, Routes } from "@angular/router";
 import { CategoryService } from "./shared/category.service";
+import { SidebarModule } from "../shared/modules/sidebar.module";
 
 const routes: Routes = [
   {
@@ -19,7 +20,7 @@ const routes: Routes = [
 ];
 @NgModule({
   declarations: [CategoriesComponent, CategoryListingComponent],
-  providers:[CategoryService],
-  imports: [CommonModule, RouterModule.forChild(routes)],
+  providers: [CategoryService],
+  imports: [CommonModule, SidebarModule, RouterModule.forChild(routes)],
 })
 export class CategoriesModule {}

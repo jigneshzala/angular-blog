@@ -63,3 +63,40 @@ p {
 
   }
 }
+
+/*Sidebar widget title*/
+.widget-title {
+  width: 100%;
+  display: block;
+  padding: 10px 0;
+}
+
+.widget-title .title {
+  font-size: 14px;
+  font-weight: 500;
+  margin: 0;
+  text-transform: uppercase;
+  position: relative;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #f1f1f1;
+}
+
+.widget-title .title::after {
+  background-color: #0494b1;
+}
+
+.widget-title .title::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 31%;
+  height: 2px;
+  bottom: -2px;
+  max-width: 112px;
+}
+
+.widget-list {
+  padding: 0;
+  margin: 0;
+  position: relative;
+}

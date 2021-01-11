@@ -14,16 +14,23 @@ export class CategoryListingComponent implements OnInit {
   ) {}
   posts: any;
   category: string;
+  categories:any;
   ngOnInit() {
     this.route.params.subscribe((params) => {
       this.category = params["catId"];
       this.getPostByCategory();
+      this.getAllCategory();
     });
   }
 
   private getPostByCategory() {
     this.categoryService.getPostByCateogry(this.category).subscribe((posts) => {
       this.posts = posts;
+    });
+  }
+  private getAllCategory() {
+    this.categoryService.getAllCateogry().subscribe((data) => {
+      this.categories = data;
     });
   }
 }
