@@ -13,7 +13,12 @@ export class AuthGuard implements CanActivate {
   }
 
   private checkIfCanNavigate(url: string): boolean {
-    if (this.auth.isAuthenticated) {
+   /*  if (this.auth.isAuthenticated) {
+      return true;
+    } */
+
+    if(localStorage.getItem("blog_auth_token")){
+          
       return true;
     }
     this.auth.redirectUrl = url;
@@ -34,7 +39,7 @@ export class GuestGuard implements CanActivate {
 
   private checkIfCanNavigate(url: string): boolean {
     if (this.auth.isAuthenticated) {
-      this.router.navigate(["/rentals"]);
+      this.router.navigate(["/posts"]);
       return false;
     }
 

@@ -1,10 +1,17 @@
-import { Component } from '@angular/core';
+import { Component } from "@angular/core";
+import { AuthService } from "./auth/shared/auth.service";
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  selector: "app-root",
+  templateUrl: "./app.component.html",
+  styleUrls: ["./app.component.scss"],
 })
 export class AppComponent {
-  title = 'nodeblog';
+  constructor(private auth: AuthService) {}
+
+  ngOnInit() {
+    this.auth.checkAuthentication();
+  }
+
+  title = "nodeblog";
 }

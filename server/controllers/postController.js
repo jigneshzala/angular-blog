@@ -86,3 +86,16 @@ exports.getPostById = async (req, res) => {
     });
   }
 }
+exports.getPostBySlug = async (req, res) => {
+  try {
+    const slug = req.params.slug;
+    const result = await Post.findOne({slug}).populate('image');
+    res.status(200).json(result);
+
+  } catch (err) {
+    res.status(500).json({
+      error: err
+    });
+  }
+}
+

@@ -4,9 +4,19 @@ const Schema = mongoose.Schema;
 const postSchema = new Schema({
   title: {
     type: String,
+    required: true,
+    trim: true
+  },
+  slug: {
+    type: String,
+    required: true,
+    trim: true
+  },
+  html: {
+    type: String,
     required: true
   },
-  content: {
+  excerpt: {
     type: String,
     required: true
   },
@@ -18,16 +28,34 @@ const postSchema = new Schema({
     type: String,
     required: true
   },
-  image: {
+  meta_description: {
+    type: String,
+    required: true
+  },
+  meta_title: {
+    type: String,
+    required: true
+  },
+  feature_image: {
     type: Schema.Types.ObjectId,
     ref: 'CloudinaryImage'
   },
-  createdAt: {
+  created_at: {
     type: Date,
     default: Date.now()
   },
+  updated_at: {
+    type: Date,
+    default: Date.now()
+  },
+  published_at: {
+    type: Date,
+    default: Date.now()
+  },
+  
   active: {
-    type: Boolean
+    type: Boolean,
+    default: false
   }
 });
 
