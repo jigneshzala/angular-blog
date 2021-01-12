@@ -106,7 +106,7 @@ exports.updateBlogPost = async (req, res) => {
 exports.getPostById = async (req, res) => {
   try {
     const id = req.params.postId;
-    const result = await Post.findById(id).populate('image');
+    const result = await Post.findById(id).populate('feature_image');
     res.status(200).json(result);
 
   } catch (err) {
@@ -120,7 +120,7 @@ exports.getPostBySlug = async (req, res) => {
     const slug = req.params.slug;
     const result = await Post.findOne({
       slug
-    }).populate('image');
+    }).populate('feature_image');
     res.status(200).json(result);
 
   } catch (err) {

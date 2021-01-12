@@ -17,7 +17,7 @@ export class UpdatePostComponent implements OnInit {
     private categoryService: CategoryService
   ) {}
   newPost: any = {
-    image: {
+    feature_image: {
       _id: "",
     },
   };
@@ -41,7 +41,7 @@ export class UpdatePostComponent implements OnInit {
   categoriesList: any = [];
   postId: any;
   ngOnInit() {
-    this.newPost.image["_id"] = "";
+    this.newPost.feature_image["_id"] = "";
     this.route.params.subscribe((params) => {
       this.postId = params["id"];
       this.getAllCateogry();
@@ -61,9 +61,10 @@ export class UpdatePostComponent implements OnInit {
   }
 
   attachImageToPost(postEvent: any) {
-    delete this.newPost["image"];
-    this.newPost.image = {};
-    this.newPost["image"]["_id"] = postEvent.data.image;
+    
+    delete this.newPost["feature_image"];
+    this.newPost.feature_image = {};
+    this.newPost["feature_image"]["_id"] = postEvent.data.feature_image;
   }
 
   private getAllCateogry() {
@@ -76,6 +77,7 @@ export class UpdatePostComponent implements OnInit {
     });
   }
   transformImage = (image: any): string => {
+    
     return image.url;
   };
 }

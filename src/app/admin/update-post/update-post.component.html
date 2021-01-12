@@ -8,9 +8,23 @@
             <label for="title">Title</label>
             <input [(ngModel)]="newPost.title" name="title" required type="text" class="form-control" id="title">
           </div>
+          <div class="form-group">
+            <label for="title">Slug</label>
+            <input [(ngModel)]="newPost.slug" name="slug" required type="text" class="form-control" id="slug">
+          </div>
+          <div class="form-group">
+            <label for="title">Meta title</label>
+            <input [(ngModel)]="newPost.meta_title" name="meta_title" required type="text" class="form-control"
+              id="meta_title">
+          </div>
+          <div class="form-group">
+            <label for="title">Meta description</label>
+            <input [(ngModel)]="newPost.meta_description" name="meta_description" required type="text"
+              class="form-control" id="meta_description">
+          </div>
 
           <app-editable-image (entityUpdated)="attachImageToPost($event)" [transformView]="transformImage"
-            [entity]="newPost" [field]="'image'" className="rental-image">
+            [entity]="newPost" [field]="'feature_image'" className="rental-image">
           </app-editable-image>
 
           <div class="form-group">
@@ -23,9 +37,9 @@
           </div>
 
           <div class="form-group">
-            <label for="content">content</label>
+            <label for="html">content</label>
 
-            <editor [init]="tinyConfig" [(ngModel)]="newPost.content" name="content"></editor>
+            <editor [init]="tinyConfig" [(ngModel)]="newPost.html" name="html"></editor>
 
           </div>
 
@@ -35,7 +49,7 @@
           </div>
 
 
-          <button type="button" (click)="updatePost(postForm)" class="btn bwm-btn-main">Create
+          <button type="button" (click)="updatePost(postForm)" class="btn bwm-btn-main">Update
           </button>
         </form>
         <!-- <div *ngIf="errors.length > 0" class="alert alert-danger">
