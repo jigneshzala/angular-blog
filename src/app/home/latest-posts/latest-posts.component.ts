@@ -12,8 +12,8 @@ export class LatestPostsComponent implements OnInit {
 
   posts: any = [];
   ngOnInit() {
-    this.postService.getPosts().subscribe((posts) => {
-      this.posts = posts;
+    this.postService.getPosts().subscribe((response) => {
+      this.posts = response['data']['posts'];
     });
   }
 }

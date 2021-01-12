@@ -32,7 +32,7 @@ exports.allBlogPost = async (req, res) => {
     }
 
     // EXECUTE QUERY
-    const posts = await query;
+    const posts = await query.populate('feature_image');
 
     //const posts = await Post.find(queryObj).populate('image');
 

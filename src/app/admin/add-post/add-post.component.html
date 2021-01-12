@@ -8,6 +8,20 @@
             <label for="title">Title</label>
             <input [(ngModel)]="newPost.title" name="title" required type="text" class="form-control" id="title">
           </div>
+          <div class="form-group">
+            <label for="title">Slug</label>
+            <input [(ngModel)]="newPost.slug" name="slug" required type="text" class="form-control" id="slug">
+          </div>
+          <div class="form-group">
+            <label for="title">Meta title</label>
+            <input [(ngModel)]="newPost.meta_title" name="meta_title" required type="text" class="form-control"
+              id="meta_title">
+          </div>
+          <div class="form-group">
+            <label for="title">Meta description</label>
+            <input [(ngModel)]="newPost.meta_description" name="meta_description" required type="text"
+              class="form-control" id="meta_description">
+          </div>
 
 
           <div class="form-group">
@@ -24,24 +38,11 @@
             </select>
           </div>
 
-          <!--           <div class="form-group">
-              <label>Image</label>
-              <app-image-upload (imageUploaded)="attachImageToRental($event)"></app-image-upload>
-            </div> -->
 
           <div class="form-group">
-            <label for="content">content</label>
-            <!--    <textarea  id="mymce1" [(ngModel)]="newPost.content" name="content" required rows="5" type="text"
-                class="form-control" id="content">
-                  </textarea> -->
+            <label for="html">content</label>
 
-            <!-- {{newPost.content}} -->
-            <!-- <textarea id="mymce1"></textarea> -->
-            <!-- <editor name="content" [(ngModel)]="newPost.content"></editor> -->
-            <editor [init]="tinyConfig" [(ngModel)]="newPost.content" name="content"></editor>
-
-            {{newPost.content}}
-
+            <editor [init]="tinyConfig" [(ngModel)]="newPost.html" name="html"></editor>
 
           </div>
 

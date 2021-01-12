@@ -16,10 +16,6 @@ const postSchema = new Schema({
     type: String,
     required: true
   },
-  excerpt: {
-    type: String,
-    required: true
-  },
   category: {
     type: String,
     required: true

@@ -15,7 +15,7 @@ export class AddPostComponent implements OnInit {
     private categoryService: CategoryService
   ) {}
   newPost: any = {
-    image: {
+    feature_image: {
       _id: "",
     },
   };
@@ -38,7 +38,7 @@ export class AddPostComponent implements OnInit {
   };
   categoriesList: any = [];
   ngOnInit() {
-    this.newPost.image["_id"] = "";
+    this.newPost.feature_image["_id"] = "";
     this.getAllCateogry();
     /*     tinymce.init({
       selector: "#mymce1",
@@ -63,7 +63,7 @@ export class AddPostComponent implements OnInit {
   }
 
   attachImageToPost(imageId: string) {
-    this.newPost["image"]["_id"] = imageId;
+    this.newPost["feature_image"]["_id"] = imageId;
   }
 
   private getAllCateogry() {
