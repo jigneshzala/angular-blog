@@ -10,6 +10,8 @@ import { UpdatePostComponent } from "./update-post/update-post.component";
 import { ImageUploadModule } from "../shared/modules/image-upload/image-upload.module";
 import { EditableModule } from "../shared/modules/editable/editable.module";
 import { AuthGuard } from "../auth/shared/auth.guard";
+import { MediaComponent } from "./media/media.component";
+import { MediaService } from "./shared/media.service";
 
 const routes: Routes = [
   {
@@ -27,6 +29,11 @@ const routes: Routes = [
         component: UpdatePostComponent,
         canActivate: [AuthGuard],
       },
+      {
+        path: "media",
+        component: MediaComponent,
+        canActivate: [AuthGuard],
+      },
     ],
   },
 ];
@@ -37,7 +44,9 @@ const routes: Routes = [
     AddPostComponent,
     AllPostsComponent,
     UpdatePostComponent,
+    MediaComponent,
   ],
+  providers:[MediaService],
   imports: [
     CommonModule,
     FormsModule,

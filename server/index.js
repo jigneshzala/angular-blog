@@ -13,6 +13,7 @@ const postRouter = require('./routes/postRoutes');
 const categoryRouter = require('./routes/categoryRoutes');
 const imageUploadRoutes = require('./routes/image-upload');
 const usersRoutes = require('./routes/users');
+const mediaRoutes = require('./routes/mediaRoutes');
 
 const app = express();
 
@@ -44,6 +45,7 @@ app.use('/posts', postRouter);
 app.use('/categories', categoryRouter);
 app.use('/image-upload', imageUploadRoutes);
 app.use('/users', usersRoutes);
+app.use('/images', mediaRoutes);
 
 app.listen(port, () => {
   console.log(`App running on port ${port}...`);
