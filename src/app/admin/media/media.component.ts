@@ -12,7 +12,7 @@ export class MediaComponent implements OnInit {
 
   images: any = [];
   ngOnInit() {
-    this.mediaService.getPosts().subscribe((response) => {
+    this.mediaService.getImages().subscribe((response) => {
       this.images = response["data"]["images"];
     });
   }
@@ -21,5 +21,9 @@ export class MediaComponent implements OnInit {
     this.mediaService.deleteImageById(id).subscribe((response) => {
       alert("image delete succesfully");
     });
+  }
+
+  attachImageToPost(event){
+    console.log(event)
   }
 }

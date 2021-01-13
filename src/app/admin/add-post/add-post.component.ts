@@ -1,7 +1,10 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, TemplateRef } from "@angular/core";
 import { NgForm } from "@angular/forms";
 import { CategoryService } from "src/app/categories/shared/category.service";
 import { PostService } from "src/app/posts/shared/post.service";
+import { MediaService } from "../shared/media.service";
+import { BsModalService, BsModalRef } from "ngx-bootstrap/modal";
+
 declare var tinymce: any;
 
 @Component({
@@ -10,10 +13,16 @@ declare var tinymce: any;
   styleUrls: ["./add-post.component.scss"],
 })
 export class AddPostComponent implements OnInit {
+  modalRef: BsModalRef;
+
   constructor(
     private postService: PostService,
-    private categoryService: CategoryService
+    private categoryService: CategoryService,
+    private mediaService: MediaService,
+    private modalService: BsModalService
   ) {}
+
+  images: any = [];
   newPost: any = {
     feature_image: {
       _id: "",
@@ -21,10 +30,10 @@ export class AddPostComponent implements OnInit {
   };
   dataModel: any;
   tinyConfig: any = {
-    height: 300,
+    height: 500,
     plugins: ["image imagetools codesample code link "],
-    imagetools_cors_hosts: ["localhost"],
-    imagetools_proxy: "proxy.php",
+    imagetools_cors_hosts: ["res.cloudinary.com"],
+    // imagetools_proxy: "proxy.php",
     menubar: "insert",
     toolbar:
       "undo redo | formatselect | bold italic backcolor | \
@@ -40,13 +49,7 @@ export class AddPostComponent implements OnInit {
   ngOnInit() {
     this.newPost.feature_image["_id"] = "";
     this.getAllCateogry();
-    /*     tinymce.init({
-      selector: "#mymce1",
-      plugins:'code codesample',
-      menubar: 'file edit view insert format tools table tc help',
-      toolbar: 'undo redo | bold italic underline strikethrough | fontselect fontsizeselect formatselect | alignleft aligncenter alignright alignjustify | outdent indent |  numlist bullist | forecolor backcolor removeformat | pagebreak | charmap emoticons | fullscreen  preview save print | insertfile image media template link anchor codesample | ltr rtl',
-      toolbar_mode: 'sliding',
-    }); */
+    this.getAllImages();
   }
 
   createPost(postForm: NgForm) {
@@ -69,7 +72,36 @@ export class AddPostComponent implements OnInit {
   private getAllCateogry() {
     this.categoryService.getAllCateogry().subscribe((data) => {
       this.categoriesList = data;
+
       this.newPost.category = this.categoriesList[0].name;
     });
+  }
+
+  private getAllImages() {
+    this.mediaService.getImages().subscribe((response) => {
+      this.images = response["data"]["images"];
+    });
+  }
+
+  openModal(template: TemplateRef<any>) {
+    this.modalRef = this.modalService.show(
+      template,
+      Object.assign({}, { class: "modal-lg" })
+    );
+  }
+  selected: any;
+  selecteImage(item) {
+    this.selected = item;
+  }
+  isActive(item) {
+    return this.selected === item;
+  }
+  addSelectedImage() {
+    tinymce.activeEditor.execCommand(
+      "mceInsertContent",
+      false,
+      `<p><img src="${this.selected.url}" alt=""/></p>`
+    );
+    this.modalRef.hide();
   }
 }

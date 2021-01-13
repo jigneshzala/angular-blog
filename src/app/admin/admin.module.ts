@@ -4,6 +4,7 @@ import { FormsModule } from "@angular/forms";
 import { AdminComponent } from "./admin.component";
 import { RouterModule, Routes } from "@angular/router";
 import { EditorModule } from "@tinymce/tinymce-angular";
+import { ModalModule } from 'ngx-bootstrap/modal';
 import { AddPostComponent } from "./add-post/add-post.component";
 import { AllPostsComponent } from "./all-posts/all-posts.component";
 import { UpdatePostComponent } from "./update-post/update-post.component";
@@ -53,6 +54,7 @@ const routes: Routes = [
     ImageUploadModule,
     EditableModule,
     EditorModule,
+    ModalModule.forRoot(),
     RouterModule.forChild(routes),
   ],
 })

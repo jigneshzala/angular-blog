@@ -6,9 +6,9 @@ export class MediaService {
   constructor(private http: HttpClient) {}
 
   // API_URL = "http://127.0.0.1:3000/";
-  API_URL = "/";
+  API_URL = "/api/v1/";
 
-  getPosts() {
+  getImages() {
     return this.http.get(`${this.API_URL}images`);
   }
 
