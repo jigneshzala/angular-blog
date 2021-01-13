@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+const config = require('./config');
 const cors = require("cors");
 
 const dotenv = require('dotenv');
@@ -21,11 +22,11 @@ dotenv.config({
   path: './config.env'
 });
 
-const DB = process.env.DATABASE.replace('<PASSWORD>', process.env.DATABASE_PASSWORD)
+// const DB = process.env.DATABASE.replace('<PASSWORD>', process.env.DATABASE_PASSWORD)
 
 require('./models/cloudinary-image');
 
-mongoose.connect(DB, {
+mongoose.connect(config.DB_URI, {
   useNewUrlParser: true,
   useCreateIndex: true,
   useFindAndModify: false,
