@@ -47,6 +47,14 @@ app.use('/image-upload', imageUploadRoutes);
 app.use('/users', usersRoutes);
 app.use('/images', mediaRoutes);
 
+if (process.env.NODE_ENV === 'production') {
+  const distPath = path.join(__dirname, '..', 'dist');
+  app.use(express.static(distPath));
+  app.get('*', (req, res) => {
+    return res.sendFile(path.resolve(distPath, 'index.html'));
+  });
+}
+
 app.listen(port, () => {
   console.log(`App running on port ${port}...`);
 });
