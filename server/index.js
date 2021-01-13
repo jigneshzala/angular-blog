@@ -40,7 +40,7 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(provideErrorHandler);
 
-const port = 3000;
+const PORT = process.env.PORT || 3001;
 
 //Routes
 app.use('/posts', postRouter);
@@ -57,6 +57,6 @@ if (process.env.NODE_ENV === 'production') {
   });
 }
 
-app.listen(port, () => {
-  console.log(`App running on port ${port}...`);
+app.listen(PORT, () => {
+  console.log(`App running on PORT ${PORT}...`);
 });
