@@ -40,14 +40,14 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(provideErrorHandler);
 
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3000;
 
 //Routes
-app.use('/posts', postRouter);
-app.use('/categories', categoryRouter);
-app.use('/image-upload', imageUploadRoutes);
-app.use('/users', usersRoutes);
-app.use('/images', mediaRoutes);
+app.use('/api/v1/posts', postRouter);
+app.use('/api/v1/categories', categoryRouter);
+app.use('/api/v1/image-upload', imageUploadRoutes);
+app.use('/api/v1/users', usersRoutes);
+app.use('/api/v1/images', mediaRoutes);
 
 if (process.env.NODE_ENV === 'production') {
   const distPath = path.join(__dirname, '..', 'dist');

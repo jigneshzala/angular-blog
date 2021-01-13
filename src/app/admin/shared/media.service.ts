@@ -5,7 +5,8 @@ import { Injectable } from "@angular/core";
 export class MediaService {
   constructor(private http: HttpClient) {}
 
-  API_URL = "http://127.0.0.1:3000/";
+  // API_URL = "http://127.0.0.1:3000/";
+  API_URL = "/";
 
   getPosts() {
     return this.http.get(`${this.API_URL}images`);

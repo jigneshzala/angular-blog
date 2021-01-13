@@ -4,7 +4,8 @@ import { HttpClient } from "@angular/common/http";
 export class PostService {
   constructor(private http: HttpClient) {}
 
-  API_URL = "http://127.0.0.1:3000/";
+  // API_URL = "http://127.0.0.1:3000/";
+  API_URL = "/api/v1/";
 
   getPosts() {
     return this.http.get(`${this.API_URL}posts`);

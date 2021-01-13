@@ -8,7 +8,8 @@ import { ImageSnippet } from "./image-upload.component";
 })
 export class ImageUploadService {
   constructor(private http: HttpClient) {}
-  API_URL = "http://127.0.0.1:3000/";
+  // API_URL = "http://127.0.0.1:3000/";
+  API_URL = "/api/v1/";
 
   uploadImage(image: ImageSnippet): Observable<any> {
     const { src, type, name } = image;

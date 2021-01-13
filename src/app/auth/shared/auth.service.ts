@@ -27,7 +27,8 @@ export class AuthService {
     this.decodedToken = new DecodedToken();
   }
 
-  API_URL = "http://127.0.0.1:3000/";
+  // API_URL = "http://127.0.0.1:3000/";
+  API_URL = "/api/v1/";
 
   login(formData: any) {
     return this.http.post(`${this.API_URL}users/login`, formData).pipe(
