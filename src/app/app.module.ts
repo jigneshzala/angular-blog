@@ -13,6 +13,7 @@ import { HeaderComponent } from "./header/header.component";
 import { PostsModule } from "./posts/posts.module";
 import { CategoriesModule } from "./categories/categories.module";
 import { TokenInterceptor } from "./auth/shared/token.interceptor";
+import { LocalStorageService } from "./shared/services/local-storage.service";
 
 @NgModule({
   declarations: [AppComponent, HeaderComponent, FooterComponent],
@@ -28,6 +29,7 @@ import { TokenInterceptor } from "./auth/shared/token.interceptor";
   ],
   providers: [
     HighlightService,
+    LocalStorageService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptor,

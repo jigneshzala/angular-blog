@@ -5,6 +5,7 @@ import { catchError, map } from "rxjs/operators";
 import { exctractApiError } from "src/app/shared/helpers/functions";
 import { JwtHelperService } from "@auth0/angular-jwt";
 import * as moment from "moment";
+import { LocalStorageService } from "src/app/shared/services/local-storage.service";
 
 const jwt = new JwtHelperService();
 
@@ -23,7 +24,7 @@ export class AuthService {
   private decodedToken: DecodedToken;
   redirectUrl: string;
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient,private localStorageService: LocalStorageService) {
     this.decodedToken = new DecodedToken();
   }
 
@@ -43,12 +44,12 @@ export class AuthService {
   }
 
   logout() {
-    localStorage.removeItem("blog_auth_token");
+    this.localStorageService.removeLocalStorage("blog_auth_token");
     this.decodedToken = new DecodedToken();
   }
 
   checkAuthentication(): boolean {
-    const authToken = localStorage.getItem("blog_auth_token");
+    const authToken = this.localStorageService.getLocalStorage("blog_auth_token");
     if (!authToken) {
       return false;
     }
@@ -70,12 +71,12 @@ export class AuthService {
 
     this.decodedToken = decodedToken;
 
-    localStorage.setItem("blog_auth_token", token);
+    this.localStorageService.setLocalStorage("blog_auth_token", token);
     return token;
   }
 
   get authToken(): string {
-    return localStorage.getItem("blog_auth_token") || "";
+    return this.localStorageService.getLocalStorage("blog_auth_token") || "";
   }
   get isAuthenticated(): boolean {
     return moment().isBefore(this.expiration);
