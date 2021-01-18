@@ -33,7 +33,7 @@ export class PostDetailComponent implements OnInit, AfterViewChecked {
   
   ngOnInit() {
     this.route.params.subscribe((params) => {
-      this.postService.getPostById(params["postId"]).subscribe((post) => {
+      this.postService.getPostBySlug(params["slug"]).subscribe((post) => {
         this.post = post;
         this.getPostByCategory();
         this.getAllCategory();

@@ -2,10 +2,9 @@
   <div class="container">
     <div class="row">
       <div class="col-xs-12 col-sm-12 col-md-12">
-        <app-latest-posts></app-latest-posts>
+        <app-post-card [postItems]="latestPosts" title="Latest Posts"></app-post-card>
+        <app-post-card [postItems]="angularPosts" title="Angular"></app-post-card>
       </div>
-
-
     </div>
   </div>
 </section>

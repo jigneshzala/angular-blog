@@ -8,14 +8,21 @@ export class PostService {
    API_URL = "/api/v1/";
   //API_URL = "https://nodeblog-api.herokuapp.com/api/v1/";
 
-  getPosts() {
-    return this.http.get(`${this.API_URL}posts`);
+  getPosts(reqData?) {
+    let query = '';
+    if(reqData.limit){
+      query = `limit=${reqData.limit}`;
+    }
+    return this.http.get(`${this.API_URL}posts?${query}`);
   }
   createPost(newPost) {
     return this.http.post(`${this.API_URL}posts`, newPost);
   }
   getPostById(postId) {
     return this.http.get(`${this.API_URL}posts/${postId}`);
+  }
+  getPostBySlug(slug) {
+    return this.http.get(`${this.API_URL}posts/post/${slug}`);
   }
   updatePost(postId: string, postData:any) {
     return this.http.patch(`${this.API_URL}posts/${postId}`, postData);

@@ -18,7 +18,7 @@ const routes: Routes = [
         component: PostListingComponent,
       },
       {
-        path: ":postId",
+        path: ":slug",
         component: PostDetailComponent,
       },
     ],
