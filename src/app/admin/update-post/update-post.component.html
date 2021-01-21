@@ -29,11 +29,35 @@
 
           <div class="form-group">
             <label for="category">Category</label>
+            
+            <tag-input [(ngModel)]="newPost.categories" [identifyBy]="'slug'" [displayBy]="'name'" name="categories">
 
-            <select [(ngModel)]="newPost.category" name="category" required class="form-control" id="category">
-              <option *ngFor="let category of categoriesList" [value]="category.name"> {{category.name}} </option>
+              <tag-input-dropdown [showDropdownIfEmpty]="true" [displayBy]="'name'" [identifyBy]="'slug'"
+                [autocompleteItems]="categoriesList">
+                <ng-template let-item="item" let-index="index">
+                  ({{ index }}) {{ item.slug }}: {{ item.name }}
+                </ng-template>
+              </tag-input-dropdown>
 
-            </select>
+            </tag-input>
+
+        
+          </div>
+          <div class="form-group">
+            <label for="category">Tags</label>
+            
+            <tag-input [(ngModel)]="newPost.tags" [identifyBy]="'slug'" [displayBy]="'name'" name="tags">
+
+              <tag-input-dropdown [showDropdownIfEmpty]="true" [displayBy]="'name'" [identifyBy]="'slug'"
+                [autocompleteItems]="tagsList">
+                <ng-template let-item="item" let-index="index">
+                  ({{ index }}) {{ item.slug }}: {{ item.name }}
+                </ng-template>
+              </tag-input-dropdown>
+
+            </tag-input>
+
+        
           </div>
 
           <div class="form-group">
@@ -43,13 +67,7 @@
 
           </div>
 
-          <div class="form-group">
-            <label for="street">author</label>
-            <input [(ngModel)]="newPost.author" name="author" required type="text" class="form-control" id="author">
-          </div>
-
-
-          <button type="button" (click)="updatePost(postForm)" class="btn bwm-btn-main">Update
+          <button type="button" (click)="updatePost(postForm,newPost)" class="btn bwm-btn-main">Update
           </button>
         </form>
         <!-- <div *ngIf="errors.length > 0" class="alert alert-danger">

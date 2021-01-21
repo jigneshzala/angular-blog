@@ -33,6 +33,10 @@ export class CategoryService {
     
     return this.http.get(`${this.API_URL}categories`);
   }
+  getAllTags() {
+    
+    return this.http.get(`${this.API_URL}tags`);
+  }
   /*  createPost(newPost) {
     return this.http.post(`${this.API_URL}posts`, newPost);
   }

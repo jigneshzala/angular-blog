@@ -27,6 +27,8 @@ export class AddPostComponent implements OnInit {
     feature_image: {
       _id: "",
     },
+    categories:[],
+    tags:[]
   };
   dataModel: any;
   tinyConfig: any = {
@@ -46,23 +48,46 @@ export class AddPostComponent implements OnInit {
     default_link_target: "_blank",
   };
   categoriesList: any = [];
+  tagsList: any = [];
+  
+ /*  autocompleteItemsAsObjects = [
+    { value: 'Item1', id: '3'},
+    { value: 'item2', id: '4' },
+  ]; */
+
+
   ngOnInit() {
     this.newPost.feature_image["_id"] = "";
     this.getAllCateogry();
+    this.getAllTags();
     this.getAllImages();
   }
 
-  createPost(postForm: NgForm) {
+  createPost(postForm: NgForm,data) {
     //   validateInputs(postForm);
     if (postForm.invalid) {
       return;
     }
 
+    let reqData = JSON.parse(JSON.stringify(data));
+ 
+   reqData.categories =reqData.categories.reduce(function(r, e) {
+      r[e.name] = e.slug;
+      return r;
+    }, {});
+    
+
+    reqData.tags =reqData.tags.reduce(function(r, e) {
+      r[e.name] = e.slug;
+      return r;
+    }, {});
+     
+
     // this.errors = [];
-    this.postService.createPost(this.newPost).subscribe(
+     this.postService.createPost(reqData).subscribe(
       (data) => alert("Post Creted"),
       (errors) => console.log(errors)
-    );
+    ); 
   }
 
   attachImageToPost(imageId: string) {
@@ -73,7 +98,13 @@ export class AddPostComponent implements OnInit {
     this.categoryService.getAllCateogry().subscribe((data) => {
       this.categoriesList = data;
 
-      this.newPost.category = this.categoriesList[0].name;
+      //this.newPost.category = this.categoriesList[0].name;
+    });
+  }
+ 
+  private getAllTags() {
+    this.categoryService.getAllTags().subscribe((response) => {
+      this.tagsList = response['data']['tags'];
     });
   }
 

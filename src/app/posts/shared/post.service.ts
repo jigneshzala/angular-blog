@@ -10,7 +10,7 @@ export class PostService {
 
   getPosts(reqData?) {
     let query = '';
-    if(reqData.limit){
+    if(reqData && reqData.limit){
       query = `limit=${reqData.limit}`;
     }
     return this.http.get(`${this.API_URL}posts?${query}`);
@@ -26,5 +26,8 @@ export class PostService {
   }
   updatePost(postId: string, postData:any) {
     return this.http.patch(`${this.API_URL}posts/${postId}`, postData);
+  }
+  deletePost(postId) {
+    return this.http.delete(`${this.API_URL}posts/${postId}`);
   }
 }

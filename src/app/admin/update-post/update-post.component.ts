@@ -19,6 +19,8 @@ export class UpdatePostComponent implements OnInit {
   newPost: any = {
     feature_image: {
       _id: "",
+      categories:[],
+      tags:[]
     },
   };
   post: any;
@@ -39,17 +41,34 @@ export class UpdatePostComponent implements OnInit {
     default_link_target: "_blank",
   };
   categoriesList: any = [];
+  tagsList: any = [];
   postId: any;
   ngOnInit() {
     this.newPost.feature_image["_id"] = "";
     this.route.params.subscribe((params) => {
       this.postId = params["id"];
       this.getAllCateogry();
+      this.getAllTags();
     });
   }
 
-  updatePost(postForm: NgForm) {
-    this.postService.updatePost(this.newPost._id, this.newPost).subscribe(
+  updatePost(postForm: NgForm,data) {
+
+    let reqData = JSON.parse(JSON.stringify(data));
+ 
+    reqData.categories =reqData.categories.reduce(function(r, e) {
+       r[e.name] = e.slug;
+       return r;
+     }, {});
+     
+ 
+     reqData.tags =reqData.tags.reduce(function(r, e) {
+       r[e.name] = e.slug;
+       return r;
+     }, {});
+     
+     
+    this.postService.updatePost(this.newPost._id, reqData).subscribe(
       (updatedPost) => {
         this.newPost = updatedPost;
         alert("Post Updated");
@@ -74,6 +93,12 @@ export class UpdatePostComponent implements OnInit {
         this.newPost = post;
       });
       //this.newPost.category = this.categoriesList[0].name;
+    });
+  }
+
+  private getAllTags() {
+    this.categoryService.getAllTags().subscribe((response) => {
+      this.tagsList = response['data']['tags'];
     });
   }
   transformImage = (image: any): string => {

@@ -20,6 +20,7 @@ export class PostDetailComponent implements OnInit, AfterViewChecked {
   highlighted: boolean = false;
   posts:any;
   categories:any;
+  tagsList:any;
 
   /**
    * Highlight blog post when it's ready
@@ -37,6 +38,7 @@ export class PostDetailComponent implements OnInit, AfterViewChecked {
         this.post = post;
         this.getPostByCategory();
         this.getAllCategory();
+        this.getAllTags();
       });
     });
   }
@@ -50,6 +52,12 @@ export class PostDetailComponent implements OnInit, AfterViewChecked {
   private getAllCategory() {
     this.categoryService.getAllCateogry().subscribe((data) => {
       this.categories = data;
+    });
+  }
+
+  private getAllTags() {
+    this.categoryService.getAllTags().subscribe((response) => {
+      this.tagsList = response['data']['tags'];
     });
   }
 }

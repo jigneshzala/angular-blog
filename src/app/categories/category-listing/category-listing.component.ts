@@ -24,6 +24,7 @@ export class CategoryListingComponent implements OnInit {
   }
 
   private getPostByCategory() {
+    
     this.categoryService.getPostByCateogry(this.category).subscribe((posts) => {
       this.posts = posts;
     });
