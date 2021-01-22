@@ -1,8 +1,10 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, TemplateRef } from "@angular/core";
 import { NgForm } from "@angular/forms";
 import { ActivatedRoute } from "@angular/router";
 import { CategoryService } from "src/app/categories/shared/category.service";
 import { PostService } from "src/app/posts/shared/post.service";
+import { BsModalService, BsModalRef } from "ngx-bootstrap/modal";
+import { MediaService } from "../shared/media.service";
 declare var tinymce: any;
 
 @Component({
@@ -11,10 +13,13 @@ declare var tinymce: any;
   styleUrls: ["./update-post.component.scss"],
 })
 export class UpdatePostComponent implements OnInit {
+  modalRef: BsModalRef;
   constructor(
     private route: ActivatedRoute,
     private postService: PostService,
-    private categoryService: CategoryService
+    private categoryService: CategoryService,
+    private mediaService: MediaService,
+    private modalService: BsModalService
   ) {}
   newPost: any = {
     feature_image: {
@@ -43,6 +48,7 @@ export class UpdatePostComponent implements OnInit {
   categoriesList: any = [];
   tagsList: any = [];
   postId: any;
+  images: any = [];
   ngOnInit() {
     this.newPost.feature_image["_id"] = "";
     this.route.params.subscribe((params) => {
@@ -105,4 +111,32 @@ export class UpdatePostComponent implements OnInit {
     
     return image.url;
   };
+
+  private getAllImages() {
+    this.mediaService.getImages().subscribe((response) => {
+      this.images = response["data"]["images"];
+    });
+  }
+
+  openModal(template: TemplateRef<any>) {
+    this.modalRef = this.modalService.show(
+      template,
+      Object.assign({}, { class: "modal-lg" })
+    );
+  }
+  selected: any;
+  selecteImage(item) {
+    this.selected = item;
+  }
+  isActive(item) {
+    return this.selected === item;
+  }
+  addSelectedImage() {
+    tinymce.activeEditor.execCommand(
+      "mceInsertContent",
+      false,
+      `<p><img src="${this.selected.url}" alt=""/></p>`
+    );
+    this.modalRef.hide();
+  }
 }

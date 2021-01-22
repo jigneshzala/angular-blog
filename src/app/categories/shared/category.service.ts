@@ -13,7 +13,7 @@ export class CategoryService {
     let params = new HttpParams();
 
     params = params.append('limit', reqData.limit);
-    params = params.append('category', reqData.category);
+    //params = params.append('category', reqData.category);
 
    /*  for(let key of Object.keys(reqData[0])){
       params= params.set(key, reqData[0][key]) ;
@@ -27,7 +27,7 @@ export class CategoryService {
       query = `limit=${reqData.limit}`;
     }
      */
-    return this.http.get(`${this.API_URL}posts`,{params: params});
+    return this.http.get(`${this.API_URL}posts/by_category/${reqData.category}`,{params: params});
   }
   getAllCateogry(reqData?) {
     

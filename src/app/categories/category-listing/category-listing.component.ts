@@ -24,9 +24,13 @@ export class CategoryListingComponent implements OnInit {
   }
 
   private getPostByCategory() {
-    
-    this.categoryService.getPostByCateogry(this.category).subscribe((posts) => {
-      this.posts = posts;
+    let reqData = {
+      category:this.category,
+      limit:'5'
+    }
+    this.categoryService.getPostByCateogry(reqData).subscribe((response) => {
+      this.posts = response['posts'];
+      
     });
   }
   private getAllCategory() {

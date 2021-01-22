@@ -36,7 +36,7 @@ export class HomeComponent implements OnInit {
     };
 
     this.categoryService.getPostByCateogry(reqData).subscribe((response) => {
-      this.angularPosts = response["data"]["posts"];
+      this.angularPosts = response["posts"];
     });
   }
 }

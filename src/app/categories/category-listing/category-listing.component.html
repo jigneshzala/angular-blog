@@ -9,12 +9,12 @@
 
               <div class="post-item-horizontal" *ngFor="let post of posts">
                 <div class="item-image">
-                  <a href="#">
+                  <a routerLink="/category/{{category.name}}" *ngFor="let category of post.categories">
                     <span class="label-post-category">
-                      Fashion </span>
+                      {{category.name}} </span>
                   </a>
                   <a routerLink="/posts/{{post._id}}">
-                    <img [src]="post.image?.url" class="img-responsive lazyloaded"
+                    <img [src]="post.feature_image?.url" class="img-responsive lazyloaded"
                       alt="Expound the actual teachings of the great explorer of the truth">
                   </a>
                 </div>
@@ -40,7 +40,8 @@
                         2361 </span>
                     </p>
                   </div>
-                  <p class="summary" [innerHtml]="post.content">
+                  <p class="summary">
+                    {{post.excerpt}}
                   </p>
                   <div class="post-buttons">
                     <a routerLink="/posts/{{post._id}}" class="pull-right read-more">

@@ -174,7 +174,8 @@ a img {
 	padding: 0 14px;
 	text-decoration: none;
 	color: #FFFFFF;
-	font-size: 16px;
+    font-size: 16px;
+    text-transform: capitalize;
 }
 #menu a.dropdown-arrow:after {
 	content: "\25BE";

@@ -263,6 +263,7 @@ a.quickedit {
   pointer-events: auto;
   white-space: nowrap;
   z-index: 100;
+  text-transform: capitalize;
 }
 .carousel-inner>.item>a>img, .carousel-inner>.item>img, .img-responsive, .thumbnail a>img, .thumbnail>img {
   display: block;
