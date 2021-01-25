@@ -44,7 +44,8 @@
                 "glob": "**/*",
                 "input": "node_modules/tinymce/plugins",
                 "output": "/tinymce/plugins/"
-              }
+              },
+              "src/ads.txt"
             ],
             "styles": [
               "node_modules/bootstrap/dist/css/bootstrap.min.css",

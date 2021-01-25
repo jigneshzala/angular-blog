@@ -17,6 +17,8 @@ import { TokenInterceptor } from "./auth/shared/token.interceptor";
 import { LocalStorageService } from "./shared/services/local-storage.service";
 import { SnippetsModule } from "./snippets/snippets.module";
 import { ManageModule } from "./admin/manage/manage.module";
+import { AdsenseModule } from 'ng2-adsense';
+
 
 @NgModule({
   declarations: [AppComponent, HeaderComponent, FooterComponent],
@@ -32,6 +34,9 @@ import { ManageModule } from "./admin/manage/manage.module";
     CategoriesModule,
     ManageModule,
     AdminModule,
+    AdsenseModule.forRoot({
+      adClient: 'ca-pub-5104133742493207'
+    })
   ],
   providers: [
     HighlightService,
