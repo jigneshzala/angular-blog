@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { response } from "express";
-import { MediaService } from "../shared/media.service";
+import { MediaService } from "../../shared/media.service";
 
 @Component({
   selector: "app-media",

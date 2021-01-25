@@ -9,12 +9,17 @@ const routes: Routes = [
     redirectTo: "/home",
     pathMatch: "full",
   },
-/*   {
+  {
+    path: "admin",
+    loadChildren: () =>
+      import("./admin/admin.module").then((m) => m.AdminModule),
+  },
+  /*   {
     path: "admin",
     redirectTo: "/admin",
     pathMatch: "full",
   }, */
-  { path: "login", component: LoginComponent,canActivate: [GuestGuard ] },
+  { path: "login", component: LoginComponent, canActivate: [GuestGuard] },
 ];
 
 @NgModule({
