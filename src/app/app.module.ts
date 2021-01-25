@@ -15,6 +15,8 @@ import { PostsModule } from "./posts/posts.module";
 import { CategoriesModule } from "./categories/categories.module";
 import { TokenInterceptor } from "./auth/shared/token.interceptor";
 import { LocalStorageService } from "./shared/services/local-storage.service";
+import { SnippetsModule } from "./snippets/snippets.module";
+import { ManageModule } from "./admin/manage/manage.module";
 
 @NgModule({
   declarations: [AppComponent, HeaderComponent, FooterComponent],
@@ -26,7 +28,9 @@ import { LocalStorageService } from "./shared/services/local-storage.service";
     HomeModule,
     HttpClientModule,
     PostsModule,
+    SnippetsModule,
     CategoriesModule,
+    ManageModule,
     AdminModule,
   ],
   providers: [
