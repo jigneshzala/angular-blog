@@ -11,7 +11,7 @@ export class AllPostsComponent implements OnInit {
 
   posts: any = [];
   ngOnInit() {
-    this.postService.getPosts().subscribe((response) => {
+    this.postService.getAllPosts().subscribe((response) => {
       this.posts = response["data"]["posts"];
     });
   }
@@ -19,6 +19,15 @@ export class AllPostsComponent implements OnInit {
   deletePost(id) {
     this.postService.deletePost(id).subscribe((response) => {
       alert("post deleted");
+    });
+  }
+
+  updatePostStatus(event,id){
+    let reqData = {
+      status:event
+    }
+    this.postService.updatePostStatus(id,reqData).subscribe((response) => {
+      alert("post updated");
     });
   }
 }

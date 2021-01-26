@@ -6,6 +6,8 @@ import { TagInputModule } from "ngx-chips";
 import { ModalModule } from "ngx-bootstrap/modal";
 import { ImageUploadModule } from "../../shared/modules/image-upload/image-upload.module";
 import { EditableModule } from "../../shared/modules/editable/editable.module";
+import { UiSwitchModule } from 'ngx-toggle-switch';
+
 
 import { ManageComponent } from "./manage.component";
 import { AllSnippetComponent } from "./snippets/all-snippet/all-snippet.component";
@@ -67,6 +69,7 @@ const routes: Routes = [
     FormsModule,
     ImageUploadModule,
     EditableModule,
+    UiSwitchModule,
     EditorModule,
     TagInputModule,
     ModalModule.forRoot(),

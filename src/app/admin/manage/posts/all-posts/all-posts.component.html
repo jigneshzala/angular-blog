@@ -4,7 +4,8 @@
       <th scope="col">#</th>
       <th scope="col">Post Title</th>
 
-      <th scope="col">Created At</th>
+      <th scope="col">Category</th>
+      <th scope="col">Status</th>
       <th scope="col">Action</th>
     </tr>
   </thead>
@@ -12,7 +13,11 @@
     <tr *ngFor="let post of posts;let i= index;">
       <th scope="row">{{i+1}}</th>
       <td>{{post.title}}</td>
-      <td>{{post.createdAt}}</td>
+      <td class="text-capitalize">{{post.category}}</td>
+      <td>
+        <ui-switch [(ngModel)]="post.active" (change)="updatePostStatus($event,post._id)"></ui-switch>
+      </td>
+
 
       <td>
 

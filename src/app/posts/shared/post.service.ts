@@ -15,6 +15,13 @@ export class PostService {
     }
     return this.http.get(`${this.API_URL}posts?${query}`);
   }
+  getAllPosts(reqData?) {
+    let query = '';
+    if(reqData && reqData.limit){
+      query = `limit=${reqData.limit}`;
+    }
+    return this.http.get(`${this.API_URL}posts/admin/all?${query}`);
+  }
   createPost(newPost) {
     return this.http.post(`${this.API_URL}posts`, newPost);
   }
@@ -26,6 +33,9 @@ export class PostService {
   }
   updatePost(postId: string, postData:any) {
     return this.http.patch(`${this.API_URL}posts/${postId}`, postData);
+  }
+  updatePostStatus(postId: string, postData:any) {
+    return this.http.patch(`${this.API_URL}posts/update_status/${postId}`, postData);
   }
   deletePost(postId) {
     return this.http.delete(`${this.API_URL}posts/${postId}`);
