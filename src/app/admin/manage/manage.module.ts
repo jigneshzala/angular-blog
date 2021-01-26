@@ -6,8 +6,7 @@ import { TagInputModule } from "ngx-chips";
 import { ModalModule } from "ngx-bootstrap/modal";
 import { ImageUploadModule } from "../../shared/modules/image-upload/image-upload.module";
 import { EditableModule } from "../../shared/modules/editable/editable.module";
-import { UiSwitchModule } from 'ngx-toggle-switch';
-
+import { UiSwitchModule } from "ngx-toggle-switch";
 
 import { ManageComponent } from "./manage.component";
 import { AllSnippetComponent } from "./snippets/all-snippet/all-snippet.component";
@@ -18,6 +17,9 @@ import { AddPostComponent } from "./posts/add-post/add-post.component";
 import { AllPostsComponent } from "./posts/all-posts/all-posts.component";
 import { UpdatePostComponent } from "./posts/update-post/update-post.component";
 import { MediaComponent } from "./media/media.component";
+import { AddPageComponent } from "./pages/add-page/add-page.component";
+import { UpdatePageComponent } from "./pages/update-page/update-page.component";
+import { AllPageComponent } from "./pages/all-page/all-page.component";
 
 const routes: Routes = [
   {
@@ -49,6 +51,18 @@ const routes: Routes = [
         path: "media",
         component: MediaComponent,
       },
+      {
+        path: "pages",
+        component: AllPageComponent,
+      },
+      {
+        path: "add-page",
+        component: AddPageComponent,
+      },
+      {
+        path: "update-page/:id",
+        component: UpdatePageComponent,
+      },
     ],
   },
 ];
@@ -63,6 +77,9 @@ const routes: Routes = [
     AllSnippetComponent,
     AddSnippetComponent,
     UpdateSnippetComponent,
+    AddPageComponent,
+    UpdatePageComponent,
+    AllPageComponent,
   ],
   imports: [
     CommonModule,
