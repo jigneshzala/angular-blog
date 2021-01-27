@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-tags',
@@ -8,12 +8,6 @@ import { Component, Input, OnInit } from '@angular/core';
 export class TagsComponent implements OnInit {
 
   constructor() { }
-  
-  @Input("tagsList") set tagsList(data) {
-   
-    this.tags = data;
-  }
-  tags:any;
 
   ngOnInit(): void {
   }

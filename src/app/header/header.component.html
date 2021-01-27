@@ -83,7 +83,7 @@
 
     <ul>
       <li><a routerLink='/'>Home</a></li>
-      <li *ngFor="let cat of categories"><a routerLink='/category/{{cat.name}}'>{{cat.name}}</a></li>
+      <li *ngFor="let cat of categories"><a routerLink='/category/{{cat.slug}}'>{{cat.name}}</a></li>
        <li><a class='dropdown-arrow' href='http://'>Snippet</a>
         <ul class='sub-menus'>
           <li><a routerLink="/snippets/category/angular">Angular</a></li>

@@ -1,6 +1,6 @@
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
@@ -13,12 +13,12 @@ import { FooterComponent } from "./footer/footer.component";
 import { HeaderComponent } from "./header/header.component";
 import { PostsModule } from "./posts/posts.module";
 import { CategoriesModule } from "./categories/categories.module";
+import { TagsModule } from "./tags/tags.module";
 import { TokenInterceptor } from "./auth/shared/token.interceptor";
 import { LocalStorageService } from "./shared/services/local-storage.service";
 import { SnippetsModule } from "./snippets/snippets.module";
 import { ManageModule } from "./admin/manage/manage.module";
-import { AdsenseModule } from 'ng2-adsense';
-
+import { AdsenseModule } from "ng2-adsense";
 
 @NgModule({
   declarations: [AppComponent, HeaderComponent, FooterComponent],
@@ -32,11 +32,12 @@ import { AdsenseModule } from 'ng2-adsense';
     PostsModule,
     SnippetsModule,
     CategoriesModule,
+    TagsModule,
     ManageModule,
     AdminModule,
     AdsenseModule.forRoot({
-      adClient: 'ca-pub-5104133742493207'
-    })
+      adClient: "ca-pub-5104133742493207",
+    }),
   ],
   providers: [
     HighlightService,

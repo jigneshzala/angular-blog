@@ -8,19 +8,19 @@
             <div class="row">
 
               <div class="post-item-horizontal" *ngFor="let post of posts">
-                <!--  <div class="item-image">
+                <div class="item-image">
                   <a routerLink="/category/{{category.name}}" *ngFor="let category of post.categories">
                     <span class="label-post-category">
                       {{category.name}} </span>
                   </a>
-                  <a routerLink="/posts/{{post._id}}">
+                  <a routerLink="/posts/{{post.slug}}">
                     <img [src]="post.feature_image?.url" class="img-responsive lazyloaded"
                       alt="Expound the actual teachings of the great explorer of the truth">
                   </a>
-                </div> -->
+                </div>
                 <div class="item-content">
                   <h3 class="title">
-                    <a routerLink="/posts/{{post._id}}">
+                    <a routerLink="/posts/{{post.slug}}">
                       {{post.title}} </a>
                   </h3>
                   <div class="post-meta">
@@ -40,11 +40,11 @@
                         2361 </span>
                     </p>
                   </div>
-                  <!--  <p class="summary">
+                  <p class="summary">
                     {{post.excerpt}}
-                  </p> -->
+                  </p>
                   <div class="post-buttons">
-                    <a routerLink="/snippets/{{post.slug}}" class="pull-right read-more">
+                    <a routerLink="/posts/{{post.slug}}" class="pull-right read-more">
                       Read More <i class="icon-arrow-right read-more-i" aria-hidden="true"></i>
                     </a>
                   </div>
@@ -101,7 +101,7 @@
 
 
           <div class="col-sm-12 col-xs-12 sidebar-widget widget-popular-posts">
-            <app-popular-post [popularPosts]="posts"></app-popular-post>
+            <!-- <app-popular-post [popularPosts]="posts"></app-popular-post> -->
           </div>
 
 
