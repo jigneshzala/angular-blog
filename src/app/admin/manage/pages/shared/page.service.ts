@@ -26,6 +26,9 @@ export class PageService {
   getPageByCategory(category) {
     return this.http.get(`${this.API_URL}pages/by_category/${category}`);
   }
+  getPageBySlug(slug) {
+    return this.http.get(`${this.API_URL}pages/by_slug/${slug}`);
+  }
 
   deletePage(id) {
     return this.http.delete(`${this.API_URL}pages/${id}`);
