@@ -19,6 +19,7 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     this.getLatestPosts();
     this.getPostByCategory("angular");
+    this.getPostByCategory("nodejs");
   }
 
   private getLatestPosts() {
@@ -36,7 +37,13 @@ export class HomeComponent implements OnInit {
     };
 
     this.categoryService.getPostByCateogry(reqData).subscribe((response) => {
-      this.angularPosts = response["posts"];
+      if(category=='angular'){
+        this.angularPosts = response["posts"];
+      }
+      if(category=='nodejs'){
+        this.nodePosts = response["posts"];
+      }
+      
     });
   }
 }
