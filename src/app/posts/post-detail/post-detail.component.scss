@@ -93,6 +93,14 @@ h6 {
    */
 .blog-post {
   margin-bottom: 4rem;
+  font-size: 1rem;
+
+  p {
+    font-size: inherit;
+    line-height: 1.4;
+    margin-bottom: 1.25em;
+    text-rendering: optimizeLegibility;
+  }
 }
 
 .blog-post-title {

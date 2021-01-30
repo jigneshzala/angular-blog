@@ -9,7 +9,7 @@ export class CategoryService {
   API_URL = "/api/v1/";
 
   getPostByCateogry(reqData?) {
-    console.log(reqData);
+    
     let params = new HttpParams();
 
     params = params.append('limit', reqData.limit);

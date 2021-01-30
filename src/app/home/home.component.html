@@ -3,22 +3,23 @@
     <div class="row">
       <div class="col-xs-12 col-sm-12 col-md-12">
         <app-post-card [postItems]="latestPosts" title="Latest Posts">
-          <div class="button-wrapper"><a href="/posts?filter=vue">
-            <button type="button" class="btn btn-primary">All Posts</button>
-          </a>
-        </div>
+          <div class="button-wrapper">
+            <a routerLink="/posts">
+              <button type="button" class="btn btn-primary">All Posts</button>
+            </a>
+          </div>
         </app-post-card>
         <app-post-card [postItems]="angularPosts" title="Angular">
-          <div class="button-wrapper"><a href="/posts?filter=vue">
-            <button type="button" class="btn btn-danger">All Angular Posts</button>
-          </a>
-        </div>
+          <div class="button-wrapper"><a routerLink="/category/angular">
+              <button type="button" class="btn btn-danger">All Angular Posts</button>
+            </a>
+          </div>
         </app-post-card>
         <app-post-card [postItems]="nodePosts" title="Node">
-          <div class="button-wrapper"><a href="/posts?filter=vue">
-            <button type="button" class="btn btn-success">All Node Posts</button>
-          </a>
-        </div>
+          <div class="button-wrapper"><a routerLink="/category/nodejs">
+              <button type="button" class="btn btn-success">All Node Posts</button>
+            </a>
+          </div>
         </app-post-card>
       </div>
     </div>
