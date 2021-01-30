@@ -2,8 +2,9 @@ import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
 import { LoginComponent } from "./auth/login/login.component";
 import { GuestGuard } from "./auth/shared/auth.guard";
-import { TermsComponent } from './terms/terms.component';
-import { PrivacyComponent } from './privacy/privacy.component';
+import { TermsComponent } from "./terms/terms.component";
+import { PrivacyComponent } from "./privacy/privacy.component";
+import { PageNotFoundComponent } from "./page-not-found/page-not-found.component";
 
 const routes: Routes = [
   {
@@ -12,24 +13,30 @@ const routes: Routes = [
     pathMatch: "full",
   },
   {
+    path: "home",
+    loadChildren: () => import("./home/home.module").then((m) => m.HomeModule),
+  },
+  {
+    path: "category",
+    loadChildren: () =>
+      import("./categories/categories.module").then((m) => m.CategoriesModule),
+  },
+  {
     path: "admin",
     loadChildren: () =>
       import("./admin/admin.module").then((m) => m.AdminModule),
   },
   {
-    path:"terms",
-    component:TermsComponent
+    path: "terms",
+    component: TermsComponent,
   },
   {
-    path:"privacy",
-    component:PrivacyComponent
+    path: "privacy",
+    component: PrivacyComponent,
   },
-  /*   {
-    path: "admin",
-    redirectTo: "/admin",
-    pathMatch: "full",
-  }, */
   { path: "login", component: LoginComponent, canActivate: [GuestGuard] },
+  { path: "404", component: PageNotFoundComponent },
+  { path: "**", redirectTo: "/404" },
 ];
 
 @NgModule({
@@ -39,6 +46,6 @@ const routes: Routes = [
     }),
   ],
   exports: [RouterModule],
-  declarations: [TermsComponent, PrivacyComponent],
+  declarations: [TermsComponent, PrivacyComponent, PageNotFoundComponent],
 })
 export class AppRoutingModule {}

@@ -8,7 +8,7 @@ import { SidebarModule } from "../shared/modules/sidebar.module";
 
 const routes: Routes = [
   {
-    path: "category",
+    path: "",
     component: CategoriesComponent,
     children: [
       {
