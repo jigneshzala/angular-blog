@@ -19,6 +19,8 @@ import { LocalStorageService } from "./shared/services/local-storage.service";
 import { SnippetsModule } from "./snippets/snippets.module";
 import { ManageModule } from "./admin/manage/manage.module";
 import { AdsenseModule } from "ng2-adsense";
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [AppComponent, HeaderComponent, FooterComponent],
@@ -38,6 +40,7 @@ import { AdsenseModule } from "ng2-adsense";
     AdsenseModule.forRoot({
       adClient: "ca-pub-5104133742493207",
     }),
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
   ],
   providers: [
     HighlightService,
