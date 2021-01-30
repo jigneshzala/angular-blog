@@ -2,14 +2,17 @@ import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
 import { ImageSnippet } from "./image-upload.component";
+import { environment } from "src/environments/environment";
 
 @Injectable({
   providedIn: "root",
 })
 export class ImageUploadService {
-  constructor(private http: HttpClient) {}
-  // API_URL = "http://127.0.0.1:3000/";
-  API_URL = "/api/v1/";
+  constructor(private http: HttpClient) {
+    this.API_URL = environment.apiUrl;
+  }
+
+  API_URL = "";
 
   uploadImage(image: ImageSnippet): Observable<any> {
     const { src, type, name } = image;

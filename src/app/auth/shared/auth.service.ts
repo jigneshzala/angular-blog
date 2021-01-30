@@ -6,6 +6,7 @@ import { exctractApiError } from "src/app/shared/helpers/functions";
 import { JwtHelperService } from "@auth0/angular-jwt";
 import * as moment from "moment";
 import { LocalStorageService } from "src/app/shared/services/local-storage.service";
+import { environment } from "src/environments/environment";
 
 const jwt = new JwtHelperService();
 
@@ -24,12 +25,16 @@ export class AuthService {
   private decodedToken: DecodedToken;
   redirectUrl: string;
 
-  constructor(private http: HttpClient,private localStorageService: LocalStorageService) {
+  constructor(
+    private http: HttpClient,
+    private localStorageService: LocalStorageService
+  ) {
     this.decodedToken = new DecodedToken();
+
+    this.API_URL = environment.apiUrl;
   }
 
-  // API_URL = "http://127.0.0.1:3000/";
-  API_URL = "/api/v1/";
+  API_URL = "";
 
   login(formData: any) {
     return this.http.post(`${this.API_URL}users/login`, formData).pipe(
@@ -37,9 +42,9 @@ export class AuthService {
         this.saveToken(token);
         return token;
       }),
-       catchError((resError: HttpErrorResponse) =>
+      catchError((resError: HttpErrorResponse) =>
         throwError(exctractApiError(resError))
-      ) 
+      )
     );
   }
 
@@ -49,7 +54,9 @@ export class AuthService {
   }
 
   checkAuthentication(): boolean {
-    const authToken = this.localStorageService.getLocalStorage("blog_auth_token");
+    const authToken = this.localStorageService.getLocalStorage(
+      "blog_auth_token"
+    );
     if (!authToken) {
       return false;
     }

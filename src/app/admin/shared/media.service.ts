@@ -1,12 +1,14 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
+import { environment } from "src/environments/environment";
 
 @Injectable()
 export class MediaService {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+    this.API_URL = environment.apiUrl;
+  }
 
-  // API_URL = "http://127.0.0.1:3000/";
-  API_URL = "/api/v1/";
+  API_URL = "";
 
   getImages() {
     return this.http.get(`${this.API_URL}images`);

@@ -1,19 +1,20 @@
 import { Injectable } from "@angular/core";
 import { HttpClient, HttpParams } from "@angular/common/http";
+import { environment } from "../../../environments/environment";
 @Injectable()
 export class PostService {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+    this.API_URL = environment.apiUrl;
+  }
 
-  // API_URL = "http://127.0.0.1:3000/";
-  API_URL = "/api/v1/";
-  //API_URL = "https://nodeblog-api.herokuapp.com/api/v1/";
+  API_URL = "";
 
   getPosts(reqData?) {
     let params = new HttpParams();
 
     params = params.append("limit", reqData.limit);
     params = params.append("page", reqData.page);
-   
+
     return this.http.get(`${this.API_URL}posts`, { params: params });
   }
   getAllPosts(reqData?) {
