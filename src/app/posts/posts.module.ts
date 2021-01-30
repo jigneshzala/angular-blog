@@ -10,7 +10,7 @@ import { SharedPostModule } from "../shared/modules/shared-post.module";
 import { SidebarModule } from "../shared/modules/sidebar.module";
 const routes: Routes = [
   {
-    path: "posts",
+    path: "",
     component: PostsComponent,
     children: [
       {

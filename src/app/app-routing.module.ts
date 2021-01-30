@@ -17,9 +17,18 @@ const routes: Routes = [
     loadChildren: () => import("./home/home.module").then((m) => m.HomeModule),
   },
   {
+    path: "posts",
+    loadChildren: () =>
+      import("./posts/posts.module").then((m) => m.PostsModule),
+  },
+  {
     path: "category",
     loadChildren: () =>
       import("./categories/categories.module").then((m) => m.CategoriesModule),
+  },
+  {
+    path: "tag",
+    loadChildren: () => import("./tags/tags.module").then((m) => m.TagsModule),
   },
   {
     path: "admin",
