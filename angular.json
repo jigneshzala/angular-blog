@@ -45,7 +45,8 @@
                 "input": "node_modules/tinymce/plugins",
                 "output": "/tinymce/plugins/"
               },
-              "src/ads.txt"
+              "src/ads.txt",
+              "src/google39769de9b635625e.html"
             ],
             "styles": [
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
