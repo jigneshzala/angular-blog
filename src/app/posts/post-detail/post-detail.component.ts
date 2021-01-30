@@ -2,6 +2,7 @@ import { AfterViewChecked, Component, OnInit } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
 import { CategoryService } from "src/app/categories/shared/category.service";
 import { HighlightService } from "src/app/shared/services/highlight.service";
+import { SeoService } from "src/app/shared/services/seo.service";
 import { PostService } from "../shared/post.service";
 
 @Component({
@@ -14,13 +15,14 @@ export class PostDetailComponent implements OnInit, AfterViewChecked {
     private route: ActivatedRoute,
     private postService: PostService,
     private highlightService: HighlightService,
-    private categoryService: CategoryService
+    private categoryService: CategoryService,
+    private seoService: SeoService
   ) {}
   post: any;
   highlighted: boolean = false;
-  posts:any;
-  categories:any;
-  tagsList:any;
+  posts: any;
+  categories: any;
+  tagsList: any;
 
   /**
    * Highlight blog post when it's ready
@@ -31,11 +33,14 @@ export class PostDetailComponent implements OnInit, AfterViewChecked {
       this.highlighted = true;
     }
   }
-  
+
   ngOnInit() {
     this.route.params.subscribe((params) => {
       this.postService.getPostBySlug(params["slug"]).subscribe((post) => {
         this.post = post;
+        this.seoService.updateTitle(`${this.post.title} | TutsCoder`);
+
+        this.seoService.updateDescription(`${this.post.meta_description}`);
         this.getPostByCategory();
         this.getAllCategory();
         this.getAllTags();
@@ -43,9 +48,8 @@ export class PostDetailComponent implements OnInit, AfterViewChecked {
     });
   }
 
-
   private getPostByCategory() {
-    this.categoryService.getPostByCateogry('angular').subscribe((posts) => {
+    this.categoryService.getPostByCateogry("angular").subscribe((posts) => {
       this.posts = posts;
     });
   }
@@ -57,7 +61,7 @@ export class PostDetailComponent implements OnInit, AfterViewChecked {
 
   private getAllTags() {
     this.categoryService.getAllTags().subscribe((response) => {
-      this.tagsList = response['data']['tags'];
+      this.tagsList = response["data"]["tags"];
     });
   }
 }

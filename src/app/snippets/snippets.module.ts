@@ -9,7 +9,7 @@ import { SharedPostModule } from "../shared/modules/shared-post.module";
 
 const routes: Routes = [
   {
-    path: "snippets",
+    path: "",
     component: SnippetsComponent,
     children: [
       {

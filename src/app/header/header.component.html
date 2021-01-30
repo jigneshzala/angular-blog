@@ -86,11 +86,11 @@
     <ul>
       <li><a routerLink='/'>Home</a></li>
       <li *ngFor="let cat of categories"><a routerLink='/category/{{cat.slug}}'>{{cat.name}}</a></li>
-      <li><a class='dropdown-arrow' href='http://'>Snippet</a>
+      <li><a class='dropdown-arrow' href='javascript:;'>Snippet</a>
         <ul class='sub-menus'>
-          <li><a routerLink="/snippets/category/angular">Angular</a></li>
-          <li><a routerLink="/snippets/category/node">NodeJs</a></li>
-          <li><a routerLink="/snippets/category/javascript">Javascript</a></li>
+          <li><a routerLink="/snippet/category/angular">Angular</a></li>
+          <li><a routerLink="/snippet/category/node">NodeJs</a></li>
+          <li><a routerLink="/snippet/category/javascript">Javascript</a></li>
         </ul>
       </li>
 

@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { CategoryService } from "../categories/shared/category.service";
 import { PostService } from "../posts/shared/post.service";
+import { Meta, Title } from "@angular/platform-browser";
 
 @Component({
   selector: "app-home",
@@ -10,8 +11,14 @@ import { PostService } from "../posts/shared/post.service";
 export class HomeComponent implements OnInit {
   constructor(
     private postService: PostService,
-    private categoryService: CategoryService
-  ) {}
+    private categoryService: CategoryService,
+    private meta: Meta,
+    private title: Title
+  ) {
+    this.title.setTitle("TutsCoder");
+    // this.meta.addTag({ name: 'description', content: '' });
+    //this.meta.addTag({ name: 'keywords', content: `` });
+  }
   latestPosts: any = [];
   angularPosts: any = [];
   nodePosts: any = [];
@@ -37,13 +44,12 @@ export class HomeComponent implements OnInit {
     };
 
     this.categoryService.getPostByCateogry(reqData).subscribe((response) => {
-      if(category=='angular'){
+      if (category == "angular") {
         this.angularPosts = response["posts"];
       }
-      if(category=='nodejs'){
+      if (category == "nodejs") {
         this.nodePosts = response["posts"];
       }
-      
     });
   }
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
 import { CategoryService } from "src/app/categories/shared/category.service";
+import { SeoService } from "src/app/shared/services/seo.service";
 import { SnippetService } from "../shared/snippet.service";
 
 @Component({
@@ -12,7 +13,8 @@ export class SnippetListingComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private snippetService: SnippetService,
-    private categoryService: CategoryService
+    private categoryService: CategoryService,
+    private seoService: SeoService
   ) {}
 
   posts: any;
@@ -21,16 +23,18 @@ export class SnippetListingComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe((params) => {
       this.category = params["catname"];
+      this.seoService.updateTitle(`${this.category} | TutsCoder`);
       this.getPostByCategory();
       this.getAllCategory();
     });
   }
 
   private getPostByCategory() {
-    
-    this.snippetService.getSnippetByCategory(this.category).subscribe((response) => {
-      this.posts = response;
-    });
+    this.snippetService
+      .getSnippetByCategory(this.category)
+      .subscribe((response) => {
+        this.posts = response;
+      });
   }
   private getAllCategory() {
     this.categoryService.getAllCateogry().subscribe((data) => {

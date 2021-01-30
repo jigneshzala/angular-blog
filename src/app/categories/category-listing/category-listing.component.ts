@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
+import { SeoService } from "src/app/shared/services/seo.service";
 import { CategoryService } from "../shared/category.service";
 
 @Component({
@@ -10,14 +11,18 @@ import { CategoryService } from "../shared/category.service";
 export class CategoryListingComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
-    private categoryService: CategoryService
+    private categoryService: CategoryService,
+    private seoService: SeoService
   ) {}
   posts: any;
   category: string;
-  categories:any;
+  categories: any;
   ngOnInit() {
     this.route.params.subscribe((params) => {
       this.category = params["catId"];
+      this.seoService.updateTitle(`${this.category} | TutsCoder`);
+
+      //this.seoService.updateDescription(``);
       this.getPostByCategory();
       this.getAllCategory();
     });
@@ -25,12 +30,11 @@ export class CategoryListingComponent implements OnInit {
 
   private getPostByCategory() {
     let reqData = {
-      category:this.category,
-      limit:'5'
-    }
+      category: this.category,
+      limit: "5",
+    };
     this.categoryService.getPostByCateogry(reqData).subscribe((response) => {
-      this.posts = response['posts'];
-      
+      this.posts = response["posts"];
     });
   }
   private getAllCategory() {

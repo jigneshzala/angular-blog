@@ -31,6 +31,11 @@ const routes: Routes = [
     loadChildren: () => import("./tags/tags.module").then((m) => m.TagsModule),
   },
   {
+    path: "snippet",
+    loadChildren: () =>
+      import("./snippets/snippets.module").then((m) => m.SnippetsModule),
+  },
+  {
     path: "admin",
     loadChildren: () =>
       import("./admin/admin.module").then((m) => m.AdminModule),

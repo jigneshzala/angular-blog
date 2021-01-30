@@ -19,8 +19,9 @@ import { LocalStorageService } from "./shared/services/local-storage.service";
 import { SnippetsModule } from "./snippets/snippets.module";
 import { ManageModule } from "./admin/manage/manage.module";
 import { AdsenseModule } from "ng2-adsense";
-import { ServiceWorkerModule } from '@angular/service-worker';
-import { environment } from '../environments/environment';
+import { ServiceWorkerModule } from "@angular/service-worker";
+import { environment } from "../environments/environment";
+import { SeoService } from "./shared/services/seo.service";
 
 @NgModule({
   declarations: [AppComponent, HeaderComponent, FooterComponent],
@@ -40,11 +41,14 @@ import { environment } from '../environments/environment';
     AdsenseModule.forRoot({
       adClient: "ca-pub-5104133742493207",
     }),
-    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
+    ServiceWorkerModule.register("ngsw-worker.js", {
+      enabled: environment.production,
+    }),
   ],
   providers: [
     HighlightService,
     LocalStorageService,
+    SeoService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptor,
