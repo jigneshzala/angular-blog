@@ -8,14 +8,14 @@
               <ul id="nav1">
                 <li><a href="/">Home</a></li>
                 <!-- <li><a href="#">Sitemap</a></li> -->
-        
+
                 <!-- <li><a href="#">About</a></li>
                 <li><a href="#">Contact</a></li> -->
               </ul><select class="selectnav" id="selectnav2">
                 <option value="">Menu</option>
                 <option value="#">Home</option>
                 <!-- <option value="#">Sitemap</option> -->
-               
+
                 <!-- <option value="#">About</option>
                 <option value="#">Contact</option> -->
               </select>
@@ -65,9 +65,11 @@
             <div class="clear"></div>
             <span class="widget-item-control">
               <span class="item-control blog-admin">
-                <a class="quickedit" href="#" target="configHTML5" title="Edit">
+                <ng-adsense [adClient]="'ca-pub-5104133742493207'" [adSlot]="9563129712" [adFormat]="'auto'"
+                  [fullWidthResponsive]="true"></ng-adsense>
+                <!-- <a class="quickedit" href="#" target="configHTML5" title="Edit">
                   <img alt="" height="18" src="//img1.blogblog.com/img/icon18_wrench_allbkg.png" width="18">
-                </a>
+                </a> -->
               </span>
             </span>
             <div class="clear"></div>
@@ -84,14 +86,14 @@
     <ul>
       <li><a routerLink='/'>Home</a></li>
       <li *ngFor="let cat of categories"><a routerLink='/category/{{cat.slug}}'>{{cat.name}}</a></li>
-       <li><a class='dropdown-arrow' href='http://'>Snippet</a>
+      <li><a class='dropdown-arrow' href='http://'>Snippet</a>
         <ul class='sub-menus'>
           <li><a routerLink="/snippets/category/angular">Angular</a></li>
           <li><a routerLink="/snippets/category/node">NodeJs</a></li>
           <li><a routerLink="/snippets/category/javascript">Javascript</a></li>
         </ul>
       </li>
-      
+
     </ul>
   </nav>
 
