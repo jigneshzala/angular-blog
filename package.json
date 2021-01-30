@@ -49,6 +49,7 @@
     "ngx-toggle-switch": "^2.0.5",
     "npm": "^6.14.11",
     "prismjs": "^1.23.0",
+    "request": "^2.88.2",
     "rxjs": "~6.6.3",
     "tinymce": "^4.5.7",
     "tslib": "^1.10.0",
