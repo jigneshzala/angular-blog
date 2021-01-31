@@ -15,9 +15,15 @@ export class HomeComponent implements OnInit {
     private meta: Meta,
     private title: Title
   ) {
-    this.title.setTitle("TutsCoder");
-    // this.meta.addTag({ name: 'description', content: '' });
-    //this.meta.addTag({ name: 'keywords', content: `` });
+    this.title.setTitle(
+      "TutsCoder - Programming Blog, Web Development, Tutorials, NodeJs, Angular, WordPress and Demos"
+    );
+    this.meta.addTag({
+      name: "description",
+      content:
+        "Learn Web Development, NodeJs, Angular, JavaScript, jQuery ,Ajax,ReactJs, WordPress with TutsCoder tutorials.",
+    });
+    this.meta.addTag({ name: 'keywords', content: `Web Development, NodeJs, Angular, JavaScript, jQuery ,Ajax,ReactJs, WordPress, tutorials` });
   }
   latestPosts: any = [];
   angularPosts: any = [];
