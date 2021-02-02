@@ -83,11 +83,11 @@
               
               <div class="newsletter">
                 <div class="left">
-                  <input type="email" name="email" id="newsletter_email" maxlength="199" placeholder="Email"
-                    required="">
+                  <input type="email" name="email" #email id="newsletter_email" placeholder="Email"
+                    required>
                 </div>
                 <div class="right">
-                  <button type="submit" class="newsletter-button">Subscribe</button>
+                  <button type="button" (click)="addSubscribe(email.value)" class="newsletter-button">Subscribe</button>
                 </div>
               </div>
               <input type="hidden" name="sys_lang_id" value="1">

@@ -5,6 +5,8 @@ import { GuestGuard } from "./auth/shared/auth.guard";
 import { TermsComponent } from "./terms/terms.component";
 import { PrivacyComponent } from "./privacy/privacy.component";
 import { PageNotFoundComponent } from "./page-not-found/page-not-found.component";
+import { ContactComponent } from "./contact/contact.component";
+import { VerificationComponent } from "./verification/verification.component";
 
 const routes: Routes = [
   {
@@ -41,6 +43,14 @@ const routes: Routes = [
       import("./admin/admin.module").then((m) => m.AdminModule),
   },
   {
+    path: "contact",
+    component: ContactComponent,
+  },
+  {
+    path: "verify/:token",
+    component: VerificationComponent,
+  },
+  {
     path: "terms",
     component: TermsComponent,
   },
@@ -60,6 +70,11 @@ const routes: Routes = [
     }),
   ],
   exports: [RouterModule],
-  declarations: [TermsComponent, PrivacyComponent, PageNotFoundComponent],
+  declarations: [
+    TermsComponent,
+    PrivacyComponent,
+    PageNotFoundComponent,
+    VerificationComponent,
+  ],
 })
 export class AppRoutingModule {}

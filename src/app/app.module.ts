@@ -1,6 +1,7 @@
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { FormsModule } from "@angular/forms";
 import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
@@ -22,14 +23,17 @@ import { AdsenseModule } from "ng2-adsense";
 import { ServiceWorkerModule } from "@angular/service-worker";
 import { environment } from "../environments/environment";
 import { SeoService } from "./shared/services/seo.service";
+import { UserService } from "./admin/manage/users/shared/user.service";
+import { ContactComponent } from "./contact/contact.component";
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, FooterComponent],
+  declarations: [AppComponent, HeaderComponent, FooterComponent,ContactComponent],
   imports: [
     BrowserModule.withServerTransition({ appId: "serverApp" }),
     BrowserAnimationsModule,
     AppRoutingModule,
     AuthModule,
+    FormsModule,
     HomeModule,
     HttpClientModule,
     PostsModule,
@@ -49,6 +53,7 @@ import { SeoService } from "./shared/services/seo.service";
     HighlightService,
     LocalStorageService,
     SeoService,
+    UserService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptor,
