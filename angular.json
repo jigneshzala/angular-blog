@@ -47,7 +47,8 @@
               },
               "src/ads.txt",
               "src/google39769de9b635625e.html",
-              "src/manifest.webmanifest"
+              "src/manifest.webmanifest",
+              "src/robots.txt"
             ],
             "styles": [
               "node_modules/bootstrap/dist/css/bootstrap.min.css",

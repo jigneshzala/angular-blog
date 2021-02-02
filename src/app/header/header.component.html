@@ -42,44 +42,26 @@
       </div>
     </div>
   </div>
-  <div id="header-blog">
-    <div class="header-content row">
-      <div class="header-logo">
-        <div class="section" id="logo_blog" name="Logo">
-          <div class="widget Header" id="Header1">
-            <div id="header-inner">
-              <a href="#" style="display: block">
-                <h1 style="display:none;"></h1>
-                <img alt="" height="52px; " src="./assets\images\tutscoder_logo.png" style="display: block" width="208px; ">
-              </a>
-            </div>
-          </div>
+  <!-- <div class="container"> -->
+    <div class="row">
+      <div class="col-xs-12 col-md-4 col-sm-4">
+        <div class="header-logo">
+
+          <a href="https://www.tutsocder.com">
+            <img class="td-retina-data img-responsive" src="./assets\images\tutscoder_logo.png" alt="tutscoder-logo">
+          </a>
         </div>
       </div>
-      <div class="header-ads">
-        <div class="section" id="ads-content" name="Ads 728x90">
-          <div class="widget HTML" id="HTML5">
-            <div class="widget-content">
-              <img alt="ads" src="https://images.unsplash.com/photo-1511268559489-34b624fbfcf5?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=40">
-            </div>
-            <div class="clear"></div>
-            <span class="widget-item-control">
-              <span class="item-control blog-admin">
-                <!-- <ng-adsense [adClient]="'ca-pub-5104133742493207'" [adSlot]="9563129712" [adFormat]="'auto'"
-                  [fullWidthResponsive]="true"></ng-adsense> -->
-                 <a class="quickedit" href="#" target="configHTML5" title="Edit">
-                  <img alt="" height="18" src="//img1.blogblog.com/img/icon18_wrench_allbkg.png" width="18">
-                </a> 
-              </span>
-            </span>
-            <div class="clear"></div>
-          </div>
+      <div class="col-xs-8 col-md-8 col-sm-8 hidden-xs">
+        <div class="header-banner">
+          <ng-adsense [adClient]="'ca-pub-5104133742493207'" [adSlot]="9563129712" [adFormat]="'auto'"
+            [fullWidthResponsive]="true"></ng-adsense>
+
         </div>
       </div>
     </div>
-  </div>
-
-
+  <!-- </div> -->
+  
   <nav id='menu'>
     <input type='checkbox' id='responsive-menu' (click)='updatemenu()'><label></label>
 

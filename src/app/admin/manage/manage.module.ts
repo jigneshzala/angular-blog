@@ -20,6 +20,9 @@ import { MediaComponent } from "./media/media.component";
 import { AddPageComponent } from "./pages/add-page/add-page.component";
 import { UpdatePageComponent } from "./pages/update-page/update-page.component";
 import { AllPageComponent } from "./pages/all-page/all-page.component";
+import { AddDealComponent } from "./deals/add-deal/add-deal.component";
+import { AllDealComponent } from "./deals/all-deal/all-deal.component";
+import { UpdateDealComponent } from "./deals/update-deal/update-deal.component";
 
 const routes: Routes = [
   {
@@ -63,6 +66,18 @@ const routes: Routes = [
         path: "update-page/:id",
         component: UpdatePageComponent,
       },
+      {
+        path: "deals",
+        component: AllDealComponent,
+      },
+      {
+        path: "add-deal",
+        component: AddDealComponent,
+      },
+      {
+        path: "update-deal/:id",
+        component: UpdateDealComponent,
+      },
     ],
   },
 ];
@@ -80,6 +95,9 @@ const routes: Routes = [
     AddPageComponent,
     UpdatePageComponent,
     AllPageComponent,
+    AllDealComponent,
+    AddDealComponent,
+    UpdateDealComponent,
   ],
   imports: [
     CommonModule,

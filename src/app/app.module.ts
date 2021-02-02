@@ -25,9 +25,12 @@ import { environment } from "../environments/environment";
 import { SeoService } from "./shared/services/seo.service";
 import { UserService } from "./admin/manage/users/shared/user.service";
 import { ContactComponent } from "./contact/contact.component";
+import { ResourcesModule } from "./resources/resources.module";
+import { DealsComponent } from "./deals/deals.component";
+import { DealService } from "./admin/manage/deals/shared/deal.service";
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, FooterComponent,ContactComponent],
+  declarations: [AppComponent, HeaderComponent, FooterComponent,ContactComponent,DealsComponent],
   imports: [
     BrowserModule.withServerTransition({ appId: "serverApp" }),
     BrowserAnimationsModule,
@@ -42,8 +45,10 @@ import { ContactComponent } from "./contact/contact.component";
     TagsModule,
     ManageModule,
     AdminModule,
+    ResourcesModule,
     AdsenseModule.forRoot({
-      adClient: "ca-pub-5104133742493207",
+      adClient: 'ca-pub-5104133742493207',
+      adSlot:9563129712
     }),
     ServiceWorkerModule.register("ngsw-worker.js", {
       enabled: environment.production,
@@ -53,6 +58,7 @@ import { ContactComponent } from "./contact/contact.component";
     HighlightService,
     LocalStorageService,
     SeoService,
+    DealService,
     UserService,
     {
       provide: HTTP_INTERCEPTORS,

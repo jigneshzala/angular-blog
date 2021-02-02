@@ -7,6 +7,7 @@ import { PrivacyComponent } from "./privacy/privacy.component";
 import { PageNotFoundComponent } from "./page-not-found/page-not-found.component";
 import { ContactComponent } from "./contact/contact.component";
 import { VerificationComponent } from "./verification/verification.component";
+import { DealsComponent } from "./deals/deals.component";
 
 const routes: Routes = [
   {
@@ -38,6 +39,11 @@ const routes: Routes = [
       import("./snippets/snippets.module").then((m) => m.SnippetsModule),
   },
   {
+    path: "resources",
+    loadChildren: () =>
+      import("./resources/resources.module").then((m) => m.ResourcesModule),
+  },
+  {
     path: "admin",
     loadChildren: () =>
       import("./admin/admin.module").then((m) => m.AdminModule),
@@ -45,6 +51,10 @@ const routes: Routes = [
   {
     path: "contact",
     component: ContactComponent,
+  },
+  {
+    path: "deals",
+    component: DealsComponent,
   },
   {
     path: "verify/:token",
