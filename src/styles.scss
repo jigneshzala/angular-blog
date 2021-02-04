@@ -2,6 +2,7 @@
 /* You can add global styles to this file, and also import other style files */
 $dialog-position-top: 20%;
 
+@import '~ngx-sharebuttons/themes/default/default-theme';
 @import "~ngx-smart-modal/ngx-smart-modal";
 @import "~prismjs/plugins/toolbar/prism-toolbar.css";
 @import "~prismjs/themes/prism-okaidia";

@@ -9,6 +9,10 @@ import { PostDetailComponent } from "./post-detail/post-detail.component";
 
 import { SharedPostModule } from "../shared/modules/shared-post.module";
 import { SidebarModule } from "../shared/modules/sidebar.module";
+import { ShareButtonsModule } from 'ngx-sharebuttons/buttons';
+import { ShareIconsModule } from 'ngx-sharebuttons/icons';
+
+
 const routes: Routes = [
   {
     path: "",
@@ -32,6 +36,8 @@ const routes: Routes = [
   imports: [
     CommonModule,
     FormsModule,
+    ShareButtonsModule,
+    ShareIconsModule,
     SharedPostModule,
     SidebarModule,
     RouterModule.forChild(routes),
