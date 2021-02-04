@@ -77,6 +77,9 @@ const routes: Routes = [
   imports: [
     RouterModule.forRoot(routes, {
       initialNavigation: "enabled",
+      scrollPositionRestoration: "enabled",
+      anchorScrolling: "enabled",
+      enableTracing: false,
     }),
   ],
   exports: [RouterModule],
