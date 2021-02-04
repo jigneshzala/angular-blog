@@ -29,6 +29,10 @@ import { ResourcesModule } from "./resources/resources.module";
 import { DealsComponent } from "./deals/deals.component";
 import { DealService } from "./admin/manage/deals/shared/deal.service";
 import { CommanService } from "./shared/services/comman.service";
+import { NgProgressModule } from 'ngx-progressbar';
+import { NgProgressHttpModule } from 'ngx-progressbar/http';
+
+
 
 @NgModule({
   declarations: [AppComponent, HeaderComponent, FooterComponent,ContactComponent,DealsComponent],
@@ -38,6 +42,8 @@ import { CommanService } from "./shared/services/comman.service";
     AppRoutingModule,
     AuthModule,
     FormsModule,
+    NgProgressModule,
+    NgProgressHttpModule,
     HomeModule,
     HttpClientModule,
     PostsModule,

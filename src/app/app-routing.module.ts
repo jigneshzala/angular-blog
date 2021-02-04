@@ -65,7 +65,7 @@ const routes: Routes = [
     component: TermsComponent,
   },
   {
-    path: "privacy",
+    path: "privacy-policy",
     component: PrivacyComponent,
   },
   { path: "login", component: LoginComponent, canActivate: [GuestGuard] },
