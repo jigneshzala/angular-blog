@@ -2,6 +2,7 @@
   <div class="container">
     <div class="row">
       <div class="col-xs-12 col-sm-12 col-md-12">
+        
         <app-post-card [postItems]="latestPosts" title="Latest Posts">
           <div class="button-wrapper">
             <a routerLink="/posts">
@@ -25,3 +26,21 @@
     </div>
   </div>
 </section>
+<ngx-smart-modal #myModal [customClass]="'popup'" identifier="myModal">
+
+  <div class="form">
+    <h1>Free Ebook</h1>
+    <h2>Get One!</h2>
+    <p>Subscribe to email list!</p>
+    <input type="email" name="email" #email placeholder="Email Address">
+    <input type="submit" (click)="addSubscribe(email.value)" value="Get It!">
+    <p>We will never spam you, unsubscribe anytime...</p>
+  </div>
+  
+  <!-- <img src="http://marshall-design.com/codepen/girl.png" /> -->
+
+  <!--   <h1>Title</h1>
+  <p>Some stuff...</p>
+
+  <button (click)="myModal.close()">Close</button> -->
+</ngx-smart-modal>

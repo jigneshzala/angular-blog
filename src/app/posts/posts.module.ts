@@ -1,5 +1,6 @@
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
+import { FormsModule } from "@angular/forms";
 import { PostsComponent } from "./posts.component";
 import { PostListingComponent } from "./post-listing/post-listing.component";
 import { RouterModule, Routes } from "@angular/router";
@@ -30,6 +31,7 @@ const routes: Routes = [
   providers: [PostService],
   imports: [
     CommonModule,
+    FormsModule,
     SharedPostModule,
     SidebarModule,
     RouterModule.forChild(routes),

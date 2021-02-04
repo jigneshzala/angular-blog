@@ -12,7 +12,9 @@
                 <!-- <p class="blog-post-meta">{{post.created_at}} by <a href="#">Jignesh zala</a></p> -->
                 <p class="blog-post-meta">{{post.created_at}}</p>
                 <div class="about-image">
-                  <img class="attachment-post-single-thumb size-post-single-thumb wp-post-image img-fluid article-banner" [src]="post.feature_image?.url" alt="">
+                  <img
+                    class="attachment-post-single-thumb size-post-single-thumb wp-post-image img-fluid article-banner"
+                    [src]="post.feature_image?.url" alt="">
                 </div>
 
 
@@ -26,7 +28,7 @@
 
               <div class="col-sm-12 col-xs-12"></div>
 
-         
+
 
             </div>
           </div>
@@ -35,6 +37,123 @@
 
 
 
+
+
+              <div class="be-comment-block">
+                <ng-container *ngIf="post && post.comments.length > 0;">
+
+
+                  <h1 class="comments-title">Comments ({{post.comments.length}})</h1>
+
+                  <div class="card">
+                    <div class="card-body" *ngFor="let comment of post.comments">
+                      <div class="row">
+
+                        <div class="col-md-12 mb-3">
+                          <p>
+                            <a class="float-left"
+                              href="https://maniruzzaman-akash.blogspot.com/p/contact.html"><strong>{{comment.username}}</strong></a>
+
+
+                          </p>
+                          <div class="clearfix"></div>
+                          <p>{{comment.comment}}</p>
+                          <p>
+                            <a class="float-right btn btn-outline-primary ml-2"
+                              (click)="hideme[comment._id] = !hideme[comment._id]"> <i class="fa fa-reply"></i>
+                              Reply</a>
+
+                          </p>
+                        </div>
+                        <div class="col-md-12 mb-3" [hidden]="!hideme[comment._id]">
+                          <form #replyForm="ngForm" class="form-block">
+
+                            <div class="row">
+                              <div class="col-xs-12 col-sm-6">
+                                <div class="form-group fl_icon">
+                                  <div class="icon"><i class="fa fa-user"></i></div>
+                                  <input class="form-input" [(ngModel)]="replyData.username" name="username" type="text"
+                                    placeholder="Your name" required>
+                                </div>
+                              </div>
+                              <div class="col-xs-12 col-sm-6 fl_icon">
+                                <div class="form-group fl_icon">
+                                  <div class="icon"><i class="fa fa-envelope-o"></i></div>
+                                  <input class="form-input" type="text" [(ngModel)]="replyData.email" name="email"
+                                    placeholder="Your email" required>
+                                </div>
+                              </div>
+                              <div class="col-xs-12 col-sm-12">
+                                <div class="form-group">
+                                  <textarea class="form-input" [(ngModel)]="replyData.reply" name="reply"
+                                    placeholder="Your text" required></textarea>
+                                </div>
+                                <a class="btn btn-primary pull-right"
+                                  (click)="replyComment(replyForm,replyData,comment._id)">Submit Comment</a>
+                                <div class="cancel-comment-reply">
+                                  <small><a rel="nofollow" id="cancel-comment-reply-link"
+                                      (click)="hideme[comment._id] = !hideme[comment._id]">Click here to cancel
+                                      reply.</a></small></div>
+                              </div>
+
+                            </div>
+                          </form>
+                        </div>
+
+                      </div>
+                      <ng-container *ngIf="comment.replies.length > 0;">
+
+                        <div class="card card-inner" *ngFor="let reply of comment.replies">
+                          <div class="card-body">
+                            <div class="row">
+
+                              <div class="col-md-10">
+                                <p><a
+                                    href="https://maniruzzaman-akash.blogspot.com/p/contact.html"><strong>{{reply.username}}</strong></a>
+                                </p>
+                                <p>{{reply.reply}}</p>
+                                <!--  <p>
+                              <a class="float-right btn btn-outline-primary ml-2"> <i class="fa fa-reply"></i> Reply</a>
+
+                            </p> -->
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-container>
+                    </div>
+                  </div>
+                </ng-container>
+
+                <form #commentForm="ngForm" class="form-block mt-3">
+                  <h3>Leave a Comment</h3>
+                  <div class="row">
+                    <div class="col-xs-12 col-sm-6">
+                      <div class="form-group fl_icon">
+                        <div class="icon"><i class="fa fa-user"></i></div>
+                        <input class="form-input" [(ngModel)]="commentData.username" name="username" type="text"
+                          placeholder="Your name" required>
+                      </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 fl_icon">
+                      <div class="form-group fl_icon">
+                        <div class="icon"><i class="fa fa-envelope-o"></i></div>
+                        <input class="form-input" type="text" [(ngModel)]="commentData.email" name="email"
+                          placeholder="Your email" required>
+                      </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-12">
+                      <div class="form-group">
+                        <textarea class="form-input" [(ngModel)]="commentData.comment" name="comment"
+                          placeholder="Your text" required></textarea>
+                      </div>
+                      <a class="btn btn-primary pull-right" (click)="addComment(commentForm,commentData)">Submit
+                        Comment</a>
+                    </div>
+
+                  </div>
+                </form>
+              </div>
 
 
 

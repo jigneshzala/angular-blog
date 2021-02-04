@@ -28,6 +28,7 @@ import { ContactComponent } from "./contact/contact.component";
 import { ResourcesModule } from "./resources/resources.module";
 import { DealsComponent } from "./deals/deals.component";
 import { DealService } from "./admin/manage/deals/shared/deal.service";
+import { CommanService } from "./shared/services/comman.service";
 
 @NgModule({
   declarations: [AppComponent, HeaderComponent, FooterComponent,ContactComponent,DealsComponent],
@@ -58,6 +59,7 @@ import { DealService } from "./admin/manage/deals/shared/deal.service";
     HighlightService,
     LocalStorageService,
     SeoService,
+    CommanService,
     DealService,
     UserService,
     {

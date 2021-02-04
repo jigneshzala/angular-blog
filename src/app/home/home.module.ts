@@ -4,6 +4,7 @@ import { HomeComponent } from "./home.component";
 import { RouterModule, Routes } from "@angular/router";
 import { LatestPostsComponent } from "./latest-posts/latest-posts.component";
 import { SharedPostModule } from "../shared/modules/shared-post.module";
+import { NgxSmartModalModule } from 'ngx-smart-modal';
 
 const routes: Routes = [
   {
@@ -14,6 +15,6 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [HomeComponent, LatestPostsComponent],
-  imports: [CommonModule, SharedPostModule, RouterModule.forChild(routes)],
+  imports: [CommonModule, SharedPostModule, NgxSmartModalModule.forRoot(),RouterModule.forChild(routes)],
 })
 export class HomeModule {}

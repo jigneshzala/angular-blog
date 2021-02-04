@@ -27,6 +27,12 @@ export class PostService {
   createPost(newPost) {
     return this.http.post(`${this.API_URL}posts`, newPost);
   }
+  addComment(postId:String,data:any) {
+    return this.http.post(`${this.API_URL}posts/add_comment/${postId}`, data);
+  }
+  replyComment(postId:String,data:any) {
+    return this.http.post(`${this.API_URL}posts/reply_comment/${postId}`, data);
+  }
   getPostById(postId) {
     return this.http.get(`${this.API_URL}posts/${postId}`);
   }

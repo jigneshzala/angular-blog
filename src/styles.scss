@@ -1,5 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
 /* You can add global styles to this file, and also import other style files */
+$dialog-position-top: 20%;
+
+@import "~ngx-smart-modal/ngx-smart-modal";
 @import "~prismjs/plugins/toolbar/prism-toolbar.css";
 @import "~prismjs/themes/prism-okaidia";
 @import 'bwm-colors';
@@ -19,6 +22,84 @@ p {
   color: $dark-gray-color;
 
 }
+
+
+.popup{
+  margin:0 auto;
+  width: 50vw;
+  height:400px;
+  position:relative;
+  max-width: 50vw;
+  
+
+  h1{
+    font:50px Lato;
+    font-weight:900;
+    text-transform:uppercase;
+    color:#f36;
+  }
+  
+  h2{
+    font:50px Lato;
+    font-weight:900;
+    text-transform:uppercase;
+    color:#555;
+    margin-bottom:20px;
+  }
+  
+  p{
+    font:16px source sans pro;
+    color:#747c83;
+    clear:both;
+  }
+  
+  input{
+    width:50%;
+    margin:20px 0px 20px 0px;
+    padding:13px;
+    border-radius:4px;
+    border:1px solid #d4d7da;
+    font:16px source sans pro;
+    outline:none;
+    color:#747c83;
+    float:left;
+  }
+  
+  input[type="submit"]{
+    float:left;
+    width:30%;
+    margin-left:10px;
+    text-transform:uppercase;
+    font-weight:900;
+    color:#FFF;
+    background:#f36;
+    border-radius:4px;
+    outline:none;
+    border:none;
+  }
+  input[type="submit"]:hover{
+    cursor:pointer;
+  }
+  
+  .form{
+    padding:50px 0px 0px 50px;
+    float:left;
+    width:55%;
+  }
+  
+  /*YOUR IMAGE POSITIONING HERE!*/
+  img{
+    position:relative;
+    top:0;
+    left:30px;
+    height:400px;
+  }
+}
+
+.reflect{
+      -webkit-box-reflect: below 5px -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(50%, transparent), to(rgba(255,255,255,0.1)));
+}
+
 
 .bwm-list-page {
   .title {
@@ -82,7 +163,7 @@ p {
 }
 
 .widget-title .title::after {
-  background-color: #0494b1;
+  background-color: #574790;
 }
 
 .widget-title .title::after {

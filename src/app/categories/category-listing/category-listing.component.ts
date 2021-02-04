@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
+import { CommanService } from "src/app/shared/services/comman.service";
 import { SeoService } from "src/app/shared/services/seo.service";
 import { CategoryService } from "../shared/category.service";
 
@@ -12,15 +13,17 @@ export class CategoryListingComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private categoryService: CategoryService,
-    private seoService: SeoService
+    private seoService: SeoService,
+    private commanService : CommanService
   ) {}
   posts: any;
   category: string;
   categories: any;
+  firstPost:any;
   ngOnInit() {
     this.route.params.subscribe((params) => {
       this.category = params["catId"];
-      this.seoService.updateTitle(`${this.category} | TutsCoder`);
+      this.seoService.updateTitle(`${this.commanService.capitalizeFirstLetter(this.category)} | TutsCoder`);
 
       //this.seoService.updateDescription(``);
       this.getPostByCategory();
@@ -35,6 +38,7 @@ export class CategoryListingComponent implements OnInit {
     };
     this.categoryService.getPostByCateogry(reqData).subscribe((response) => {
       this.posts = response["posts"];
+      this.firstPost = this.posts[0];
     });
   }
   private getAllCategory() {

@@ -21,6 +21,7 @@
   font-size: 14px;
   font-weight: 500;
   position: relative;
+  width: 100%;
 }
 
 .footer-widget .title-line {
@@ -151,9 +152,51 @@
 }
 
 .icon-facebook:before {
-  content: '\e816';
+  content: '\f09a';
 }
-
+.icon-twitter:before {
+  content: '\f099';
+}
+.icon-pinterest:before {
+  content: '\f231';
+}
+.icon-youtube:before {
+  content: '\f16a';
+}
+[class^="icon-"]:before, [class*=" icon-"]:before {
+  font-family: FontAwesome; 
+  font-style: normal;
+  font-weight: normal;
+  speak: never;
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  text-align: center;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.f-widget-follow ul li .facebook:hover {
+  background-color: #3B5998;
+  color: #fff!important;
+}
+.f-widget-follow ul li .twitter:hover {
+  background-color: #1DA1F2;
+  color: #fff!important;
+}
+.f-widget-follow ul li .pinterest:hover {
+  background-color: #bd081c;
+  color: #fff!important;
+}
+.f-widget-follow ul li .youtube:hover {
+  background-color: #f00;
+  color: #fff!important;
+}
+.f-widget-follow ul li a:hover {
+  text-decoration: none;
+}
 @media (max-width: 767px) {
   #footer {
     background-color: #222;

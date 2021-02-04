@@ -15,6 +15,7 @@ export class TagsListingComponent implements OnInit {
   posts: any;
   tag: string;
   categories: any;
+  firstPost:any;
   ngOnInit() {
     this.route.params.subscribe((params) => {
       this.tag = params["slug"];
@@ -30,6 +31,7 @@ export class TagsListingComponent implements OnInit {
     };
     this.categoryService.getPostByTag(reqData).subscribe((response) => {
       this.posts = response["posts"];
+      this.firstPost = this.posts[0];
     });
   }
   private getAllCategory() {

@@ -1,5 +1,7 @@
 import { AfterViewChecked, Component, OnInit } from "@angular/core";
+import { NgForm } from "@angular/forms";
 import { ActivatedRoute } from "@angular/router";
+import { response } from "express";
 import { CategoryService } from "src/app/categories/shared/category.service";
 import { HighlightService } from "src/app/shared/services/highlight.service";
 import { SeoService } from "src/app/shared/services/seo.service";
@@ -23,6 +25,8 @@ export class PostDetailComponent implements OnInit, AfterViewChecked {
   posts: any;
   categories: any;
   tagsList: any;
+  hideme:any = {};
+
 
   /**
    * Highlight blog post when it's ready
@@ -64,4 +68,33 @@ export class PostDetailComponent implements OnInit, AfterViewChecked {
       this.tagsList = response["data"]["tags"];
     });
   }
+
+  commentData:any = {};
+  replyData:any = {};
+  addComment(commentForm: NgForm, data) {
+    if (commentForm.invalid) {
+      return;
+    }
+
+    this.postService
+      .addComment(this.post._id, data)
+      .subscribe((response) => {
+        alert('Comment added');
+      });
+  }
+  replyComment(replyForm: NgForm, data,commentId) {
+    if (replyForm.invalid) {
+      return;
+    }
+    let reqData = JSON.parse(JSON.stringify(data));
+
+    reqData.commentId = commentId;
+
+    this.postService
+      .replyComment(this.post._id, reqData)
+      .subscribe((response) => {
+        alert('Comment added');
+      });
+  }
+
 }
