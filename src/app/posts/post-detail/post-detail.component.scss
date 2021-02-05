@@ -94,6 +94,7 @@ h6 {
 .blog-post {
   margin-bottom: 4rem;
   font-size: 1rem;
+  width: 100%;
 
   p {
     font-size: inherit;
@@ -192,3 +193,184 @@ h6 {
     z-index: 100;
     position: relative;
 }
+
+// Post newletter
+#post-newsletter {
+  padding: 30px;
+  border-width: 1px;
+  background: #fafafa;
+  margin-top: 50px;
+  border: 1px solid rgba(0,0,0,0.1);
+  border-radius: 2px;
+  margin-bottom: 50px;
+}
+.subscribe-widget .widget-inner-wrap {
+  text-align: center;
+}
+.subscribe-widget .newsletter-icon {
+  color: rgba(0,0,0,0.2);
+  font-size: 40px;
+  display: block;
+  margin: 0 0 20px;
+  line-height: 0.8;
+}
+.icon-envelope:before {
+  font-family: FontAwesome;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  display: inline-block;
+  content: "\f0e0";
+}
+
+.subscribe-widget .subscribe-widget-content {
+  margin-bottom: 20px;
+}
+.subscribe-widget .subscribe-widget-content h4 {
+  font-size: 15px;
+  position: relative;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+.subscribe-widget .subscribe-widget-content h4:after {
+  content: "";
+  position: absolute;
+  width: 50px;
+  height: 1px;
+  background-color: rgba(0,0,0,0.1);
+  bottom: 0;
+  left: 50%;
+  right: auto;
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
+  transition: 0.15s;
+}
+.subscribe-widget .subscribe-widget-content h3 {
+  font-size: 28px;
+  color: #2c2f34;
+  margin-bottom: 10px;
+}
+.subscribe-widget form {
+  position: relative;
+}
+.subscribe-widget form:before {
+  font-size: 15px;
+  position: absolute;
+  left: 12px;
+  top: 10px;
+  color: rgba(0,0,0,0.2);
+  font-size: 18px;
+  content: "\f0e0";
+  font-family: FontAwesome;
+}
+.says, .screen-reader-text {
+  clip: rect(1px, 1px, 1px, 1px);
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+}
+.subscribe-widget .subscribe-input {
+  padding: 8px 30px;
+  width: 100%;
+  text-align: center;
+  font-size: 13px;
+}
+textarea, input, select {
+  border: 1px solid rgba(0,0,0,0.1);
+  font-size: 13px;
+  outline: none;
+  padding: 5px;
+  line-height: 23px;
+  border-radius: 2px;
+  transition: background 0.3s, border 0.3s;
+  max-width: 100%;
+}
+.subscribe-widget .button {
+  margin-top: 10px;
+  padding: 10px !important;
+  width: 100%;
+  font-size: 14px;
+}
+
+// Post category
+.post-cat{
+  padding: 0 6px;
+  font-size: 12px;
+  line-height: 1.85em;
+  border-radius: 2px;
+  font-weight: normal;
+  margin-right: 4px;
+}
+
+// Tag Cloud
+.tagcloud{
+  display: block;
+  text-align: center;
+}
+.tagcloud ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+.tagcloud ul li {
+	display: inline-block;
+	margin: 0 .3em .3em 0;
+	padding: 0;
+}
+.tagcloud ul li a {
+	display: inline-block;
+	max-width: 152px;
+	height: 40px;
+	line-height: 23px;
+	padding: 8px 15px;
+	background-color: #fff;
+	border: 1px solid #aaa;
+	border-radius: 3px;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	color: #333;
+	font-size: 13px;
+	text-decoration: none;
+	-webkit-transition: .2s;
+  transition: .2s;
+  text-transform: capitalize;
+  font-weight: bold;
+}
+.tagcloud ul li a:hover {
+	background-color: #3498db;
+	border: 1px solid #3498db;
+	color: #fff;
+}
+
+//Breadcrumb
+ .breadcrumb {
+  background-color: #fff;
+  color: #999999;
+}
+.breadcrumb a:hover{
+  color: #37cae8;
+  text-decoration: none;
+} 
+.breadcrumb a{
+  font-size: 14px;
+  text-transform: capitalize;
+} 
+.breadcrumb-item+.breadcrumb-item::before{
+  font-size: 14px;
+}
+ 
+ @media (max-width: 767px){
+  .blog-post .blog-post-title {
+    font-size: 26px;
+    font-weight: 400;
+    line-height: 34px;
+    margin-top: 10px;
+}
+ }

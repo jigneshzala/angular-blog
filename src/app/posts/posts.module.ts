@@ -1,6 +1,7 @@
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { FormsModule } from "@angular/forms";
+import { AdsenseModule } from "ng2-adsense";
 import { PostsComponent } from "./posts.component";
 import { PostListingComponent } from "./post-listing/post-listing.component";
 import { RouterModule, Routes } from "@angular/router";
@@ -36,6 +37,10 @@ const routes: Routes = [
   imports: [
     CommonModule,
     FormsModule,
+    AdsenseModule.forRoot({
+      adClient: 'ca-pub-5104133742493207',
+      adSlot:9563129712
+    }),
     ShareButtonsModule,
     ShareIconsModule,
     SharedPostModule,

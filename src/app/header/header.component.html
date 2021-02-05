@@ -7,17 +7,18 @@
             <div class="widget-content">
               <ul id="nav1">
                 <li><a href="/">Home</a></li>
-                <!-- <li><a href="#">Sitemap</a></li> -->
+                <li><a routerLink="/about">About</a></li>
+                <li><a routerLink="/contact">Contact</a></li>
+                 <li><a href="https://www.tutscoder.com/sitemap.xml" target="_blank">Sitemap</a></li>
 
-                <!-- <li><a href="#">About</a></li>
-                <li><a href="#">Contact</a></li> -->
+    
               </ul><select class="selectnav" id="selectnav2">
                 <option value="">Menu</option>
                 <option value="#">Home</option>
                 <!-- <option value="#">Sitemap</option> -->
 
-                <!-- <option value="#">About</option>
-                <option value="#">Contact</option> -->
+                 <option value="#">About</option>
+                <option value="#">Contact</option>
               </select>
             </div>
           </div>
@@ -29,10 +30,10 @@
           <div class="widget LinkList" id="LinkList50">
             <div class="widget-content">
               <ul>
-                <li><a class="facebook" href="https://www.facebook.com/TutsCoder" target="_blank" title="facebook"></a></li>
-                <li><a class="twitter" href="https://twitter.com/tutscoder"  target="_blank" title="twitter"></a></li>
-                <li><a class="pinterest" href="https://in.pinterest.com/tutscoder"  target="_blank" title="pinterest"></a></li>
-                <li><a class="youtube" href="https://www.youtube.com/channel/UCmObcNnWeVBlSeO_iQhsRcA" target="_blank" title="youtube"></a></li>
+                <li><a class="facebook" rel="noopener noreferrer" href="https://www.facebook.com/TutsCoder" target="_blank" title="facebook"></a></li>
+                <li><a class="twitter" rel="noopener noreferrer" href="https://twitter.com/tutscoder"  target="_blank" title="twitter"></a></li>
+                <li><a class="pinterest" rel="noopener noreferrer" href="https://in.pinterest.com/tutscoder"  target="_blank" title="pinterest"></a></li>
+                <li><a class="youtube" rel="noopener noreferrer" href="https://www.youtube.com/channel/UCmObcNnWeVBlSeO_iQhsRcA" target="_blank" title="youtube"></a></li>
             
               </ul>
             </div>
@@ -53,8 +54,11 @@
       </div>
       <div class="col-xs-8 col-md-8 col-sm-8 hidden-xs">
         <div class="header-banner">
-          <ng-adsense [adClient]="'ca-pub-5104133742493207'" [adSlot]="9563129712" [adFormat]="'auto'"
-            [fullWidthResponsive]="true"></ng-adsense>
+         <!--  <ng-adsense [adClient]="'ca-pub-5104133742493207'" [display]="'inline-block'" [adSlot]="9563129712" [adFormat]="'auto'"
+            [fullWidthResponsive]="true" [width]="120" [height]="120"></ng-adsense> -->
+        <!--   <ng-adsense [adClient]="'ca-pub-5104133742493207'" [display]="'inline-block'" [adSlot]="5204741671"
+            [width]="300" [height]="600"></ng-adsense>
+ -->
 
         </div>
       </div>
@@ -66,7 +70,12 @@
 
     <ul>
       <li><a routerLink='/'>Home</a></li>
-      <li *ngFor="let cat of categories"><a routerLink='/category/{{cat.slug}}'>{{cat.name}}</a></li>
+      <li><a class='dropdown-arrow' href='javascript:;'>Tutorials</a>
+        <ul class='sub-menus'>
+          <li *ngFor="let cat of categories"><a  routerLink='/category/{{cat.slug}}'>{{cat.name}}</a></li>
+        </ul>
+      </li>
+      <!-- <li *ngFor="let cat of categories"><a routerLink='/category/{{cat.slug}}'>{{cat.name}}</a></li> -->
       <li><a class='dropdown-arrow' href='javascript:;'>Snippet</a>
         <ul class='sub-menus'>
           <li><a routerLink="/snippet/category/angular">Angular</a></li>
@@ -74,6 +83,21 @@
           <li><a routerLink="/snippet/category/javascript">Javascript</a></li>
         </ul>
       </li>
+      <li><a class='dropdown-arrow' href='javascript:;'>Interview Questions</a>
+        <ul class='sub-menus'>
+          <li><a routerLink="/interview-questions/angular-interview-questions">Angular</a></li>
+          <!-- <li><a routerLink="/snippet/category/node">NodeJs</a></li> -->
+          <!-- <li><a routerLink="/snippet/category/javascript">Javascript</a></li> -->
+        </ul>
+      </li>
+      <li><a class='dropdown-arrow' href='javascript:;'>Resources</a>
+        <ul class='sub-menus'>
+          <li><a routerLink="/resources/tools">Toolbox</a></li>
+          <li><a routerLink="/resources/books">Books</a></li>
+          <li><a routerLink="/resources/courses">Courses</a></li>
+        </ul>
+      </li>
+      <li><a routerLink='/deals'>Hot Deals</a></li>
 
     </ul>
   </nav>

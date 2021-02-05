@@ -11,7 +11,7 @@ export class FooterComponent implements OnInit {
 
   ngOnInit(): void {}
   addSubscribe(email) {
-    console.log(email);
+    
     let reqData = {
       email: email,
     };

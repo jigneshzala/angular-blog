@@ -18,6 +18,7 @@ export class PostListingComponent implements OnInit {
   categories: any;
   page: any = 1;
   limit: any = 5;
+  firstPost:any
 
   ngOnInit() {
     this.getAllPost();
@@ -33,8 +34,9 @@ export class PostListingComponent implements OnInit {
       page: this.page,
     };
     this.postService.getPosts(reqData).subscribe((response) => {
-      console.log(response);
+      
       this.posts = response["data"]["posts"];
+      this.firstPost = this.posts[0];
     });
   }
 

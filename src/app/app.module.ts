@@ -19,7 +19,6 @@ import { TokenInterceptor } from "./auth/shared/token.interceptor";
 import { LocalStorageService } from "./shared/services/local-storage.service";
 import { SnippetsModule } from "./snippets/snippets.module";
 import { ManageModule } from "./admin/manage/manage.module";
-import { AdsenseModule } from "ng2-adsense";
 import { ServiceWorkerModule } from "@angular/service-worker";
 import { environment } from "../environments/environment";
 import { SeoService } from "./shared/services/seo.service";
@@ -53,10 +52,6 @@ import { NgProgressHttpModule } from 'ngx-progressbar/http';
     ManageModule,
     AdminModule,
     ResourcesModule,
-    AdsenseModule.forRoot({
-      adClient: 'ca-pub-5104133742493207',
-      adSlot:9563129712
-    }),
     ServiceWorkerModule.register("ngsw-worker.js", {
       enabled: environment.production,
     }),

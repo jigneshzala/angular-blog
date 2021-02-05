@@ -8,6 +8,8 @@ import { PageNotFoundComponent } from "./page-not-found/page-not-found.component
 import { ContactComponent } from "./contact/contact.component";
 import { VerificationComponent } from "./verification/verification.component";
 import { DealsComponent } from "./deals/deals.component";
+import { AboutComponent } from './about/about.component';
+import { InterviewQuestionsComponent } from './interview-questions/interview-questions.component';
 
 const routes: Routes = [
   {
@@ -53,6 +55,14 @@ const routes: Routes = [
     component: ContactComponent,
   },
   {
+    path: "interview-questions/:slug",
+    component: InterviewQuestionsComponent,
+  },
+  {
+    path: "about",
+    component: AboutComponent,
+  },
+  {
     path: "deals",
     component: DealsComponent,
   },
@@ -88,6 +98,8 @@ const routes: Routes = [
     PrivacyComponent,
     PageNotFoundComponent,
     VerificationComponent,
+    AboutComponent,
+    InterviewQuestionsComponent,
   ],
 })
 export class AppRoutingModule {}

@@ -30,16 +30,16 @@
           <p>{{firstPost.excerpt}}</p>
         </div>
       </article>
-      <article id="post-34951" class="aff-post aff-posts-flex-grid has-post-thumbnail">
+      <article class="aff-post aff-posts-flex-grid has-post-thumbnail">
         <div class="aff-post-content1 cf aff-entry-content has-share-float aff-content-spacious1 lay-8"
-          *ngFor="let post of posts">
-          <figure id="attachment-34750" aria-describedby="caption-attachment-34750"
+          *ngFor="let post of posts | slice:1">
+          <figure
             class="aff-wp-caption post-figure-margin-bottom"><a
               routerLink="/posts/{{post.slug}}" class="lay_8_img">
               <img width="500" height="270" [src]="post.feature_image?.url"
                 class="attachment-grid-featured-image size-grid-featured-image wp-post-image" [alt]="post.title"
                 itemprop="image"></a>
-            <figcaption id="caption-attachment-34750" class="aff-wp-caption-text"></figcaption>
+            <figcaption class="aff-wp-caption-text"></figcaption>
           </figure>
           <div class="aff-post-meta aff-post-meta-c aff-post-meta-left the-aff-post-meta has-below">
             <h2 class="is-title aff-post-title-alt" itemprop="headline"><a
