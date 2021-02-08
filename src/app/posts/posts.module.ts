@@ -37,10 +37,7 @@ const routes: Routes = [
   imports: [
     CommonModule,
     FormsModule,
-    AdsenseModule.forRoot({
-      adClient: 'ca-pub-5104133742493207',
-      adSlot:9563129712
-    }),
+    AdsenseModule.forRoot(),
     ShareButtonsModule,
     ShareIconsModule,
     SharedPostModule,
