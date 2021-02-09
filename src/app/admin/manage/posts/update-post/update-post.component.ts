@@ -30,20 +30,22 @@ export class UpdatePostComponent implements OnInit {
   };
   post: any;
   tinyConfig: any = {
-    height: 300,
-    plugins: ["image imagetools codesample code link "],
-    imagetools_cors_hosts: ["localhost"],
-    imagetools_proxy: "proxy.php",
-    menubar: "insert",
+    height: 500,
+    plugins: ["image imagetools codesample code link toc table"],
+    imagetools_cors_hosts: ["res.cloudinary.com"],
+    // imagetools_proxy: "proxy.php",
+    menubar: "insert edit format table",
     toolbar:
-      "undo redo | formatselect | bold italic backcolor | \
+      "undo redo | fontselect fontsizeselect formatselect | bold italic backcolor | \
       alignleft aligncenter alignright alignjustify | \
-      bullist numlist outdent indent | link | removeformat | image | codesample",
+      bullist numlist outdent indent | link | forecolor backcolor removeformat | image | codesample | toc",
     image_list: [
       { title: "My image 1", value: "https://www.tinymce.com/my1.gif" },
       { title: "My image 2", value: "http://www.moxiecode.com/my2.gif" },
     ],
     default_link_target: "_blank",
+    toolbar_sticky: true,
+
   };
   categoriesList: any = [];
   tagsList: any = [];
