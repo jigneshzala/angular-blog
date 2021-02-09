@@ -71,6 +71,7 @@ export class PostDetailComponent implements OnInit, AfterViewChecked {
       this.tagsList = response["data"]["tags"];
     });
   }
+  pageId = '/about';
 
   commentData: any = {};
   replyData: any = {};

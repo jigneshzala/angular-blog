@@ -10,9 +10,15 @@ import { PostDetailComponent } from "./post-detail/post-detail.component";
 
 import { SharedPostModule } from "../shared/modules/shared-post.module";
 import { SidebarModule } from "../shared/modules/sidebar.module";
+import { ShareButtonsConfig } from 'ngx-sharebuttons';
 import { ShareButtonsModule } from 'ngx-sharebuttons/buttons';
 import { ShareIconsModule } from 'ngx-sharebuttons/icons';
 
+
+const customConfig: ShareButtonsConfig = {
+  include: ['facebook', 'twitter', 'pinterest','whatsapp','tumblr','reddit','telegram','email'],
+  twitterAccount: 'tutscoder'
+}
 
 const routes: Routes = [
   {
@@ -38,7 +44,7 @@ const routes: Routes = [
     CommonModule,
     FormsModule,
     AdsenseModule.forRoot(),
-    ShareButtonsModule,
+    ShareButtonsModule.withConfig(customConfig),
     ShareIconsModule,
     SharedPostModule,
     SidebarModule,

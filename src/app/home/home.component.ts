@@ -60,9 +60,9 @@ export class HomeComponent implements OnInit {
       if (category == "nodejs") {
         this.nodePosts = response["posts"];
       }
-    /*   setTimeout(() => {
+       setTimeout(() => {
         this.ngxSmartModalService.getModal('myModal').open();  
-      }, 4000); */
+      }, 4000);
       
     });
   }
