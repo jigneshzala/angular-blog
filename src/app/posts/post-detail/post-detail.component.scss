@@ -374,3 +374,43 @@ textarea, input, select {
     margin-top: 10px;
 }
  }
+
+
+//  Related Posts
+
+#related-posts .related-posts-list {
+  overflow: hidden;
+  margin: 0 -15px -20px;
+}
+#related-posts .related-item {
+  position: relative;
+  float: left;
+  width: 33.333%;
+  padding: 0 15px;
+  margin-bottom: 20px;
+}
+#related-posts .related-item .post-thumb {
+  margin-bottom: 10px;
+}
+.post-thumb {
+  position: relative;
+  height: 100%;
+  display: block;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-transform: rotate(0);
+  -ms-transform: rotate(0);
+  transform: rotate(0);
+  transition: opacity 0.2s;
+
+  img{
+    width: 100%;
+    display: block;
+  }
+
+}
+
+#related-posts .related-item .post-title {
+  font-size: 14px;
+  line-height: 19px;
+}

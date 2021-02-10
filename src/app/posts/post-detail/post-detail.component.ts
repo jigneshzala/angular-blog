@@ -30,6 +30,7 @@ export class PostDetailComponent implements OnInit, AfterViewChecked {
   categories: any;
   tagsList: any;
   hideme: any = {};
+  relatedPosts:any = [];
   emailPattern = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   /**
    * Highlight blog post when it's ready
@@ -51,6 +52,7 @@ export class PostDetailComponent implements OnInit, AfterViewChecked {
         this.getPostByCategory();
         this.getAllCategory();
         this.getAllTags();
+        this.getRelatedPosts();
       });
     });
   }
@@ -71,8 +73,17 @@ export class PostDetailComponent implements OnInit, AfterViewChecked {
       this.tagsList = response["data"]["tags"];
     });
   }
-  pageId = '/about';
-
+  private getRelatedPosts() {
+    
+     let reqData = {
+      _id:this.post._id,
+      categories:this.post.categories.map(value => value._id)
+    }
+    this.postService.getRelatedPosts(reqData).subscribe((response) => {
+      this.relatedPosts = response;
+    }); 
+  }
+  
   commentData: any = {};
   replyData: any = {};
   subscriberEmail: any = {};

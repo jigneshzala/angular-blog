@@ -39,6 +39,9 @@ export class PostService {
   getPostBySlug(slug) {
     return this.http.get(`${this.API_URL}posts/post/${slug}`);
   }
+  getRelatedPosts(reqData) {
+    return this.http.post(`${this.API_URL}posts/related`,reqData);
+  }
   updatePost(postId: string, postData: any) {
     return this.http.patch(`${this.API_URL}posts/${postId}`, postData);
   }

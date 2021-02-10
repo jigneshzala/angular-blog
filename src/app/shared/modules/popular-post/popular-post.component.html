@@ -11,7 +11,7 @@
 
         <li *ngFor="let post of popularPosts">
           <div class="left">
-            <a routerLink="/posts/{{post._id}}">
+            <a routerLink="/post/{{post._id}}">
               <img [src]="post.image?.url"
                 
                 class="img-responsive lazyloaded" alt="">
@@ -19,7 +19,7 @@
           </div>
           <div class="right">
             <h3 class="title">
-              <a routerLink="/posts/{{post._id}}">
+              <a routerLink="/post/{{post._id}}">
                 {{post.title}}</a>
             </h3>
             <div class="post-meta">

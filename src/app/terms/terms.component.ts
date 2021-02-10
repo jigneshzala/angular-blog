@@ -15,13 +15,14 @@ export class TermsComponent implements OnInit {
     private seoService:SeoService
   ) {
     this.seoService.updateTitle(`Terms & Conditions | TutsCoder`);
-    this.seoService.updateDescription('Terms & Conditions of TutsCoder');
+    
   }
   terms: any;
 
   ngOnInit(): void {
-    this.pageService.getPageBySlug("privacy").subscribe((data) => {
+    this.pageService.getPageBySlug("terms").subscribe((data) => {
       this.terms = data;
+      this.seoService.updateDescription(this.terms.metaDescription);
     });
   }
 }

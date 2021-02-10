@@ -4,13 +4,13 @@
       <article class="aff-post has-post-thumbnail lay-8" *ngIf="firstPost">
         <header class="aff-aff-post-header aff-aff-post-header cf">
           <div class="featured">
-            <a routerLink="/posts/{{firstPost.slug}}" class="image-link media-ratio ratio-3-2 lay_8_img_fea">
+            <a routerLink="/post/{{firstPost.slug}}" class="image-link media-ratio ratio-3-2 lay_8_img_fea">
               <img [src]="firstPost.feature_image?.url" [alt]="firstPost.title"> </a>
           </div>
         </header>
         <div class="aff-post-content cf aff-entry-content has-share-float aff-content-spacious">
           <div class="aff-post-meta aff-post-meta-c aff-post-meta-left the-aff-post-meta has-below">
-            <h2 class="is-title aff-post-title-alt"><a routerLink="/posts/{{firstPost.slug}}"
+            <h2 class="is-title aff-post-title-alt"><a routerLink="/post/{{firstPost.slug}}"
                 [title]="firstPost.title">{{firstPost.title}}</a></h2>
             <div class="meta-title">
               <div class="aff-post-meta aff-post-meta-c aff-post-meta-left has-below">
@@ -28,7 +28,7 @@
       <article class="aff-post aff-posts-flex-grid has-post-thumbnail">
         <div class="aff-post-content1 cf aff-entry-content has-share-float aff-content-spacious1 lay-8"
           *ngFor="let post of posts | slice:1">
-          <figure class="aff-wp-caption post-figure-margin-bottom"><a routerLink="/posts/{{post.slug}}"
+          <figure class="aff-wp-caption post-figure-margin-bottom"><a routerLink="/post/{{post.slug}}"
               class="lay_8_img">
               <img width="500" height="270" [src]="post.feature_image?.url"
                 class="attachment-grid-featured-image size-grid-featured-image wp-post-image" [alt]="post.title"
@@ -36,7 +36,7 @@
             <figcaption class="aff-wp-caption-text"></figcaption>
           </figure>
           <div class="aff-post-meta aff-post-meta-c aff-post-meta-left the-aff-post-meta has-below">
-            <h2 class="is-title aff-post-title-alt" itemprop="headline"><a routerLink="/posts/{{post.slug}}"
+            <h2 class="is-title aff-post-title-alt" itemprop="headline"><a routerLink="/post/{{post.slug}}"
                 [title]="post.title">{{post.title}}</a></h2>
             <div class="meta-title">
               <div class="aff-post-meta aff-post-meta-c aff-post-meta-left has-below">
