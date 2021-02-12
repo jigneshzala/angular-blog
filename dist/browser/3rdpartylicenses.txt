@@ -477,6 +477,9 @@ MIT
 ngx-toggle-switch
 MIT
 
+ngx-ui-loader
+MIT
+
 prismjs
 MIT
 MIT LICENSE
