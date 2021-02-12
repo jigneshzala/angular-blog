@@ -3,6 +3,7 @@ import { ActivatedRoute } from "@angular/router";
 import { CommanService } from "src/app/shared/services/comman.service";
 import { SeoService } from "src/app/shared/services/seo.service";
 import { CategoryService } from "../shared/category.service";
+import { NgxUiLoaderService } from "ngx-ui-loader";
 
 @Component({
   selector: "app-category-listing",
@@ -14,7 +15,8 @@ export class CategoryListingComponent implements OnInit {
     private route: ActivatedRoute,
     private categoryService: CategoryService,
     private seoService: SeoService,
-    private commanService : CommanService
+    private commanService : CommanService,
+    private ngxService: NgxUiLoaderService
   ) {}
   posts: any;
   category: string;
@@ -22,6 +24,7 @@ export class CategoryListingComponent implements OnInit {
   firstPost:any;
   ngOnInit() {
     this.route.params.subscribe((params) => {
+      this.ngxService.start();
       this.category = params["catId"];
       this.seoService.updateTitle(`${this.commanService.capitalizeFirstLetter(this.category)} | TutsCoder`);
 
@@ -44,6 +47,7 @@ export class CategoryListingComponent implements OnInit {
   private getAllCategory() {
     this.categoryService.getAllCateogry().subscribe((data) => {
       this.categories = data;
+      this.ngxService.stop();
     });
   }
 }

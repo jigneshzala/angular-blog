@@ -12,7 +12,7 @@
                   <ol class="breadcrumb pl-0">
                     <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
                     <li class="breadcrumb-item"><a
-                        routerLink="/category/{{post.categories[0].alug}}">{{post.categories[0].name}}</a></li>
+                        routerLink="/category/{{post.categories[0].slug}}">{{post.categories[0].name}}</a></li>
                     <li class="breadcrumb-item active" aria-current="page">{{post.title}}</li>
                   </ol>
                 </nav>
@@ -25,7 +25,7 @@
                 <h1 class="blog-post-title">{{post.title}}</h1>
 
                 <!-- <p class="blog-post-meta">{{post.created_at}} by <a href="#">Jignesh zala</a></p> -->
-                <p class="blog-post-meta">Updated on <strong>{{post.created_at | date :'longDate'}}</strong></p>
+                <p class="blog-post-meta">Updated on <strong>{{post.updatedAt | date :'longDate'}}</strong></p>
                 <share-buttons show="8" image="https://loremflickr.com/320/240"></share-buttons>
                 <div class="about-image">
                   <img
@@ -34,7 +34,7 @@
                 </div>
 
 
-                <p [innerHtml]="post.html">
+                <p class="blog-post-content" [innerHtml]="post.html">
 
                 </p>
 
@@ -101,6 +101,19 @@
             </div>
           </div>
 
+          <div class="col-xs-12 col-sm-12 col-xs-12">
+            <div class="row">
+              <div class="after-post-box">
+                <h2>If You Appreciate What We Do Here On TutsCoder, You Should Consider:</h2>
+
+                <p>If you like what you are reading, please consider buying us a coffee ( or 2 ) as a token of
+                  appreciation.</p>
+                <p class="text-center"><a href="https://www.buymeacoffee.com/tutscoder" rel="nofollow" target="_blank"><img class="rounded" alt="Support Us"
+                      src="./assets/images/coffee.png"></a></p>
+                <p style="text-align: center;"><strong>We are thankful for your never ending support.</strong></p>
+              </div>
+            </div>
+          </div>
 
           <div class="col-xs-12 col-sm-12 col-xs-12">
             <div class="row">
@@ -274,12 +287,12 @@
         <div class="sidebar">
 
 
-          <div class="col-sm-12 col-xs-12 sidebar-widget widget-popular-posts">
+          <div class="col-sm-12 col-xs-12 sidebar-widget widget-popular-posts mt-3">
             <!-- <app-popular-post [popularPosts]="posts"></app-popular-post> -->
-            <ng-adsense [adClient]="'ca-pub-5104133742493207'" [display]="'inline-block'" [adSlot]="5204741671"
-              [width]="300" [height]="600" [pageLevelAds]="true"></ng-adsense>
-            <ng-adsense [adClient]="'ca-pub-2711385747041353'" [display]="'inline-block'" [adSlot]="3475181432"
-              [width]="300" [height]="600" [pageLevelAds]="true"></ng-adsense>
+
+            <!-- <p>If You Appreciate What We Do Here On TutsCoder, You Should Consider:</p> -->
+            <p class="text-center"><a href="https://www.buymeacoffee.com/tutscoder" rel="nofollow" target="_blank"><img class="rounded" alt="Support Us"
+                  src="./assets/images/coffee.png"></a></p>
           </div>
 
 

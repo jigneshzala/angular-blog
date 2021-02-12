@@ -1,4 +1,4 @@
-import { AfterViewChecked, Component, OnInit } from "@angular/core";
+import { AfterViewChecked, Component, OnInit, ViewEncapsulation } from "@angular/core";
 import { NgForm } from "@angular/forms";
 import { ActivatedRoute } from "@angular/router";
 import { response } from "express";
@@ -8,11 +8,14 @@ import { CommanService } from "src/app/shared/services/comman.service";
 import { HighlightService } from "src/app/shared/services/highlight.service";
 import { SeoService } from "src/app/shared/services/seo.service";
 import { PostService } from "../shared/post.service";
+import { NgxUiLoaderService } from "ngx-ui-loader";
 
 @Component({
   selector: "app-post-detail",
   templateUrl: "./post-detail.component.html",
   styleUrls: ["./post-detail.component.scss"],
+  encapsulation: ViewEncapsulation.None,
+
 })
 export class PostDetailComponent implements OnInit, AfterViewChecked {
   constructor(
@@ -22,7 +25,8 @@ export class PostDetailComponent implements OnInit, AfterViewChecked {
     private categoryService: CategoryService,
     private seoService: SeoService,
     private userService: UserService,
-    private commanService: CommanService
+    private commanService: CommanService,
+    private ngxService: NgxUiLoaderService
   ) {}
   post: any;
   highlighted: boolean = false;
@@ -44,7 +48,9 @@ export class PostDetailComponent implements OnInit, AfterViewChecked {
 
   ngOnInit() {
     this.route.params.subscribe((params) => {
+      this.ngxService.start();
       this.postService.getPostBySlug(params["slug"]).subscribe((post) => {
+
         this.post = post;
         this.seoService.updateTitle(`${this.post.title} | TutsCoder`);
 
@@ -81,6 +87,7 @@ export class PostDetailComponent implements OnInit, AfterViewChecked {
     }
     this.postService.getRelatedPosts(reqData).subscribe((response) => {
       this.relatedPosts = response;
+      this.ngxService.stop();
     }); 
   }
   

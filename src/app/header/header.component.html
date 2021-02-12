@@ -1,106 +1,160 @@
-<div class="container-fluid p-0" id="outer-wrapper">
-  <div id="topnav">
-    <div class="tm-head row">
-      <div class="tm-menu">
-        <div class="menu1 section" id="menu1" name="Top Navigation">
-          <div class="widget LinkList" id="LinkList210">
-            <div class="widget-content">
-              <ul id="nav1">
-                <li><a href="/">Home</a></li>
-                <li><a routerLink="/about">About</a></li>
-                <li><a routerLink="/contact">Contact</a></li>
-                 <li><a href="/sitemap.xml" target="_blank">Sitemap</a></li>
+<div class="trending-bar-dark hidden-xs">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6">
 
-    
-              </ul><select class="selectnav" id="selectnav2">
-                <option value="">Menu</option>
-                <option value="#">Home</option>
-                <!-- <option value="#">Sitemap</option> -->
+        <ul id="nav1">
+          <li><a href="/">Home</a></li>
+          <li><a routerLink="/about">About</a></li>
+          <li><a routerLink="/contact">Contact</a></li>
+          <li><a href="/sitemap.xml" target="_blank">Sitemap</a></li>
+        </ul>
 
-                 <option value="#">About</option>
-                <option value="#">Contact</option>
-              </select>
-            </div>
-          </div>
-        </div>
       </div>
 
-      <div class="social-area">
-        <div class="social-top section" id="social-top" name="Social Top">
-          <div class="widget LinkList" id="LinkList50">
-            <div class="widget-content">
-              <ul>
-                <li><a class="facebook" rel="noopener noreferrer" href="https://www.facebook.com/TutsCoder" target="_blank" title="facebook"></a></li>
-                <li><a class="twitter" rel="noopener noreferrer" href="https://twitter.com/tutscoder"  target="_blank" title="twitter"></a></li>
-                <li><a class="pinterest" rel="noopener noreferrer" href="https://in.pinterest.com/tutscoder"  target="_blank" title="pinterest"></a></li>
-                <li><a class="youtube" rel="noopener noreferrer" href="https://www.youtube.com/channel/UCmObcNnWeVBlSeO_iQhsRcA" target="_blank" title="youtube"></a></li>
-            
-              </ul>
-            </div>
-          </div>
+
+      <div class="col-md-12 col-sm-12 col-xs-12 top-nav-social-lists text-lg-right col-lg-4 ml-lg-auto">
+        <ul class="list-unstyled mt-4 mt-lg-0">
+          <li>
+            <a rel="noopener noreferrer" href="https://www.facebook.com/TutsCoder" target="_blank" title="facebook">
+              <span class="social-icon">
+                <i class="fa fa-facebook-f"></i>
+              </span>
+            </a>
+            <a rel="noopener noreferrer" href="https://twitter.com/tutscoder" target="_blank" title="twitter">
+              <span class="social-icon">
+                <i class="fa fa-twitter"></i>
+              </span>
+            </a>
+
+            <a rel="noopener noreferrer" href="https://www.youtube.com/channel/UCmObcNnWeVBlSeO_iQhsRcA" target="_blank"
+              title="youtube">
+              <span class="social-icon">
+                <i class="fa fa-youtube"></i>
+              </span>
+            </a>
+
+            <a rel="noopener noreferrer" href="https://in.pinterest.com/tutscoder" target="_blank" title="pinterest">
+              <span class="social-icon">
+                <i class="fa fa-pinterest-p"></i>
+              </span>
+            </a>
+
+
+
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<header class="header-navigation d-none d-lg-block">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-xs-12 col-sm-3 col-md-3">
+        
+        <div class="logo">
+          <a href="index.html">
+            <img src="./assets/images/tutscoder_logo.png" alt="">
+          </a>
+        </div>
+        
+      </div>
+      <div class="col-xs-12 col-sm-9 col-md-9">
+        <div class="top-ad-banner float-right">
+          <!-- <a href="">
+            <img src="" class="img-fluid" alt="banner-ads">
+          </a> -->
         </div>
       </div>
     </div>
   </div>
-  <!-- <div class="container"> -->
+</header>
+<div class="main-navbar clearfix bg-dark ">
+  <div class="container">
     <div class="row">
-      <div class="col-xs-12 col-md-4 col-sm-4">
-        <div class="header-logo">
-
-          <a href="https://www.tutsocder.com">
-            <img class="td-retina-data img-responsive" src="./assets\images\tutscoder_logo.png" alt="tutscoder-logo">
+      <div class="col-lg-12">
+        <nav class="navbar navbar-expand-lg site-main-nav navigation">
+          <a class="navbar-brand d-lg-none" href="index.html">
+            <img src="images/logos/footer-logo.png" alt="">
           </a>
-        </div>
-      </div>
-      <div class="col-xs-8 col-md-8 col-sm-8 hidden-xs">
-        <div class="header-banner">
-         <!--  <ng-adsense [adClient]="'ca-pub-5104133742493207'" [display]="'inline-block'" [adSlot]="9563129712" [adFormat]="'auto'"
-            [fullWidthResponsive]="true" [width]="120" [height]="120"></ng-adsense> -->
-        <!--   <ng-adsense [adClient]="'ca-pub-5104133742493207'" [display]="'inline-block'" [adSlot]="5204741671"
-            [width]="300" [height]="600"></ng-adsense>
- -->
 
-        </div>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="fa fa-bars"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+
+              <li class="nav-item">
+                <a class="nav-link" routerLink='/'>Home</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href='javascript:;' role="button" data-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false">
+                  Tutorials
+                </a>
+                <div class="dropdown-menu">
+                  <a *ngFor="let cat of categories" class="dropdown-item"
+                    routerLink='/category/{{cat.slug}}'>{{cat.name}}</a>
+
+                </div>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href='javascript:;' role="button" data-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false">
+                  Snippet
+                </a>
+                <div class="dropdown-menu">
+
+                  <a class="dropdown-item" routerLink="/snippet/category/angular">Angular</a>
+                  <a class="dropdown-item" routerLink="/snippet/category/node">NodeJs</a>
+                  <a class="dropdown-item" routerLink="/snippet/category/javascript">Javascript</a>
+
+                </div>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href='javascript:;' role="button" data-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false">
+                  Interview Questions
+                </a>
+                <div class="dropdown-menu">
+
+                  <a class="dropdown-item" routerLink="/interview-questions/angular-interview-questions">Angular</a>
+
+
+                </div>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href='javascript:;' role="button" data-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false">
+                  Resources
+                </a>
+                <div class="dropdown-menu">
+
+
+                  <a class="dropdown-item" routerLink="/resources/tools">Toolbox</a>
+                  <a class="dropdown-item" routerLink="/resources/books">Books</a>
+                  <a class="dropdown-item" routerLink="/resources/courses">Courses</a>
+
+
+                </div>
+              </li>
+
+
+              <li class="nav-item">
+                <a class="nav-link" routerLink='/deals'>Deals</a>
+              </li>
+
+            </ul>
+
+          </div>
+        </nav>
+
       </div>
     </div>
-  <!-- </div> -->
-  
-  <nav id='menu'>
-    <input type='checkbox' id='responsive-menu' (click)='updatemenu()'><label></label>
-
-    <ul>
-      <li><a routerLink='/'>Home</a></li>
-      <li><a class='dropdown-arrow' href='javascript:;'>Tutorials</a>
-        <ul class='sub-menus'>
-          <li *ngFor="let cat of categories"><a  routerLink='/category/{{cat.slug}}'>{{cat.name}}</a></li>
-        </ul>
-      </li>
-      <!-- <li *ngFor="let cat of categories"><a routerLink='/category/{{cat.slug}}'>{{cat.name}}</a></li> -->
-      <li><a class='dropdown-arrow' href='javascript:;'>Snippet</a>
-        <ul class='sub-menus'>
-          <li><a routerLink="/snippet/category/angular">Angular</a></li>
-          <li><a routerLink="/snippet/category/node">NodeJs</a></li>
-          <li><a routerLink="/snippet/category/javascript">Javascript</a></li>
-        </ul>
-      </li>
-      <li><a class='dropdown-arrow' href='javascript:;'>Interview Questions</a>
-        <ul class='sub-menus'>
-          <li><a routerLink="/interview-questions/angular-interview-questions">Angular</a></li>
-          <!-- <li><a routerLink="/snippet/category/node">NodeJs</a></li> -->
-          <!-- <li><a routerLink="/snippet/category/javascript">Javascript</a></li> -->
-        </ul>
-      </li>
-      <li><a class='dropdown-arrow' href='javascript:;'>Resources</a>
-        <ul class='sub-menus'>
-          <li><a routerLink="/resources/tools">Toolbox</a></li>
-          <li><a routerLink="/resources/books">Books</a></li>
-          <li><a routerLink="/resources/courses">Courses</a></li>
-        </ul>
-      </li>
-      <li><a routerLink='/deals'>Deals</a></li>
-
-    </ul>
-  </nav>
-
-
+  </div>
 </div>

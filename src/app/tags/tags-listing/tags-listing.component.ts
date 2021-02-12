@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
 import { CategoryService } from "src/app/categories/shared/category.service";
+import { NgxUiLoaderService } from "ngx-ui-loader";
 
 @Component({
   selector: "app-tags-listing",
@@ -10,7 +11,8 @@ import { CategoryService } from "src/app/categories/shared/category.service";
 export class TagsListingComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
-    private categoryService: CategoryService
+    private categoryService: CategoryService,
+    private ngxService: NgxUiLoaderService
   ) {}
   posts: any;
   tag: string;

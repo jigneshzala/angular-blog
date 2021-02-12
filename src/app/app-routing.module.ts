@@ -8,17 +8,12 @@ import { PageNotFoundComponent } from "./page-not-found/page-not-found.component
 import { ContactComponent } from "./contact/contact.component";
 import { VerificationComponent } from "./verification/verification.component";
 import { DealsComponent } from "./deals/deals.component";
-import { AboutComponent } from './about/about.component';
-import { InterviewQuestionsComponent } from './interview-questions/interview-questions.component';
+import { AboutComponent } from "./about/about.component";
+import { InterviewQuestionsComponent } from "./interview-questions/interview-questions.component";
 
 const routes: Routes = [
   {
     path: "",
-    redirectTo: "/home",
-    pathMatch: "full",
-  },
-  {
-    path: "home",
     loadChildren: () => import("./home/home.module").then((m) => m.HomeModule),
   },
   {
@@ -80,6 +75,11 @@ const routes: Routes = [
   },
   { path: "login", component: LoginComponent, canActivate: [GuestGuard] },
   { path: "404", component: PageNotFoundComponent },
+  {
+    path: "home",
+    redirectTo: "",
+    pathMatch: "full",
+  },
   { path: "**", redirectTo: "/404" },
 ];
 

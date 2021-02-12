@@ -57,6 +57,7 @@ export class UpdatePostComponent implements OnInit {
       this.postId = params["id"];
       this.getAllCateogry();
       this.getAllTags();
+      this.getAllImages();
     });
   }
 

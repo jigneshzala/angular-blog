@@ -30,6 +30,9 @@ import { DealService } from "./admin/manage/deals/shared/deal.service";
 import { CommanService } from "./shared/services/comman.service";
 import { NgProgressModule } from 'ngx-progressbar';
 import { NgProgressHttpModule } from 'ngx-progressbar/http';
+import { AdsenseModule } from 'ng2-adsense';
+import { NgxUiLoaderModule } from "ngx-ui-loader";
+
 
 
 
@@ -41,8 +44,10 @@ import { NgProgressHttpModule } from 'ngx-progressbar/http';
     AppRoutingModule,
     AuthModule,
     FormsModule,
+    AdsenseModule.forRoot(),
     NgProgressModule,
     NgProgressHttpModule,
+    NgxUiLoaderModule,
     HomeModule,
     HttpClientModule,
     PostsModule,
