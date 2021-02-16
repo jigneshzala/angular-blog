@@ -1,19 +1,13 @@
-<div class="row">
+<div class="col-sm-12 widget-body">
+  <div class="row">
+    <ul class="widget-list w-category-list">
 
-  <div class="widget-title">
-    <h4 class="title">Categories</h4>
-  </div>
-  <div class="col-sm-12 widget-body">
-    <div class="row">
-      <ul class="widget-list w-category-list">
-
-        <li *ngFor="let cat of categories">
-          <a routerLink="/category/{{cat.name}}">{{cat.name}}</a>
-          <!-- <span>(1)</span> -->
-        </li>
+      <li *ngFor="let cat of categories">
+        <a routerLink="/category/{{cat.name}}">{{cat.name}}</a>
+        <!-- <span>(1)</span> -->
+      </li>
 
 
-      </ul>
-    </div>
+    </ul>
   </div>
 </div>

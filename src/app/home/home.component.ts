@@ -38,6 +38,9 @@ export class HomeComponent implements OnInit,AfterViewInit {
   cssPosts: any = [];
   angularPostsFirst: any = {};
   nodePosts: any = [];
+  categories: any = [];
+  tagsList: any = [];
+
   @ViewChild('subscriberModal') elementView: ElementRef;
 
 
@@ -49,9 +52,23 @@ export class HomeComponent implements OnInit,AfterViewInit {
     this.getPostByCategory("javascript");
     this.getPostByCategory("wordpress");
     this.getPostByCategory("css");
+    this.getAllCategory();
+    this.getAllTags();
+    
     
   }
 
+  private getAllCategory() {
+    this.categoryService.getAllCateogry().subscribe((data) => {
+      this.categories = data;
+    });
+  }
+
+  private getAllTags() {
+    this.categoryService.getAllTags().subscribe((response) => {
+      this.tagsList = response["data"]["tags"];
+    });
+  }
   private getLatestPosts() {
     let reqData = {
       limit: 4,
