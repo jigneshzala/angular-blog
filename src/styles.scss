@@ -259,10 +259,10 @@ a {
 
 a.post-category {
   position: relative;
-  font-size: 11px;
+  font-size: 14px;
   background: transparent;
   text-transform: uppercase;
-  font-weight: 600;
+  font-weight: 500;
   letter-spacing: 1px;
   background: #eee;
   padding: 4px 8px;
@@ -480,24 +480,6 @@ a.post-category {
   top: 10px;
 }
 
-a.post-category {
-  position: relative;
-  font-size: 11px;
-  background: transparent;
-  text-transform: uppercase;
-  font-weight: 600;
-  letter-spacing: 1px;
-  background: #eee;
-  padding: 4px 8px;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  display: inline-block;
-  transition: all .3s ease-in-out;
-  line-height: 1.2;
-  color: #fff;
-  background: #dc3545;
-}
-
 
 .post-overlay-wrapper .post-content {
   position: absolute;
@@ -510,6 +492,36 @@ a.post-category {
 .m-top-0 {
   margin-top: 0 !important;
 }
+
+.top-nav-social-lists ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  margin-top: -3px;
+
+  li {
+    display: inline-block;
+    padding: 0;
+
+    a {
+      color: #a3a3a3;
+      margin-right: 15px;
+      font-size: 14px;
+      transition: 400ms;
+    }
+  }
+}
+
+@media (max-width: 575px){
+  .top-nav-social-lists ul{
+    text-align: center;
+  }
+  .top-nav-social-lists ul li a{
+    padding: 10px;
+  }
+}
+
+
 
 @media (max-width: 767px) {
   .top-nav-social-lists {
@@ -524,6 +536,9 @@ a.post-category {
 
   .main-navbar .dropdown-menu {
     display: none;
+  }
+  .top-nav-social-lists ul li a{
+    padding: 10px;
   }
 }
 

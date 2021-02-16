@@ -21,8 +21,12 @@ export class InterviewQuestionsComponent implements OnInit {
     this.route.params.subscribe((params) => {
       this.pageService.getPageBySlug(params["slug"]).subscribe((data) => {
         this.pageData = data;
-        this.seoService.updateTitle(`${this.pageData.title} | TutsCoder`);
-        this.seoService.updateDescription(this.pageData.metaDescription);
+        
+        this.seoService.setMetaTags({
+          title:`${this.pageData.title} | TutsCoder`,
+          description:this.pageData.metaDescription
+        });
+  
       });
     });
   }

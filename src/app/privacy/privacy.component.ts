@@ -11,7 +11,10 @@ export class PrivacyComponent implements OnInit {
 
   constructor(private pageService: PageService,private seoService : SeoService) { 
     
-    this.seoService.updateTitle(`Privacy Policy | TutsCoder`);
+    this.seoService.setMetaTags({
+      title:`Privacy Policy | TutsCoder`,
+      description:`none`
+    });
 
   //this.seoService.updateDescription(`${this.post.meta_description}`);
   }

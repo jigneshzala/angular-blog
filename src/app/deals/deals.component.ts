@@ -9,8 +9,11 @@ import { SeoService } from '../shared/services/seo.service';
 export class DealsComponent implements OnInit {
 
   constructor(private seoService : SeoService) {
-    this.seoService.updateTitle(`Promo Codes, Coupons, Deals & Offers for Web Development - TutsCoder`);
-    this.seoService.updateDescription('Get exclusive discount using our promo code, coupons, and promotion links');
+  
+    this.seoService.setMetaTags({
+      title:`Promo Codes, Coupons, Deals & Offers for Web Development - TutsCoder`,
+      description:`Get exclusive discount using our promo code, coupons, and promotion links`
+    });
    }
 
   ngOnInit(): void {

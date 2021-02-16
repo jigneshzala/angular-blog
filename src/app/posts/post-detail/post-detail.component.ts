@@ -52,9 +52,11 @@ export class PostDetailComponent implements OnInit, AfterViewChecked {
       this.postService.getPostBySlug(params["slug"]).subscribe((post) => {
 
         this.post = post;
-        this.seoService.updateTitle(`${this.post.title} | TutsCoder`);
-
-        this.seoService.updateDescription(`${this.post.meta_description}`);
+        
+        this.seoService.setMetaTags({
+          title:`${this.post.title} | TutsCoder`,
+          description:`${this.post.meta_description}`
+        });
         this.getPostByCategory();
         this.getAllCategory();
         this.getAllTags();

@@ -1,35 +1,43 @@
-import { AfterViewInit, Component, ElementRef, OnInit, TemplateRef, ViewChild } from "@angular/core";
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  OnInit,
+  TemplateRef,
+  ViewChild,
+} from "@angular/core";
 import { CategoryService } from "../categories/shared/category.service";
 import { PostService } from "../posts/shared/post.service";
 import { Meta, Title } from "@angular/platform-browser";
 import { UserService } from "../admin/manage/users/shared/user.service";
 import { BsModalService, BsModalRef } from "ngx-bootstrap/modal";
-import { NgxUiLoaderService } from "ngx-ui-loader"; 
-declare const $:any;
+import { NgxUiLoaderService } from "ngx-ui-loader";
+import { SeoService } from "../shared/services/seo.service";
+declare const $: any;
 @Component({
   selector: "app-home",
-  templateUrl: "./home.component.html"
+  templateUrl: "./home.component.html",
 })
-export class HomeComponent implements OnInit,AfterViewInit {
+export class HomeComponent implements OnInit, AfterViewInit {
   modalRef: BsModalRef;
   constructor(
     private postService: PostService,
     private categoryService: CategoryService,
     private meta: Meta,
     private title: Title,
-    private userService : UserService,
+    private userService: UserService,
     private modalService: BsModalService,
-    private ngxService: NgxUiLoaderService
+    private ngxService: NgxUiLoaderService,
+    private seoService: SeoService,
   ) {
-    this.title.setTitle(
-      "TutsCoder - Programming Blog, Web Development, Tutorials, NodeJs, Angular, WordPress and Demos"
-    );
-    this.meta.addTag({
-      name: "description",
-      content:
-        "Learn Web Development, NodeJs, Angular, JavaScript, jQuery ,Ajax,ReactJs, WordPress with TutsCoder tutorials.",
+    this.seoService.setMetaTags({
+      title: `TutsCoder - Programming Blog & Web Development Tutorials`,
+      description: `Learn Web Development, NodeJs, Angular, JavaScript, jQuery ,Ajax,ReactJs, WordPress with TutsCoder tutorials`,
     });
-    this.meta.addTag({ name: 'keywords', content: `Web Development, NodeJs, Angular, JavaScript, jQuery ,Ajax,ReactJs, WordPress, tutorials` });
+    this.meta.addTag({
+      name: "keywords",
+      content: `Web Development, NodeJs, Angular, JavaScript, jQuery ,Ajax,ReactJs, WordPress, tutorials`,
+    });
   }
   latestPosts: any = [];
   angularPosts: any = [];
@@ -41,8 +49,7 @@ export class HomeComponent implements OnInit,AfterViewInit {
   categories: any = [];
   tagsList: any = [];
 
-  @ViewChild('subscriberModal') elementView: ElementRef;
-
+  @ViewChild("subscriberModal") elementView: ElementRef;
 
   ngOnInit() {
     this.ngxService.start();
@@ -54,8 +61,6 @@ export class HomeComponent implements OnInit,AfterViewInit {
     this.getPostByCategory("css");
     this.getAllCategory();
     this.getAllTags();
-    
-    
   }
 
   private getAllCategory() {
@@ -101,7 +106,7 @@ export class HomeComponent implements OnInit,AfterViewInit {
         this.cssPosts = response["posts"];
       }
 
-      this.ngxService.stop(); 
+      this.ngxService.stop();
     });
   }
 
@@ -115,49 +120,48 @@ export class HomeComponent implements OnInit,AfterViewInit {
     });
   }
 
-  ngAfterViewInit(){
+  ngAfterViewInit() {
     setTimeout(() => {
-      //this.modalRef = this.modalService.show(this.elementView);  
+      //this.modalRef = this.modalService.show(this.elementView);
     }, 5000);
 
-
-
-    $('.nav.navbar-nav li a').on('click', function() { 
-      $(this).parent('li').find('.dropdown-menu').slideToggle();
-      $(this).find('li i').toggleClass('fa-angle-down fa-angle-up');
+    $(".nav.navbar-nav li a").on("click", function () {
+      $(this).parent("li").find(".dropdown-menu").slideToggle();
+      $(this).find("li i").toggleClass("fa-angle-down fa-angle-up");
     });
-  
+
     /* ----------------------------------------------------------- */
-	/*  Site search
+    /*  Site search
 	/* ----------------------------------------------------------- */
 
-	$('#search').on('click', function () {
-		$('.site-search').addClass('visible');
-		$('#searchInput').focus();
-	});
-	$('.search-close').on('click', function () {
-		$('.site-search').removeClass('visible');
-	});
+    $("#search").on("click", function () {
+      $(".site-search").addClass("visible");
+      $("#searchInput").focus();
+    });
+    $(".search-close").on("click", function () {
+      $(".site-search").removeClass("visible");
+    });
 
-  /* ----------------------------------------------------------- */
-	/*  Scroll To Top
+    /* ----------------------------------------------------------- */
+    /*  Scroll To Top
 	/* ----------------------------------------------------------- */
-	$(window).scroll(function () {
-		if ($(this).scrollTop() > 500) {
-			$('.scroll-to-top').fadeIn();
-		} else {
-			$('.scroll-to-top').fadeOut();
-		}
-	});
+    $(window).scroll(function () {
+      if ($(this).scrollTop() > 500) {
+        $(".scroll-to-top").fadeIn();
+      } else {
+        $(".scroll-to-top").fadeOut();
+      }
+    });
 
-	// scroll body to 0px on click
-	$('.scroll-to-top').on('click', function () {
-		$('body,html').animate({
-			scrollTop: 0
-		}, 500);
-		return false;
-	});
-    
+    // scroll body to 0px on click
+    $(".scroll-to-top").on("click", function () {
+      $("body,html").animate(
+        {
+          scrollTop: 0,
+        },
+        500
+      );
+      return false;
+    });
   }
-
 }

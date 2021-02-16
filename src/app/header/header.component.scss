@@ -46,25 +46,6 @@ a:visited {
   border-radius: 2px;
 }
 
-.top-nav-social-lists ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  margin-top: -3px;
-
-  li {
-    display: inline-block;
-    padding: 0;
-
-    a {
-      color: #a3a3a3;
-      margin-right: 15px;
-      font-size: 14px;
-      transition: 400ms;
-    }
-  }
-}
-
 
 @media (min-width: 992px) {
   .text-lg-right {
@@ -149,14 +130,6 @@ a:visited {
   }
 
 }
-
-@media (max-width: 575px){
-  .top-nav-social-lists ul{
-    text-align: center;
-  }
-}
-
-
 
 
 .dropdown-toggle::after {

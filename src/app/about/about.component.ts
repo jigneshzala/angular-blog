@@ -11,9 +11,11 @@ export class AboutComponent implements OnInit {
 
   constructor(private pageService: PageService,private seoService : SeoService) { 
     
-    this.seoService.updateTitle(`About us | TutsCoder`);
+    this.seoService.setMetaTags({
+      title:`About us | TutsCoder`,
+      description:`About us | TutsCoder`
+    });
 
-  //this.seoService.updateDescription(`${this.post.meta_description}`);
   }
   aboutUs:any = {}
   ngOnInit(): void {

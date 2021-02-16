@@ -26,7 +26,10 @@ export class CategoryListingComponent implements OnInit {
     this.route.params.subscribe((params) => {
       this.ngxService.start();
       this.category = params["catId"];
-      this.seoService.updateTitle(`${this.commanService.capitalizeFirstLetter(this.category)} | TutsCoder`);
+      
+      this.seoService.setMetaTags({
+        title:`${this.commanService.capitalizeFirstLetter(this.category)} | TutsCoder`
+      });
 
       //this.seoService.updateDescription(``);
       this.getPostByCategory();

@@ -12,17 +12,18 @@ export class TermsComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private pageService: PageService,
-    private seoService:SeoService
-  ) {
-    this.seoService.updateTitle(`Terms & Conditions | TutsCoder`);
-    
-  }
+    private seoService: SeoService
+  ) {}
   terms: any;
 
   ngOnInit(): void {
     this.pageService.getPageBySlug("terms").subscribe((data) => {
       this.terms = data;
-      this.seoService.updateDescription(this.terms.metaDescription);
+
+      this.seoService.setMetaTags({
+        title: `Terms & Conditions | TutsCoder`,
+        description: this.terms.metaDescription,
+      });
     });
   }
 }
