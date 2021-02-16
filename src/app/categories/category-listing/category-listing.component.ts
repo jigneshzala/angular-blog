@@ -15,25 +15,35 @@ export class CategoryListingComponent implements OnInit {
     private route: ActivatedRoute,
     private categoryService: CategoryService,
     private seoService: SeoService,
-    private commanService : CommanService,
+    private commanService: CommanService,
     private ngxService: NgxUiLoaderService
   ) {}
   posts: any;
   category: string;
   categories: any;
-  firstPost:any;
+  firstPost: any;
+  tagsList: any = [];
   ngOnInit() {
     this.route.params.subscribe((params) => {
       this.ngxService.start();
       this.category = params["catId"];
-      
+
       this.seoService.setMetaTags({
-        title:`${this.commanService.capitalizeFirstLetter(this.category)} | TutsCoder`
+        title: `${this.commanService.capitalizeFirstLetter(
+          this.category
+        )} | TutsCoder`,
       });
 
       //this.seoService.updateDescription(``);
       this.getPostByCategory();
       this.getAllCategory();
+      this.getAllTags();
+    });
+  }
+
+  private getAllTags() {
+    this.categoryService.getAllTags().subscribe((response) => {
+      this.tagsList = response["data"]["tags"];
     });
   }
 

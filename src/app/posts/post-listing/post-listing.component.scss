@@ -142,10 +142,6 @@ article p, article a span, article span {
   font-weight: 600;
   text-decoration: none;
 }
-.meta-title .aff-post-meta > *:not(first-child):after {
-  content: "/";
-  font-size: 12px;
-}
 
 .aff-post-meta .aff-meta-above {
   margin-bottom: -1px;
@@ -328,10 +324,7 @@ article p, article a span, article span {
   font-weight: 600;
   text-decoration: none;
 }
-.meta-title .aff-post-meta > *:not(first-child):after {
-  content: "/";
-  font-size: 12px;
-}
+
 .aff-post-meta .aff-post-author, .aff-post-meta time, .aff-post-meta .aff-meta-item {
   letter-spacing: .025em;
 }

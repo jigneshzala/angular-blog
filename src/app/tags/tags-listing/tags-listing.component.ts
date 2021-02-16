@@ -18,11 +18,19 @@ export class TagsListingComponent implements OnInit {
   tag: string;
   categories: any;
   firstPost:any;
+  tagsList:any = [];
   ngOnInit() {
     this.route.params.subscribe((params) => {
       this.tag = params["slug"];
       this.getPostByCategory();
       this.getAllCategory();
+      this.getAllTags();
+    });
+  }
+
+  private getAllTags() {
+    this.categoryService.getAllTags().subscribe((response) => {
+      this.tagsList = response["data"]["tags"];
     });
   }
 
