@@ -10,6 +10,7 @@ import { VerificationComponent } from "./verification/verification.component";
 import { DealsComponent } from "./deals/deals.component";
 import { AboutComponent } from "./about/about.component";
 import { InterviewQuestionsComponent } from "./interview-questions/interview-questions.component";
+import { SitemapComponent } from "./sitemap/sitemap.component";
 
 const routes: Routes = [
   {
@@ -48,6 +49,10 @@ const routes: Routes = [
   {
     path: "contact",
     component: ContactComponent,
+  },
+  {
+    path: "sitemap",
+    component: SitemapComponent,
   },
   {
     path: "interview-questions/:slug",
@@ -100,6 +105,7 @@ const routes: Routes = [
     VerificationComponent,
     AboutComponent,
     InterviewQuestionsComponent,
+    SitemapComponent,
   ],
 })
 export class AppRoutingModule {}

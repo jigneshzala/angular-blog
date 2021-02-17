@@ -7,13 +7,15 @@
           <h3 class="news-title">
             <span>Latest Articles</span>
           </h3>
+          <button class="view-all-button" routerLink="/post" aria-label="Previous" type="button">View All</button>
           <div class="all-news">
+
             <div class="row">
               <div class="col-lg-6 col-md-6" *ngFor="let post of latestPosts;">
                 <div class="post-block-wrapper post-float-half clearfix">
                   <div class="post-thumbnail">
                     <a routerLink="/post/{{post.slug}}">
-                      <img class="img-fluid" [src]="post.feature_image?.url" alt="post-thumbnail">
+                      <img class="img-fluid" [src]="post.featureImage?.url" alt="post-thumbnail">
                     </a>
                   </div>
                   <div class="post-content">
@@ -39,60 +41,11 @@
           </div>
         </div>
         <div class="py-40"></div>
-        <div class="news-style-two">
-          <h3 class="news-title">
-            <span>Angular</span>
-          </h3>
-          <div class="row">
-            <div class="col-md-6 col-sm-6">
-              <div class="post-block-wrapper clearfix">
-                <div class="post-thumbnail">
-                  <a routerLink="/post/{{angularPostsFirst.slug}}">
-                    <img class="img-fluid" [src]="angularPostsFirst.feature_image?.url" alt="post-thumbnail">
-                  </a>
-                </div>
-                <a class="post-category" routerLink="/category/angular">Angular</a>
-                <div class="post-content">
-                  <h2 class="post-title mt-3">
-                    <a routerLink="/post/{{angularPostsFirst.slug}}">{{angularPostsFirst.title}}</a>
-                  </h2>
 
 
-                  <div class="post-meta mb-2">
-                    <!-- <span class="posted-time"><i class="fa fa-clock-o mr-2"></i>5 hours ago</span> -->
-                    <!-- <span class="post-author">
-                      by
-                      <a href="#">demo</a>
-                    </span> -->
-                  </div>
-                  <p>{{angularPostsFirst.excerpt}}</p>
 
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6 col-sm-6">
-              <div class="post-list-block m-top-0">
-                <div class="post-block-wrapper post-float clearfix" *ngFor="let post of angularPosts | slice:1;">
-                  <div class="post-thumbnail">
-                    <a routerLink="/post/{{post.slug}}">
-                      <img class="img-fluid" [src]="post.feature_image?.url" alt="post-thumbnail">
-                    </a>
-                  </div>
-
-                  <div class="post-content">
-                    <h2 class="post-title title-sm">
-                      <a routerLink="/post/{{post.slug}}">{{post.title}}</a>
-                    </h2>
-                    <div class="post-meta">
-                      <!-- <span class="posted-time"><i class="fa fa-clock-o mr-2"></i>7 hours ago</span> -->
-                    </div>
-                  </div>
-                </div>
-
-              </div>
-            </div>
-          </div>
-        </div>
+        <app-two-col-post [posts]="angularPosts" title="Angular" slug="angular"></app-two-col-post>
+        <app-two-col-post [posts]="nodePosts" title="Nodejs" slug="nodejs"></app-two-col-post>
 
       </div>
       <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
@@ -136,14 +89,14 @@
 
           <div class="widget">
             <h3 class="news-title">
-              <span>Popular Post</span>
+              <span>Featured Post</span>
             </h3>
 
             <div class="post-list-block">
-              <div class="post-block-wrapper post-float" *ngFor="let post of angularPosts">
+              <div class="post-block-wrapper post-float" *ngFor="let post of featuredPosts">
                 <div class="post-thumbnail">
                   <a routerLink="/post/{{post.slug}}">
-                    <img class="img-fluid" [src]="post.feature_image?.url" alt="post-thumbnail">
+                    <img class="img-fluid" [src]="post.featureImage?.url" alt="post-thumbnail">
                   </a>
                 </div>
                 <div class="post-content">
@@ -171,9 +124,9 @@
               <span>Support us</span>
             </h3>
 
-              <!-- <p>If You Appreciate What We Do Here On TutsCoder, You Should Consider:</p> -->
-              <p class="text-center"><a href="https://www.buymeacoffee.com/tutscoder" rel="nofollow" target="_blank"><img class="rounded w-100" alt="Support Us"
-                src="./assets/images/coffee.png"></a></p>
+            <!-- <p>If You Appreciate What We Do Here On TutsCoder, You Should Consider:</p> -->
+            <p class="text-center"><a href="https://www.buymeacoffee.com/tutscoder" rel="nofollow" target="_blank"><img
+                  class="rounded w-100" alt="Support Us" src="./assets/images/coffee.png"></a></p>
 
           </div>
           <div class="widget">

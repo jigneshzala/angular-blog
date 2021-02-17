@@ -24,7 +24,7 @@ export class AddPostComponent implements OnInit {
 
   images: any = [];
   newPost: any = {
-    feature_image: {
+    featureImage: {
       _id: "",
     },
     categories:[],
@@ -59,7 +59,7 @@ export class AddPostComponent implements OnInit {
 
 
   ngOnInit() {
-    this.newPost.feature_image["_id"] = "";
+    this.newPost.featureImage["_id"] = "";
     this.getAllCateogry();
     this.getAllTags();
     this.getAllImages();
@@ -93,7 +93,7 @@ export class AddPostComponent implements OnInit {
   }
 
   attachImageToPost(imageId: string) {
-    this.newPost["feature_image"]["_id"] = imageId;
+    this.newPost["featureImage"]["_id"] = imageId;
   }
 
   private getAllCateogry() {

@@ -24,8 +24,33 @@
         <div class="footer-widget f-widget-random">
           <div class="col-sm-12">
             <div class="row">
-              <h4 class="title">Random Posts</h4>
+              <h4 class="title">Most Viewed Posts</h4>
               <!-- <div class="title-line"></div> -->
+
+
+              <!--  <div class="post-block-wrapper post-float" *ngFor="let post of popularPosts">
+                  
+                  <div class="post-content">
+                    <p class="post-title title-sm">
+                      <a routerLink="/post/{{post.slug}}">{{post.title}}</a>
+                    </p>
+                    <div class="post-meta">
+                      <span class="posted-time"><i class="fa fa-clock-o mr-1"></i>2 hours ago</span>
+                    </div>
+                  </div>
+                </div> -->
+
+
+
+              <ul class="b">
+                <li *ngFor="let post of popularPosts">
+
+                  <a routerLink="/post/{{post.slug}}">{{post.title}}</a>
+                </li>
+
+              </ul>
+
+
 
             </div>
           </div>

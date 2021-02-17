@@ -55,7 +55,9 @@
               "node_modules/font-awesome/css/font-awesome.min.css",
               "node_modules/tinymce/skins/lightgray/skin.min.css",
               "node_modules/tinymce/skins/lightgray/content.min.css",
-              "src/styles.scss"
+              "src/styles.scss",
+              "src/assets/css/style.scss",
+              "src/assets/css/responsive.scss"
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.min.js",

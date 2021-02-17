@@ -30,7 +30,7 @@
                 <div class="about-image">
                   <img
                     class="attachment-post-single-thumb size-post-single-thumb wp-post-image img-fluid article-banner"
-                    [src]="post.feature_image?.url" [alt]="post.title">
+                    [src]="post.featureImage?.url" [alt]="post.title">
                 </div>
 
 
@@ -124,7 +124,7 @@
                 <div class="related-posts-list">
                   <div class="related-item" *ngFor="let post of relatedPosts;"> <a target="_blank"
                       routerLink="/post/{{post.slug}}" class="post-thumb">
-                      <img width="390" height="220" [src]="post.feature_image?.url" [alt]="post.title"></a>
+                      <img width="390" height="220" [src]="post.featureImage?.url" [alt]="post.title"></a>
                     <h3 class="post-title"><a routerLink="/post/{{post.slug}}" target="_blank">{{post.title}}</a></h3>
 
                   </div>
@@ -336,7 +336,7 @@
                 <div class="post-block-wrapper post-float" *ngFor="let post of relatedPosts">
                   <div class="post-thumbnail">
                     <a routerLink="/post/{{post.slug}}">
-                      <img class="img-fluid" [src]="post.feature_image?.url" alt="post-thumbnail">
+                      <img class="img-fluid" [src]="post.featureImage?.url" alt="post-thumbnail">
                     </a>
                   </div>
                   <div class="post-content">

@@ -24,7 +24,7 @@
           </div>
 
           <app-editable-image (entityUpdated)="attachImageToPost($event)" [transformView]="transformImage"
-            [entity]="newPost" [field]="'feature_image'" className="rental-image">
+            [entity]="newPost" [field]="'featureImage'" className="rental-image">
           </app-editable-image>
 
           <div class="form-group">
@@ -75,6 +75,12 @@
             <label for="html">content</label>
 
             <editor [init]="tinyConfig" [(ngModel)]="newPost.html" name="html"></editor>
+
+          </div>
+          <div class="form-group">
+            <label for="html">Featured</label>
+
+            <ui-switch [(ngModel)]="newPost.isFeatured" name="isFeatured"></ui-switch>
 
           </div>
 

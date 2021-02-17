@@ -2,7 +2,9 @@ import {
   AfterViewInit,
   Component,
   ElementRef,
+  Inject,
   OnInit,
+  PLATFORM_ID,
   TemplateRef,
   ViewChild,
 } from "@angular/core";
@@ -13,6 +15,7 @@ import { UserService } from "../admin/manage/users/shared/user.service";
 import { BsModalService, BsModalRef } from "ngx-bootstrap/modal";
 import { NgxUiLoaderService } from "ngx-ui-loader";
 import { SeoService } from "../shared/services/seo.service";
+import { isPlatformBrowser } from '@angular/common';
 declare const $: any;
 @Component({
   selector: "app-home",
@@ -21,6 +24,7 @@ declare const $: any;
 export class HomeComponent implements OnInit, AfterViewInit {
   modalRef: BsModalRef;
   constructor(
+    @Inject(PLATFORM_ID) private platform: Object,
     private postService: PostService,
     private categoryService: CategoryService,
     private meta: Meta,
@@ -44,10 +48,11 @@ export class HomeComponent implements OnInit, AfterViewInit {
   jsPosts: any = [];
   wordpressPosts: any = [];
   cssPosts: any = [];
-  angularPostsFirst: any = {};
   nodePosts: any = [];
   categories: any = [];
   tagsList: any = [];
+  popularPosts: any = [];
+  featuredPosts: any = [];
 
   @ViewChild("subscriberModal") elementView: ElementRef;
 
@@ -61,6 +66,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
     this.getPostByCategory("css");
     this.getAllCategory();
     this.getAllTags();
+    this.getFeaturedPosts();
   }
 
   private getAllCategory() {
@@ -82,6 +88,13 @@ export class HomeComponent implements OnInit, AfterViewInit {
       this.latestPosts = response["data"]["posts"];
     });
   }
+  
+  private getFeaturedPosts() {
+   
+    this.postService.getFeaturedPosts().subscribe((response) => {
+      this.featuredPosts = response;
+    });
+  }
   private getPostByCategory(category) {
     let reqData = {
       limit: 5,
@@ -91,7 +104,6 @@ export class HomeComponent implements OnInit, AfterViewInit {
     this.categoryService.getPostByCateogry(reqData).subscribe((response) => {
       if (category == "angular") {
         this.angularPosts = response["posts"];
-        this.angularPostsFirst = this.angularPosts[0];
       }
       if (category == "nodejs") {
         this.nodePosts = response["posts"];
@@ -121,9 +133,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
-    setTimeout(() => {
-      //this.modalRef = this.modalService.show(this.elementView);
-    }, 5000);
+    if (isPlatformBrowser(this.platform)) {
 
     $(".nav.navbar-nav li a").on("click", function () {
       $(this).parent("li").find(".dropdown-menu").slideToggle();
@@ -163,5 +173,6 @@ export class HomeComponent implements OnInit, AfterViewInit {
       );
       return false;
     });
+  }
   }
 }

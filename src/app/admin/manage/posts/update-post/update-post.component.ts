@@ -22,11 +22,11 @@ export class UpdatePostComponent implements OnInit {
     private modalService: BsModalService
   ) {}
   newPost: any = {
-    feature_image: {
+    featureImage: {
       _id: "",
-      categories:[],
-      tags:[]
     },
+    categories: [],
+    tags: [],
   };
   post: any;
   tinyConfig: any = {
@@ -45,14 +45,13 @@ export class UpdatePostComponent implements OnInit {
     ],
     default_link_target: "_blank",
     toolbar_sticky: true,
-
   };
   categoriesList: any = [];
   tagsList: any = [];
   postId: any;
   images: any = [];
   ngOnInit() {
-    this.newPost.feature_image["_id"] = "";
+    this.newPost.featureImage["_id"] = "";
     this.route.params.subscribe((params) => {
       this.postId = params["id"];
       this.getAllCateogry();
@@ -61,25 +60,22 @@ export class UpdatePostComponent implements OnInit {
     });
   }
 
-  updatePost(postForm: NgForm,data) {
-
+  updatePost(postForm: NgForm, data) {
     let reqData = JSON.parse(JSON.stringify(data));
- 
-    reqData.categories =reqData.categories.reduce(function(r, e) {
-       r[e.name] = e.slug;
-       return r;
-     }, {});
-     
- 
-     reqData.tags =reqData.tags.reduce(function(r, e) {
-       r[e.name] = e.slug;
-       return r;
-     }, {});
-     
-     
+
+    reqData.categories = reqData.categories.reduce(function (r, e) {
+      r[e.name] = e.slug;
+      return r;
+    }, {});
+
+    reqData.tags = reqData.tags.reduce(function (r, e) {
+      r[e.name] = e.slug;
+      return r;
+    }, {});
+
     this.postService.updatePost(this.newPost._id, reqData).subscribe(
       (updatedPost) => {
-        this.newPost = updatedPost;
+        
         alert("Post Updated");
       },
       (error) => {
@@ -89,10 +85,9 @@ export class UpdatePostComponent implements OnInit {
   }
 
   attachImageToPost(postEvent: any) {
-    
-    delete this.newPost["feature_image"];
-    this.newPost.feature_image = {};
-    this.newPost["feature_image"]["_id"] = postEvent.data.feature_image;
+    delete this.newPost["featureImage"];
+    this.newPost.featureImage = {};
+    this.newPost["featureImage"]["_id"] = postEvent.data.featureImage;
   }
 
   private getAllCateogry() {
@@ -107,11 +102,10 @@ export class UpdatePostComponent implements OnInit {
 
   private getAllTags() {
     this.categoryService.getAllTags().subscribe((response) => {
-      this.tagsList = response['data']['tags'];
+      this.tagsList = response["data"]["tags"];
     });
   }
   transformImage = (image: any): string => {
-    
     return image.url;
   };
 

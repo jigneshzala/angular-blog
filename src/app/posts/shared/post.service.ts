@@ -54,4 +54,10 @@ export class PostService {
   deletePost(postId) {
     return this.http.delete(`${this.API_URL}posts/${postId}`);
   }
+  getPopularPosts() {
+    return this.http.get(`${this.API_URL}posts/popular`);
+  }
+  getFeaturedPosts() {
+    return this.http.get(`${this.API_URL}posts/featured`);
+  }
 }

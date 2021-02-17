@@ -19,13 +19,21 @@ export class PostListingComponent implements OnInit {
   page: any = 1;
   limit: any = 5;
   firstPost:any
+  tagsList:any = [];
 
   ngOnInit() {
     this.getAllPost();
     this.getAllCategory();
+    this.getAllTags();
     /*  this.postService.getPosts().subscribe((posts) => {
       this.posts = posts;
     }); */
+  }
+
+  private getAllTags() {
+    this.categoryService.getAllTags().subscribe((response) => {
+      this.tagsList = response["data"]["tags"];
+    });
   }
 
   private getAllPost() {

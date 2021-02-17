@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { UserService } from "../admin/manage/users/shared/user.service";
+import { PostService } from "../posts/shared/post.service";
 
 @Component({
   selector: "app-footer",
@@ -7,9 +8,11 @@ import { UserService } from "../admin/manage/users/shared/user.service";
   styleUrls: ["./footer.component.scss"],
 })
 export class FooterComponent implements OnInit {
-  constructor(private userService: UserService) {}
-
-  ngOnInit(): void {}
+  constructor(private userService: UserService,private postService : PostService) {}
+  popularPosts:any = [];
+  ngOnInit(): void {
+    this.getPopularPosts();
+  }
   addSubscribe(email) {
     
     let reqData = {
@@ -17,6 +20,13 @@ export class FooterComponent implements OnInit {
     };
     this.userService.addSubscribe(reqData).subscribe((response) => {
       console.log(response);
+    });
+  }
+
+  private getPopularPosts() {
+   
+    this.postService.getPopularPosts().subscribe((response) => {
+      this.popularPosts = response;
     });
   }
 }
