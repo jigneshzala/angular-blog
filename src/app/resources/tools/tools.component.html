@@ -1,7 +1,7 @@
-<h1>Comming soon...</h1>
-<!-- <div class="container resources-box">
-  <h2>Most Recommended Tools</h2>
-  <div class="row mt-5 recommended-tool">
+<!-- <h1>Comming soon...</h1> -->
+<div class="container resources-box">
+  <!-- <h2>Most Recommended Tools</h2> -->
+  <!--   <div class="row mt-5 recommended-tool">
     <div class="col-12 col-md-4 text-center">
       <div class="recommended-tool__image"><img width="300" height="144" src="#"
           class="attachment-medium size-medium wp-post-image" alt=""></div>
@@ -25,20 +25,33 @@
         </div>
       </div>
     </div>
-  </div>
-  <h3>Hosting</h3>
-  <div class="row">
-    <div class="col-6 col-md-4">
-      <div class="other-tools">
-        <div class="other-tools__image"><img width="300" height="144" src="#"
-            class="attachment-medium size-medium wp-post-image" alt=""></div>
-        <h3 class="other-tools__title">TEST</h3>
-        <div class="other-tools__text">
-          <p>Lorem ipsum...</p>
+  </div> -->
+<!--   <ng-container *ngFor="let tool of toolbox">
+    <h2 class="toolbox-title">{{tool.title}}</h2>
+    <div class="row">
+      <div class="col-6 col-md-4 toolbox" *ngFor="let item of tool.data">
+        <div class="other-tools">
+          <div class="other-tools__image"><img width="300" height="144" [src]="item.img"
+              class="attachment-medium size-medium wp-post-image" alt=""></div>
+
+
+          <div class="horizonatal-divider-wrap">
+            <p class="horizonatal-divider"></p>
+
+          </div>
+          <h3 class="other-tools__title">{{item.title}}</h3>
+
+          <div class="other-tools__text">
+            <p>{{item.desc}}
+            </p>
+          </div>
+          <div class="other-tools__url"><a class="button btn btn-success toolbox-btn" [href]="item.link"
+              target="_blank">Try
+              Now</a></div>
         </div>
-        <div class="other-tools__url"><a class="button btn btn-success" href="#" target="_blank">Try
-            Iubenda</a></div>
       </div>
     </div>
-  </div>
-</div> -->
+  </ng-container> -->
+
+
+</div>
