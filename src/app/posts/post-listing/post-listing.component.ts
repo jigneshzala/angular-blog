@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { CategoryService } from "src/app/categories/shared/category.service";
 import { PostService } from "../shared/post.service";
-import { Router } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 @Component({
   selector: "app-post-listing",
   templateUrl: "./post-listing.component.html",
@@ -9,6 +9,7 @@ import { Router } from "@angular/router";
 })
 export class PostListingComponent implements OnInit {
   constructor(
+    private activeRoute: ActivatedRoute,
     private route: Router,
     private postService: PostService,
     private categoryService: CategoryService
@@ -22,9 +23,18 @@ export class PostListingComponent implements OnInit {
   tagsList:any = [];
 
   ngOnInit() {
-    this.getAllPost();
+    
     this.getAllCategory();
     this.getAllTags();
+
+    this.activeRoute.queryParams.subscribe(queryParams  =>{
+
+      this.page =  queryParams['page'] ? +queryParams['page'] : 1;
+      this.getAllPost();
+
+    })
+
+    
     /*  this.postService.getPosts().subscribe((posts) => {
       this.posts = posts;
     }); */
@@ -61,8 +71,10 @@ export class PostListingComponent implements OnInit {
       this.page = this.page - 1;
     }
 
-    this.getAllPost();
+  
+    //this.getAllPost();
 
-    //this.route.navigate(['/',]);
+    this.route.navigate(['/post'], { queryParams: { page: this.page } });
+    
   }
 }
