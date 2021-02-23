@@ -15,10 +15,14 @@ export class ImageUploadService {
   API_URL = "";
 
   uploadImage(image: ImageSnippet): Observable<any> {
-    const { src, type, name } = image;
+    
+    let { src, type, name } = image;
+    
     const file = b64ToFile(src, type, name);
     const formData = new FormData();
+
     formData.append("image", file);
+    
 
     return this.http.post(`${this.API_URL}image-upload`, formData);
   }

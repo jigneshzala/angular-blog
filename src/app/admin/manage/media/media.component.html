@@ -4,6 +4,7 @@
       <tr>
         <th scope="col">#</th>
         <th scope="col">Image</th>
+        <th scope="col">Title</th>
   
         
         <th scope="col">Action</th>
@@ -12,6 +13,7 @@
     <tbody>
        <tr *ngFor="let img of images;let i= index;">
         <th scope="row">{{i+1}}</th>
+        
 
         <td>
           
@@ -19,6 +21,7 @@
             <img class="img-thumbnail w-25" [src]="img.url">  
           </div>
           </td>
+          <td>{{img.name}}</td>
         
   
         <td>

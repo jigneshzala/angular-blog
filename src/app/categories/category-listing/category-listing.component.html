@@ -18,7 +18,7 @@
 
 
                   <span class="post-date">
-                    Updated on {{firstPost.updatedAt | date:'short'}}</span></div>
+                    Updated on <strong>{{firstPost.updatedAt | date:'longDate'}}</strong></span></div>
               </div>
               <div class="aff-meta-above"><span class="aff-cat-labels"><a href="#" class="category"
                     rel="category">Angular</a></span></div>
@@ -47,7 +47,7 @@
                   <span class="by"> Written by </span><a
                     href="#"
                     title="Posts by">Jignesh zala</a></span> --><a href="#" class="aff-meta-item date-link"
-                    itemprop="datePublished"><span class="post-date"> Updated on {{post.updatedAt}}</span></a></div>
+                    itemprop="datePublished"><span class="post-date"> Updated on <strong>{{post.updatedAt | date:'longDate'}}</strong></span></a></div>
               </div>
               <div class="aff-meta-above"><span class="aff-cat-labels"><a href="#" class="category"
                     rel="category">Nodejs</a></span></div>

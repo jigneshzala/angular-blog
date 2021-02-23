@@ -18,29 +18,29 @@ export class ToolsComponent implements OnInit {
           title: "Bluehost",
           desc: "Bluehost is the best web hosting to host your website.",
           img: "./assets/images/bluehost-logo.png",
-          link: "https://tutscoder.com/Recommended/bluehost",
+          link: "https://www.bluehost.com/track/tutscoder",
         },
-        {
+      /*   {
           title: "GoDaddy Hosting",
-          desc: "Get 12 months of Economy Web Hosting for just $1*/mo.",
+          desc: "Get 12 months of Economy Web Hosting for just $1 per month.",
           img: "./assets/images/godaddy-logo.png",
           link: "https://tutscoder.com/Recommended/bluehost",
-        },
+        }, */
         {
           title: "HostGator",
           desc: "Hosting Starting at $2.95/month only for iftiSEO readers.",
           img: "./assets/images/hostgator-logo.png",
-          link: "https://tutscoder.com/Recommended/bluehost",
+          link: "https://partners.hostgator.com/43kG",
         },
         {
           title: "Digital Ocean",
           desc: "Host your site for 2 months for FREE using this Deal.",
           img: "./assets/images/digitalOcean-logo.png",
-          link: "https://tutscoder.com/Recommended/bluehost",
+          link: "https://m.do.co/c/01327f6f91f2",
         },
       ],
     },
-    {
+    /* {
       title: "Marketing Tools",
       data: [
         {
@@ -62,8 +62,8 @@ export class ToolsComponent implements OnInit {
           link: "https://tutscoder.com/Recommended/bluehost",
         },
       ],
-    },
-    {
+    }, */
+  /*   {
       title: "SEO Tools",
       data: [
         {
@@ -74,8 +74,8 @@ export class ToolsComponent implements OnInit {
           link: "https://tutscoder.com/Recommended/bluehost",
         },
       ],
-    },
-    {
+    }, */
+    /* {
       title: "Writing Tools",
       data: [
         {
@@ -85,8 +85,8 @@ export class ToolsComponent implements OnInit {
           link: "https://tutscoder.com/Recommended/bluehost",
         },
       ],
-    },
-    {
+    }, */
+  /*   {
       title: "Themes",
       data: [
         {
@@ -96,8 +96,8 @@ export class ToolsComponent implements OnInit {
           link: "https://tutscoder.com/Recommended/bluehost",
         },
       ],
-    },
-    {
+    }, */
+/*     {
       title: "Learning Resources",
       data: [
         {
@@ -107,6 +107,6 @@ export class ToolsComponent implements OnInit {
           link: "https://tutscoder.com/Recommended/bluehost",
         },
       ],
-    },
+    }, */
   ];
 }

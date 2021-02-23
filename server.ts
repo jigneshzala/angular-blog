@@ -14,6 +14,7 @@ export function app() {
   const server = express();
   const distFolder = join(process.cwd(), "dist", "browser");
   const sitemapUrl = "https://nodeblog-api.herokuapp.com/sitemap.xml";
+  const rssUrl = "http://localhost:3000/rss/rssfeed.xml";
   // const distFolder = join(process.cwd(), 'dist/nodeblog/browser');
   const indexHtml = existsSync(join(distFolder, "index.original.html"))
     ? "index.original.html"
@@ -31,7 +32,19 @@ export function app() {
   server.set("views", distFolder);
 
   // ---- SERVE SITEMAPS.XML FROM A DEDICATED API ---- //
-  server.all("*.xml", function (req, res) {
+   /* server.all("/rss.xml", function (req, res) {
+    console.log('sds');
+    var options = {
+      url: sitemapUrl,
+      headers: {
+        Accept: "application/xml",
+      },
+    };
+
+    request(options).pipe(res);
+  });  */
+  
+  server.all("/sitemap.xml", function (req, res) {
     // we need to redirect the sitemap request directly to the backend
     var options = {
       url: sitemapUrl,
@@ -42,6 +55,7 @@ export function app() {
 
     request(options).pipe(res);
   });
+
 
   // Example Express Rest API endpoints
   // server.get('/api/**', (req, res) => { });
@@ -65,7 +79,7 @@ export function app() {
 }
 
 function run() {
-  const port = process.env.PORT || 4000;
+  const port = process.env.PORT || 5000;
 
   // Start up the Node server
   const server = app();
