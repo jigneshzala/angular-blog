@@ -1,4 +1,4 @@
-<section id="main" class="margin-top-30">
+<section class="block-wrapper">
   <div class="container">
     <div class="row">
 
@@ -7,48 +7,29 @@
           <div class="col-xs-12 col-sm-12 posts ">
             <div class="row">
 
-              <div class="post-item-horizontal" *ngFor="let post of posts">
-                <!--  <div class="item-image">
-                  <a routerLink="/category/{{category.name}}" *ngFor="let category of post.categories">
-                    <span class="label-post-category">
-                      {{category.name}} </span>
-                  </a>
-                  <a routerLink="/post/{{post._id}}">
-                    <img [src]="post.featureImage?.url" class="img-responsive lazyloaded"
-                      alt="Expound the actual teachings of the great explorer of the truth">
-                  </a>
-                </div> -->
-                <div class="item-content">
-                  <h3 class="title">
-                    <a routerLink="/post/{{post._id}}">
-                      {{post.title}} </a>
-                  </h3>
-                  <div class="post-meta">
-                    <p class="post-meta-inner">
-                      <span>
-                        <a href="#">
-                          author </a>
-                      </span>
-                      <span>
-                        <i class="icon-clock"></i>&nbsp;&nbsp;{{post.created_at}} </span>
-                      <span>
-                        <i class="icon-comment"></i>&nbsp;
-                        10 </span>
+              <div class="loop-list loop-list-style-1">
+                <article *ngFor="let post of posts">
+              
+                  <div class="row mb-40 list-style-2">
 
-                      <span>
-                        <i class="icon-eye"></i>&nbsp;
-                        2361 </span>
-                    </p>
+                    <div class="col-md-12 align-self-center">
+                      <div class="post-content">
+                        <div class="entry-meta meta-0 font-small mb-10">
+
+                        </div>
+                        <h5 class="post-title font-weight-900 mb-20">
+                          <a routerLink="/snippet/{{post.slug}}">{{post.title}}</a>
+                        </h5>
+                        <div class="entry-meta meta-1 float-left font-x-small text-uppercase">
+                          <span class="post-on">{{post.updatedAt |date:'longDate'}}</span>
+
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                  <!--  <p class="summary">
-                    {{post.excerpt}}
-                  </p> -->
-                  <div class="post-buttons">
-                    <a routerLink="/snippets/{{post.slug}}" class="pull-right read-more">
-                      Read More <i class="icon-arrow-right read-more-i" aria-hidden="true"></i>
-                    </a>
-                  </div>
-                </div>
+                </article>
+
+
               </div>
 
               <div class="col-sm-12 col-xs-12"></div>
@@ -95,29 +76,119 @@
             </div> -->
         </div>
       </div>
-      <div class="col-xs-12 col-sm-12 col-md-4">
+      <aside class="col-lg-4 col-md-12 sidebars s_right" style="padding-right: 0px;">
 
         <div class="sidebar">
 
 
-          <div class="col-sm-12 col-xs-12 sidebar-widget widget-popular-posts">
-            <app-popular-post [popularPosts]="posts"></app-popular-post>
+          <div class="col-sm-12 col-xs-12 sidebar-widget">
+            <div class="widget">
+              <h3 class="news-title">
+                <span>Stay in touch</span>
+              </h3>
+
+              <ul class="list-inline social-widget">
+                <li class="list-inline-item">
+                  <a class="social-page facebook" rel="noopener noreferrer" href="https://www.facebook.com/TutsCoder"
+                    target="_blank" title="facebook">
+                    <i class="fa fa-facebook"></i>
+                  </a>
+                </li>
+                <li class="list-inline-item">
+                  <a class="social-page twitter" rel="noopener noreferrer" href="https://twitter.com/tutscoder"
+                    target="_blank" title="twitter">
+                    <i class="fa fa-twitter"></i>
+                  </a>
+                </li>
+                <li class="list-inline-item">
+                  <a class="social-page youtube" rel="noopener noreferrer"
+                    href="https://www.youtube.com/channel/UCmObcNnWeVBlSeO_iQhsRcA" target="_blank" title="youtube">
+                    <i class="fa fa-youtube"></i>
+                  </a>
+                </li>
+
+
+                <li class="list-inline-item">
+                  <a class="social-page pinterest" rel="noopener noreferrer" href="https://in.pinterest.com/tutscoder"
+                    target="_blank" title="pinterest">
+                    <i class="fa fa-pinterest"></i>
+                  </a>
+                </li>
+
+              </ul>
+
+            </div>
+          </div>
+          <!--  <div class="col-sm-12 col-xs-12 sidebar-widget">
+
+          <div class="widget">
+            <h3 class="news-title">
+              <span>Popular Post</span>
+            </h3>
+
+            <div class="post-list-block">
+              <div class="post-block-wrapper post-float" *ngFor="let post of relatedPosts">
+                <div class="post-thumbnail">
+                  <a routerLink="/post/{{post.slug}}">
+                    <img class="img-fluid" [src]="post.featureImage?.url" alt="post-thumbnail">
+                  </a>
+                </div>
+                <div class="post-content">
+                  <h2 class="post-title title-sm">
+                    <a routerLink="/post/{{post.slug}}">{{post.title}}</a>
+                  </h2>
+                  <div class="post-meta">
+                    <span class="posted-time"><i class="fa fa-clock-o mr-1"></i>2 hours ago</span>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div> -->
+
+          <div class="col-sm-12 col-xs-12 sidebar-widget">
+
+            <div class="widget">
+              <h3 class="news-title">
+                <span>CATEGORIES</span>
+              </h3>
+
+              <app-category-list [categoriesList]="categories"></app-category-list>
+
+            </div>
+
+          </div>
+
+          <div class="col-sm-12 col-xs-12 sidebar-widget widget-popular-posts mt-3">
+            <div class="widget">
+              <h3 class="news-title">
+                <span>Support us</span>
+              </h3>
+
+              <!-- <p>If You Appreciate What We Do Here On TutsCoder, You Should Consider:</p> -->
+              <p class="text-center"><a href="https://www.buymeacoffee.com/tutscoder" rel="nofollow"
+                  target="_blank"><img class="rounded w-100" alt="Support Us" src="./assets/images/coffee.png"></a></p>
+
+            </div>
           </div>
 
 
           <div class="col-sm-12 col-xs-12 sidebar-widget">
+            <div class="widget">
+              <h3 class="news-title">
+                <span>Tags</span>
+              </h3>
 
-            <app-category-list [categoriesList]="categories"></app-category-list>
-          </div>
+              <app-tags-list [tagsList]="tagsList"></app-tags-list>
 
-          <div class="col-sm-12 col-xs-12 sidebar-widget">
-            <app-tags-list [tagsList]="categories"></app-tags-list>
+            </div>
           </div>
 
 
         </div>
-
-      </div>
+      </aside>
     </div>
   </div>
 </section>

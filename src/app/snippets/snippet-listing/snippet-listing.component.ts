@@ -20,16 +20,18 @@ export class SnippetListingComponent implements OnInit {
   posts: any;
   category: string;
   categories: any;
+  tagsList:any = [];
   ngOnInit() {
     this.route.params.subscribe((params) => {
       this.category = params["catname"];
       //this.seoService.updateTitle(`${this.category} | TutsCoder`);
-      this.getPostByCategory();
+      this.getSnippetByCategory();
       this.getAllCategory();
+      this.getAllTags();
     });
   }
 
-  private getPostByCategory() {
+  private getSnippetByCategory() {
     this.snippetService
       .getSnippetByCategory(this.category)
       .subscribe((response) => {
@@ -39,6 +41,11 @@ export class SnippetListingComponent implements OnInit {
   private getAllCategory() {
     this.categoryService.getAllCateogry().subscribe((data) => {
       this.categories = data;
+    });
+  }
+  private getAllTags() {
+    this.categoryService.getAllTags().subscribe((response) => {
+      this.tagsList = response["data"]["tags"];
     });
   }
 }

@@ -1,6 +1,7 @@
 <section class="block-wrapper">
   <main id="content" class="container aff-site-content">
     <div class="row">
+      <ng-container *ngIf="firstPost else postNotFound">
       <div class="col-lg-8 col-md-12 layout_8 main-content DESC">
         <article class="aff-post has-post-thumbnail lay-8" *ngIf="firstPost">
           <header class="aff-aff-post-header aff-aff-post-header cf">
@@ -57,6 +58,15 @@
 
         </article>
         <!-- Pagination -->
+        
+        <div class="col-xs-12 col-sm-12 col-xs-12">
+          <div class="row">
+            <div class="pagination nextprev">
+              <a class="float-left custom-btn" *ngIf="page > 1" href="javascript:void(0)" (click)="prevNextPosts('prev')">❮ Previous</a>
+              <a class="float-right custom-btn" *ngIf="page != totalPage"  href="javascript:void(0)" (click)="prevNextPosts('next')">Next ❯</a>
+            </div>
+          </div>
+        </div>
         <!-- <div class="page-nav-container"><a class="prev page-numbers" href="#">&lt;</a><a
           class="page-numbers" href="#">1</a><span aria-current="page"
           class="page-numbers current">2</span><a class="page-numbers"
@@ -65,7 +75,7 @@
           class="page-numbers" href="#">9</a><a class="next page-numbers"
           href="#">&gt;</a></div> -->
       </div>
-
+    </ng-container>
       <aside class="col-lg-4 col-md-12 sidebars s_right" style="padding-right: 0px;">
 
         <div class="sidebar">
@@ -182,3 +192,9 @@
     </div>
   </main>
 </section>
+<ng-template #postNotFound>
+  <div class="col-lg-8 col-md-12 layout_8 main-content DESC">
+    <h1>This page does not exist</h1>    
+  </div>
+
+</ng-template>

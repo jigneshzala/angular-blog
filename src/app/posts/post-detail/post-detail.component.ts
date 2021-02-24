@@ -1,4 +1,9 @@
-import { AfterViewChecked, Component, OnInit, ViewEncapsulation } from "@angular/core";
+import {
+  AfterViewChecked,
+  Component,
+  OnInit,
+  ViewEncapsulation,
+} from "@angular/core";
 import { NgForm } from "@angular/forms";
 import { ActivatedRoute } from "@angular/router";
 import { response } from "express";
@@ -15,7 +20,6 @@ import { NgxUiLoaderService } from "ngx-ui-loader";
   templateUrl: "./post-detail.component.html",
   styleUrls: ["./post-detail.component.scss"],
   encapsulation: ViewEncapsulation.None,
-
 })
 export class PostDetailComponent implements OnInit, AfterViewChecked {
   constructor(
@@ -28,13 +32,13 @@ export class PostDetailComponent implements OnInit, AfterViewChecked {
     private commanService: CommanService,
     private ngxService: NgxUiLoaderService
   ) {}
-  post: any;
+  post: any = { categories: [],comments:[] };
   highlighted: boolean = false;
   posts: any;
   categories: any;
   tagsList: any;
   hideme: any = {};
-  relatedPosts:any = [];
+  relatedPosts: any = [];
   emailPattern = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   /**
    * Highlight blog post when it's ready
@@ -50,12 +54,11 @@ export class PostDetailComponent implements OnInit, AfterViewChecked {
     this.route.params.subscribe((params) => {
       this.ngxService.start();
       this.postService.getPostBySlug(params["slug"]).subscribe((post) => {
-
         this.post = post;
-        
+
         this.seoService.setMetaTags({
-          title:`${this.post.title} | TutsCoder`,
-          description:`${this.post.meta_description}`
+          title: `${this.post.title} | TutsCoder`,
+          description: `${this.post.meta_description}`,
         });
         this.getPostByCategory();
         this.getAllCategory();
@@ -82,17 +85,16 @@ export class PostDetailComponent implements OnInit, AfterViewChecked {
     });
   }
   private getRelatedPosts() {
-    
-     let reqData = {
-      _id:this.post._id,
-      categories:this.post.categories.map(value => value._id)
-    }
+    let reqData = {
+      _id: this.post._id,
+      categories: this.post.categories.map((value) => value._id),
+    };
     this.postService.getRelatedPosts(reqData).subscribe((response) => {
       this.relatedPosts = response;
       this.ngxService.stop();
-    }); 
+    });
   }
-  
+
   commentData: any = {};
   replyData: any = {};
   subscriberEmail: any = {};
@@ -128,7 +130,7 @@ export class PostDetailComponent implements OnInit, AfterViewChecked {
     let reqData = {
       email: email,
     };
-  /*   this.userService.addSubscribe(reqData).subscribe((response) => {
+    /*   this.userService.addSubscribe(reqData).subscribe((response) => {
       console.log(response);
     }); */
   }

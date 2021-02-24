@@ -1,9 +1,10 @@
 import { Component, OnInit } from "@angular/core";
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 import { CommanService } from "src/app/shared/services/comman.service";
 import { SeoService } from "src/app/shared/services/seo.service";
 import { CategoryService } from "../shared/category.service";
 import { NgxUiLoaderService } from "ngx-ui-loader";
+import { combineLatest } from "rxjs/internal/observable/combineLatest";
 
 @Component({
   selector: "app-category-listing",
@@ -13,6 +14,7 @@ import { NgxUiLoaderService } from "ngx-ui-loader";
 export class CategoryListingComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
+    private router: Router,
     private categoryService: CategoryService,
     private seoService: SeoService,
     private commanService: CommanService,
@@ -23,22 +25,34 @@ export class CategoryListingComponent implements OnInit {
   categories: any;
   firstPost: any;
   tagsList: any = [];
-  ngOnInit() {
-    this.route.params.subscribe((params) => {
-      this.ngxService.start();
-      this.category = params["catId"];
+  page: any = 1;
+  limit: any = 5;
+  totalPage: any;
 
+  ngOnInit() {
+    combineLatest([
+      this.route.paramMap,
+      this.route.queryParamMap,
+    ]).subscribe(([pathParams, queryParams]) => {
+      
+      this.ngxService.start();
+      this.category = pathParams.get('catId');
+      
       this.seoService.setMetaTags({
         title: `${this.commanService.capitalizeFirstLetter(
           this.category
         )} | TutsCoder`,
       });
 
-      //this.seoService.updateDescription(``);
+      
+      this.page =  queryParams.get('page') ? +queryParams.get('page') : 1;
+
       this.getPostByCategory();
       this.getAllCategory();
       this.getAllTags();
+
     });
+   
   }
 
   private getAllTags() {
@@ -51,16 +65,26 @@ export class CategoryListingComponent implements OnInit {
     let reqData = {
       category: this.category,
       limit: "5",
+      page: this.page,
     };
     this.categoryService.getPostByCateogry(reqData).subscribe((response) => {
-      this.posts = response["posts"];
+      this.posts = response["data"];
       this.firstPost = this.posts[0];
+      this.totalPage = response['totalPages'];
     });
   }
   private getAllCategory() {
     this.categoryService.getAllCateogry().subscribe((data) => {
       this.categories = data;
       this.ngxService.stop();
+    });
+  }
+
+  prevNextPosts(type) {
+    this.page = type == "next" ? this.page + 1 : this.page - 1;
+
+    this.router.navigate([`/category/${this.category}`], {
+      queryParams: { page: this.page },
     });
   }
 }

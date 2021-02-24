@@ -29,7 +29,7 @@
  <ng-container *ngFor="let tool of toolbox">
     <h2 class="toolbox-title">{{tool.title}}</h2>
     <div class="row">
-      <a href="https://www.bluehost.com/track/tutscoder/" target="_blank"> <img border="0" src="https://bluehost-cdn.com/media/partner/images/tutscoder/300x250/300x250BW.png"> </a>
+      
       <div class="col-6 col-md-4 toolbox" *ngFor="let item of tool.data">
         <div class="other-tools">
           <div class="other-tools__image"><img width="300" height="144" [src]="item.img"

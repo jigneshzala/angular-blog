@@ -83,9 +83,10 @@ export class HomeComponent implements OnInit, AfterViewInit {
   private getLatestPosts() {
     let reqData = {
       limit: 4,
+      page:1
     };
     this.postService.getPosts(reqData).subscribe((response) => {
-      this.latestPosts = response["data"]["posts"];
+      this.latestPosts = response["data"];
     });
   }
   
@@ -103,19 +104,19 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
     this.categoryService.getPostByCateogry(reqData).subscribe((response) => {
       if (category == "angular") {
-        this.angularPosts = response["posts"];
+        this.angularPosts = response["data"];
       }
       if (category == "nodejs") {
-        this.nodePosts = response["posts"];
+        this.nodePosts = response["data"];
       }
       if (category == "javascript") {
-        this.jsPosts = response["posts"];
+        this.jsPosts = response["data"];
       }
       if (category == "wordpress") {
-        this.wordpressPosts = response["posts"];
+        this.wordpressPosts = response["data"];
       }
       if (category == "css") {
-        this.cssPosts = response["posts"];
+        this.cssPosts = response["data"];
       }
 
       this.ngxService.stop();

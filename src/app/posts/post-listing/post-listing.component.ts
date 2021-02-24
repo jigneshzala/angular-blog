@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { CategoryService } from "src/app/categories/shared/category.service";
 import { PostService } from "../shared/post.service";
 import { ActivatedRoute, Router } from "@angular/router";
+import { NgxUiLoaderService } from "ngx-ui-loader";
 @Component({
   selector: "app-post-listing",
   templateUrl: "./post-listing.component.html",
@@ -12,7 +13,8 @@ export class PostListingComponent implements OnInit {
     private activeRoute: ActivatedRoute,
     private route: Router,
     private postService: PostService,
-    private categoryService: CategoryService
+    private categoryService: CategoryService,
+    private ngxService: NgxUiLoaderService
   ) {}
 
   posts: any = [];
@@ -20,7 +22,9 @@ export class PostListingComponent implements OnInit {
   page: any = 1;
   limit: any = 5;
   firstPost:any
+  totalPage:any;
   tagsList:any = [];
+  errors:any;
 
   ngOnInit() {
     
@@ -28,7 +32,7 @@ export class PostListingComponent implements OnInit {
     this.getAllTags();
 
     this.activeRoute.queryParams.subscribe(queryParams  =>{
-
+      this.ngxService.start();
       this.page =  queryParams['page'] ? +queryParams['page'] : 1;
       this.getAllPost();
 
@@ -53,8 +57,14 @@ export class PostListingComponent implements OnInit {
     };
     this.postService.getPosts(reqData).subscribe((response) => {
       
-      this.posts = response["data"]["posts"];
+      this.posts = response["data"];
       this.firstPost = this.posts[0];
+      this.totalPage = response['totalPages'];
+      this.ngxService.stop();
+      
+    },error=>{
+      this.ngxService.stop();
+      this.errors = error.error;
     });
   }
 
@@ -65,14 +75,8 @@ export class PostListingComponent implements OnInit {
   }
 
   prevNextPosts(type) {
-    if (type == "next") {
-      this.page = this.page + 1;
-    } else {
-      this.page = this.page - 1;
-    }
-
-  
-    //this.getAllPost();
+    
+    this.page = (type == "next") ? this.page + 1 : this.page - 1
 
     this.route.navigate(['/post'], { queryParams: { page: this.page } });
     

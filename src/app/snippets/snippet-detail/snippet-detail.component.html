@@ -1,4 +1,4 @@
-<section id="main" class="margin-top-30">
+<section class="block-wrapper">
   <div class="container">
     <div class="row">
 
@@ -9,7 +9,7 @@
 
               <div class="blog-post" *ngIf="post">
                 <h2 class="blog-post-title">{{post.title}}</h2>
-                <p class="blog-post-meta">{{post.created_at}} by <a href="#">Jignesh zala</a></p>
+
 
                 <p [innerHtml]="post.html">
 
@@ -26,7 +26,7 @@
 
             </div>
           </div>
-          
+
         </div>
       </div>
       <div class="col-xs-12 col-sm-12 col-md-4">
