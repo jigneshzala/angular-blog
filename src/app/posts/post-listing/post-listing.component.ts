@@ -25,6 +25,7 @@ export class PostListingComponent implements OnInit {
   totalPage:any;
   tagsList:any = [];
   errors:any;
+  isLoaded:boolean = false;
 
   ngOnInit() {
     
@@ -60,9 +61,11 @@ export class PostListingComponent implements OnInit {
       this.posts = response["data"];
       this.firstPost = this.posts[0];
       this.totalPage = response['totalPages'];
+      this.isLoaded = true;
       this.ngxService.stop();
       
     },error=>{
+      this.isLoaded = true;
       this.ngxService.stop();
       this.errors = error.error;
     });

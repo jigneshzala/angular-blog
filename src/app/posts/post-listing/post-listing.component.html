@@ -1,10 +1,11 @@
 <section class="block-wrapper">
   <main id="content" class="container aff-site-content">
     <div class="row">
-      <ng-container *ngIf="firstPost else postNotFound ">
+      
 
       
       <div class="col-lg-8 col-md-12 layout_8 main-content DESC">
+        <ng-container *ngIf="firstPost else postNotFound ">
         <article class="aff-post has-post-thumbnail lay-8" *ngIf="firstPost">
           <header class="aff-aff-post-header aff-aff-post-header cf">
             <div class="featured">
@@ -68,6 +69,7 @@
             </div>
           </div>
         </div>
+      </ng-container>
         <!-- <div class="page-nav-container"><a class="prev page-numbers" href="#">&lt;</a><a
           class="page-numbers" href="#">1</a><span aria-current="page"
           class="page-numbers current">2</span><a class="page-numbers"
@@ -76,7 +78,7 @@
           class="page-numbers" href="#">9</a><a class="next page-numbers"
           href="#">&gt;</a></div> -->
       </div>
-    </ng-container>
+    
       <aside class="col-lg-4 col-md-12 sidebars s_right" style="padding-right: 0px;">
 
         <div class="sidebar">
@@ -204,7 +206,8 @@
   </main>
 </section>
 <ng-template #postNotFound>
-  <div class="col-lg-8 col-md-12 layout_8 main-content DESC">
+  <div *ngIf="isLoaded">
+    
     <h1>This page does not exist</h1>    
   </div>
 
