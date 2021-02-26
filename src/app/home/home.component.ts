@@ -47,12 +47,10 @@ export class HomeComponent implements OnInit, AfterViewInit {
   angularPosts: any = [];
   jsPosts: any = [];
   wordpressPosts: any = [];
-  cssPosts: any = [];
+  devPosts: any = [];
   nodePosts: any = [];
-  categories: any = [];
-  tagsList: any = [];
   popularPosts: any = [];
-  featuredPosts: any = [];
+  
 
   @ViewChild("subscriberModal") elementView: ElementRef;
 
@@ -63,23 +61,10 @@ export class HomeComponent implements OnInit, AfterViewInit {
     this.getPostByCategory("nodejs");
     this.getPostByCategory("javascript");
     this.getPostByCategory("wordpress");
-    this.getPostByCategory("css");
-    this.getAllCategory();
-    this.getAllTags();
-    this.getFeaturedPosts();
+    this.getPostByCategory("web-development");
   }
 
-  private getAllCategory() {
-    this.categoryService.getAllCateogry().subscribe((data) => {
-      this.categories = data;
-    });
-  }
-
-  private getAllTags() {
-    this.categoryService.getAllTags().subscribe((response) => {
-      this.tagsList = response["data"]["tags"];
-    });
-  }
+  
   private getLatestPosts() {
     let reqData = {
       limit: 4,
@@ -90,12 +75,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
     });
   }
   
-  private getFeaturedPosts() {
-   
-    this.postService.getFeaturedPosts().subscribe((response) => {
-      this.featuredPosts = response;
-    });
-  }
+  
   private getPostByCategory(category) {
     let reqData = {
       limit: 5,
@@ -115,8 +95,8 @@ export class HomeComponent implements OnInit, AfterViewInit {
       if (category == "wordpress") {
         this.wordpressPosts = response["data"];
       }
-      if (category == "css") {
-        this.cssPosts = response["data"];
+      if (category == "web-development") {
+        this.devPosts = response["data"];
       }
 
       this.ngxService.stop();

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CategoryService } from 'src/app/categories/shared/category.service';
 import { HighlightService } from 'src/app/shared/services/highlight.service';
+import { SeoService } from 'src/app/shared/services/seo.service';
 import { SnippetService } from '../shared/snippet.service';
 
 @Component({
@@ -15,7 +16,8 @@ export class SnippetDetailComponent implements OnInit {
     private route: ActivatedRoute,
     private snippetService: SnippetService,
     private highlightService: HighlightService,
-    private categoryService: CategoryService
+    private categoryService: CategoryService,
+    private seoService: SeoService
   ) {}
   snippets: any;
   highlighted: boolean = false;
@@ -37,7 +39,12 @@ export class SnippetDetailComponent implements OnInit {
     this.route.params.subscribe((params) => {
       this.snippetService.getSnippetBySlug(params["slug"]).subscribe((post) => {
         this.post = post;
-        //this.getPostByCategory();
+        
+        this.seoService.setMetaTags({
+          title: `${this.post.title} | TutsCoder`,
+          description: `${this.post.metaDescription}`,
+        });
+
         this.getAllCategory();
         this.getAllTags();
       });

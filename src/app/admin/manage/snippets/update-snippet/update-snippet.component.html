@@ -21,6 +21,16 @@
 
             </select>
           </div>
+          <div class="form-group">
+            <label for="title">Meta description</label>
+            <input [(ngModel)]="newPost.metaDescription" name="metaDescription" required type="text"
+              class="form-control" id="metaDescription">
+          </div>
+          <div class="form-group">
+            <label for="title">Excerpt</label>
+            <input [(ngModel)]="newPost.excerpt" name="excerpt" required type="text"
+              class="form-control" id="excerpt">
+          </div>
 
 
           <div class="form-group">

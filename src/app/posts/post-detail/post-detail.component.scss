@@ -346,7 +346,7 @@ select {
 
 .tagcloud ul li a {
   display: inline-block;
-  max-width: 152px;
+  max-width: 180px;
   height: 40px;
   line-height: 23px;
   padding: 8px 15px;
@@ -487,6 +487,9 @@ select {
 
   h1,h2,h3{
     margin: 40px 0;
+  }
+  img {
+    width: 100%;
   }
 
   p {

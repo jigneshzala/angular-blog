@@ -4,14 +4,21 @@ import { PopularPostComponent } from "./popular-post/popular-post.component";
 import { CategoryListComponent } from "./category-list/category-list.component";
 import { TagsListComponent } from "./tags-list/tags-list.component";
 import { RouterModule } from "@angular/router";
+import { SidebarComponent } from "./sidebar/sidebar.component";
 
 @NgModule({
   declarations: [
     PopularPostComponent,
     CategoryListComponent,
     TagsListComponent,
+    SidebarComponent,
   ],
-  exports: [PopularPostComponent, CategoryListComponent, TagsListComponent],
+  exports: [
+    PopularPostComponent,
+    CategoryListComponent,
+    TagsListComponent,
+    SidebarComponent,
+  ],
   imports: [CommonModule, RouterModule],
 })
 export class SidebarModule {}

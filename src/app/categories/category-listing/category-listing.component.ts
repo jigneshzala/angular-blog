@@ -28,31 +28,27 @@ export class CategoryListingComponent implements OnInit {
   page: any = 1;
   limit: any = 5;
   totalPage: any;
+  isLoaded: boolean = false;
 
   ngOnInit() {
-    combineLatest([
-      this.route.paramMap,
-      this.route.queryParamMap,
-    ]).subscribe(([pathParams, queryParams]) => {
-      
-      this.ngxService.start();
-      this.category = pathParams.get('catId');
-      
-      this.seoService.setMetaTags({
-        title: `${this.commanService.capitalizeFirstLetter(
-          this.category
-        )} | TutsCoder`,
-      });
+    combineLatest([this.route.paramMap, this.route.queryParamMap]).subscribe(
+      ([pathParams, queryParams]) => {
+        this.ngxService.start();
+        this.category = pathParams.get("catId");
 
-      
-      this.page =  queryParams.get('page') ? +queryParams.get('page') : 1;
+        this.seoService.setMetaTags({
+          title: `${this.commanService.capitalizeFirstLetter(
+            this.category
+          )} | TutsCoder`,
+        });
 
-      this.getPostByCategory();
-      this.getAllCategory();
-      this.getAllTags();
+        this.page = queryParams.get("page") ? +queryParams.get("page") : 1;
 
-    });
-   
+        this.getPostByCategory();
+        this.getAllCategory();
+        this.getAllTags();
+      }
+    );
   }
 
   private getAllTags() {
@@ -70,7 +66,8 @@ export class CategoryListingComponent implements OnInit {
     this.categoryService.getPostByCateogry(reqData).subscribe((response) => {
       this.posts = response["data"];
       this.firstPost = this.posts[0];
-      this.totalPage = response['totalPages'];
+      this.totalPage = response["totalPages"];
+      this.isLoaded = true;
     });
   }
   private getAllCategory() {
