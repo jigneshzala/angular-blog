@@ -3,6 +3,7 @@ import { NgModule } from "@angular/core";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { FormsModule } from "@angular/forms";
 import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
+import { TransferHttpCacheModule } from '@nguniversal/common';
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 
@@ -40,6 +41,7 @@ import { NgxUiLoaderModule } from "ngx-ui-loader";
   declarations: [AppComponent, HeaderComponent, FooterComponent,ContactComponent,DealsComponent],
   imports: [
     BrowserModule.withServerTransition({ appId: "serverApp" }),
+    TransferHttpCacheModule,
     BrowserAnimationsModule,
     AppRoutingModule,
     AuthModule,
