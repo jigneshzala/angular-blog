@@ -12,12 +12,13 @@ const routes: Routes = [
     path: "",
     component: SnippetsComponent,
     children: [
+      
       {
-        path: "category/:catname",
+        path: ":category",
         component: SnippetListingComponent,
       },
       {
-        path: ":slug",
+        path: ":category/:slug",
         component: SnippetDetailComponent,
       },
     ],

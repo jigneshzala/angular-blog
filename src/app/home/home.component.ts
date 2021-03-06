@@ -55,7 +55,6 @@ export class HomeComponent implements OnInit, AfterViewInit {
   @ViewChild("subscriberModal") elementView: ElementRef;
 
   ngOnInit() {
-    this.ngxService.start();
     this.getLatestPosts();
     this.getPostByCategory("angular");
     this.getPostByCategory("nodejs");
@@ -99,12 +98,11 @@ export class HomeComponent implements OnInit, AfterViewInit {
         this.devPosts = response["data"];
       }
 
-      this.ngxService.stop();
     });
   }
 
   addSubscribe(email) {
-    console.log(email);
+    
     let reqData = {
       email: email,
     };

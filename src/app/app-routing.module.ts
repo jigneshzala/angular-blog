@@ -32,7 +32,7 @@ const routes: Routes = [
     loadChildren: () => import("./tags/tags.module").then((m) => m.TagsModule),
   },
   {
-    path: "snippet",
+    path: "snippets",
     loadChildren: () =>
       import("./snippets/snippets.module").then((m) => m.SnippetsModule),
   },
