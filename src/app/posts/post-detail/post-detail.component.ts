@@ -6,14 +6,12 @@ import {
 } from "@angular/core";
 import { NgForm } from "@angular/forms";
 import { ActivatedRoute } from "@angular/router";
-import { response } from "express";
 import { UserService } from "src/app/admin/manage/users/shared/user.service";
 import { CategoryService } from "src/app/categories/shared/category.service";
 import { CommanService } from "src/app/shared/services/comman.service";
 import { HighlightService } from "src/app/shared/services/highlight.service";
 import { SeoService } from "src/app/shared/services/seo.service";
 import { PostService } from "../shared/post.service";
-import { NgxUiLoaderService } from "ngx-ui-loader";
 
 @Component({
   selector: "app-post-detail",
@@ -29,8 +27,7 @@ export class PostDetailComponent implements OnInit, AfterViewChecked {
     private categoryService: CategoryService,
     private seoService: SeoService,
     private userService: UserService,
-    private commanService: CommanService,
-    private ngxService: NgxUiLoaderService
+    private commanService: CommanService
   ) {}
   post: any = { categories: [],comments:[] };
   highlighted: boolean = false;
@@ -40,6 +37,7 @@ export class PostDetailComponent implements OnInit, AfterViewChecked {
   hideme: any = {};
   relatedPosts: any = [];
   emailPattern = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  defaultImage = "https://via.placeholder.com/700x400.png?text=Tutscoder";
   /**
    * Highlight blog post when it's ready
    */
@@ -52,7 +50,7 @@ export class PostDetailComponent implements OnInit, AfterViewChecked {
 
   ngOnInit() {
     this.route.params.subscribe((params) => {
-      this.ngxService.start();
+      
       this.postService.getPostBySlug(params["slug"]).subscribe((post) => {
         this.post = post;
 
@@ -91,7 +89,7 @@ export class PostDetailComponent implements OnInit, AfterViewChecked {
     };
     this.postService.getRelatedPosts(reqData).subscribe((response) => {
       this.relatedPosts = response;
-      this.ngxService.stop();
+      
     });
   }
 

@@ -5,6 +5,7 @@ import { CategoryListingComponent } from "../categories/category-listing/categor
 import { RouterModule, Routes } from "@angular/router";
 import { CategoryService } from "./shared/category.service";
 import { SidebarModule } from "../shared/modules/sidebar.module";
+import { LazyLoadImageModule } from "ng-lazyload-image";
 
 const routes: Routes = [
   {
@@ -21,6 +22,11 @@ const routes: Routes = [
 @NgModule({
   declarations: [CategoriesComponent, CategoryListingComponent],
   providers: [CategoryService],
-  imports: [CommonModule, SidebarModule, RouterModule.forChild(routes)],
+  imports: [
+    CommonModule,
+    SidebarModule,
+    RouterModule.forChild(routes),
+    LazyLoadImageModule,
+  ],
 })
 export class CategoriesModule {}

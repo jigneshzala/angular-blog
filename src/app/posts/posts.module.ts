@@ -13,6 +13,7 @@ import { SidebarModule } from "../shared/modules/sidebar.module";
 import { ShareButtonsConfig } from 'ngx-sharebuttons';
 import { ShareButtonsModule } from 'ngx-sharebuttons/buttons';
 import { ShareIconsModule } from 'ngx-sharebuttons/icons';
+import { LazyLoadImageModule } from 'ng-lazyload-image'; 
 
 
 const customConfig: ShareButtonsConfig = {
@@ -44,6 +45,7 @@ const routes: Routes = [
     CommonModule,
     FormsModule,
     // AdsenseModule.forRoot(),
+    LazyLoadImageModule,
     ShareButtonsModule.withConfig(customConfig),
     ShareIconsModule,
     SharedPostModule,

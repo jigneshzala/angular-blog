@@ -4,6 +4,7 @@ import { RouterModule } from "@angular/router";
 import { PostCardComponent } from "./post-card/post-card.component";
 import { VerticlePostCardComponent } from "./verticle-post-card/verticle-post-card.component";
 import { TwoColPostComponent } from "./two-col-post/two-col-post.component";
+import { LazyLoadImageModule } from "ng-lazyload-image";
 
 @NgModule({
   declarations: [
@@ -12,6 +13,6 @@ import { TwoColPostComponent } from "./two-col-post/two-col-post.component";
     TwoColPostComponent,
   ],
   exports: [PostCardComponent, VerticlePostCardComponent, TwoColPostComponent],
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, LazyLoadImageModule],
 })
 export class SharedPostModule {}

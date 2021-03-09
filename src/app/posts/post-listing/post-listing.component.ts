@@ -26,6 +26,7 @@ export class PostListingComponent implements OnInit {
   tagsList:any = [];
   errors:any;
   isLoaded:boolean = false;
+  defaultImage = "https://via.placeholder.com/700x400.png?text=Tutscoder";
 
   ngOnInit() {
     
@@ -33,16 +34,12 @@ export class PostListingComponent implements OnInit {
     this.getAllTags();
 
     this.activeRoute.queryParams.subscribe(queryParams  =>{
-      this.ngxService.start();
+      
       this.page =  queryParams['page'] ? +queryParams['page'] : 1;
       this.getAllPost();
 
     })
 
-    
-    /*  this.postService.getPosts().subscribe((posts) => {
-      this.posts = posts;
-    }); */
   }
 
   private getAllTags() {
@@ -62,11 +59,9 @@ export class PostListingComponent implements OnInit {
       this.firstPost = this.posts[0];
       this.totalPage = response['totalPages'];
       this.isLoaded = true;
-      this.ngxService.stop();
-      
     },error=>{
       this.isLoaded = true;
-      this.ngxService.stop();
+      
       this.errors = error.error;
     });
   }

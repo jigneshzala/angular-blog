@@ -29,11 +29,12 @@ export class CategoryListingComponent implements OnInit {
   limit: any = 5;
   totalPage: any;
   isLoaded: boolean = false;
+  defaultImage = "https://via.placeholder.com/700x400.png?text=Tutscoder";
 
   ngOnInit() {
     combineLatest([this.route.paramMap, this.route.queryParamMap]).subscribe(
       ([pathParams, queryParams]) => {
-        this.ngxService.start();
+        
         this.category = pathParams.get("catId");
 
         this.seoService.setMetaTags({
@@ -73,7 +74,7 @@ export class CategoryListingComponent implements OnInit {
   private getAllCategory() {
     this.categoryService.getAllCateogry().subscribe((data) => {
       this.categories = data;
-      this.ngxService.stop();
+      
     });
   }
 

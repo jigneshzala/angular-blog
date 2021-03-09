@@ -5,6 +5,7 @@ import { CategoryListComponent } from "./category-list/category-list.component";
 import { TagsListComponent } from "./tags-list/tags-list.component";
 import { RouterModule } from "@angular/router";
 import { SidebarComponent } from "./sidebar/sidebar.component";
+import { LazyLoadImageModule } from "ng-lazyload-image";
 
 @NgModule({
   declarations: [
@@ -19,6 +20,6 @@ import { SidebarComponent } from "./sidebar/sidebar.component";
     TagsListComponent,
     SidebarComponent,
   ],
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, LazyLoadImageModule],
 })
 export class SidebarModule {}

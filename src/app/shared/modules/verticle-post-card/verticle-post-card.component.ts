@@ -8,6 +8,7 @@ export class VerticlePostCardComponent implements OnInit {
   @Input("posts") posts: any = [];
   @Input("type") type: any;
   @Input("title") title: any;
+  defaultImage = 'https://via.placeholder.com/400x200.png?text=Tutscoder';
   constructor() {}
 
   ngOnInit(): void {}

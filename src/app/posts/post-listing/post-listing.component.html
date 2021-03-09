@@ -10,7 +10,7 @@
             <header class="aff-aff-post-header aff-aff-post-header cf">
               <div class="featured">
                 <a routerLink="/post/{{firstPost.slug}}" class="image-link media-ratio ratio-3-2 lay_8_img_fea">
-                  <img [src]="firstPost.featureImage?.url" [alt]="firstPost.title"> </a>
+                  <img [defaultImage]="defaultImage" [lazyLoad]="firstPost.featureImage?.url" [alt]="firstPost.title"> </a>
               </div>
             </header>
             <div class="aff-post-content cf aff-entry-content has-share-float aff-content-spacious">
@@ -35,8 +35,8 @@
               *ngFor="let post of posts | slice:1">
               <figure class="aff-wp-caption post-figure-margin-bottom"><a routerLink="/post/{{post.slug}}"
                   class="lay_8_img">
-                  <img width="500" height="270" [src]="post.featureImage?.url"
-                    class="attachment-grid-featured-image size-grid-featured-image wp-post-image" [alt]="post.title"
+                  <img width="500" height="270"
+                    class="attachment-grid-featured-image size-grid-featured-image wp-post-image" [defaultImage]="defaultImage" [lazyLoad]="post.featureImage?.url"  [alt]="post.title"
                     itemprop="image"></a>
                 <figcaption class="aff-wp-caption-text"></figcaption>
               </figure>

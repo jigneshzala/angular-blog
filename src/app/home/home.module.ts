@@ -4,6 +4,7 @@ import { HomeComponent } from "./home.component";
 import { RouterModule, Routes } from "@angular/router";
 import { SidebarModule } from "../shared/modules/sidebar.module";
 import { SharedPostModule } from "../shared/modules/shared-post.module";
+import { LazyLoadImageModule } from 'ng-lazyload-image'; 
 
 const routes: Routes = [
   {
@@ -18,6 +19,7 @@ const routes: Routes = [
     CommonModule,
     SharedPostModule,
     SidebarModule,
+    LazyLoadImageModule,
     RouterModule.forChild(routes),
   ],
 })

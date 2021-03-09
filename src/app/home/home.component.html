@@ -15,7 +15,8 @@
                 <div class="post-block-wrapper post-float-half clearfix">
                   <div class="post-thumbnail">
                     <a routerLink="/post/{{post.slug}}">
-                      <img class="img-fluid" [src]="post.featureImage?.medium" [alt]="post.title">
+                      <img class="img-fluid" [defaultImage]="defaultImage" [lazyLoad]="post.featureImage?.medium"
+                        [alt]="post.title">
                     </a>
                   </div>
                   <div class="post-content">
@@ -64,7 +65,8 @@
         <app-verticle-post-card [posts]="jsPosts" type="javascript" title="javascript"></app-verticle-post-card>
       </div>
       <div class="col-lg-4 col-md-6">
-        <app-verticle-post-card [posts]="devPosts" type="web-development" title="web development"></app-verticle-post-card>
+        <app-verticle-post-card [posts]="devPosts" type="web-development" title="web development">
+        </app-verticle-post-card>
       </div>
       <div class="col-lg-4 col-md-6">
         <app-verticle-post-card [posts]="wordpressPosts" type="wordpress" title="wordpress"></app-verticle-post-card>
@@ -72,46 +74,7 @@
     </div>
   </div>
 </section>
-<!-- <section id="main" class="margin-top-30">
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-12 col-sm-12 col-md-12">
-        
-        <app-post-card [postItems]="latestPosts" title="Latest Posts">
-          <div class="button-wrapper">
-            <a routerLink="/post">
-              <button type="button" class="btn btn-primary">All Posts</button>
-            </a>
-          </div>
-        </app-post-card>
-        <app-post-card [postItems]="angularPosts" title="Angular">
-          <div class="button-wrapper"><a routerLink="/category/angular">
-              <button type="button" class="btn btn-danger">All Angular Posts</button>
-            </a>
-          </div>
-        </app-post-card>
-        <app-post-card [postItems]="nodePosts" title="Node">
-          <div class="button-wrapper"><a routerLink="/category/nodejs">
-              <button type="button" class="btn btn-success">All Node Posts</button>
-            </a>
-          </div>
-        </app-post-card>
-      </div>
-    </div>
-  </div>
-</section> -->
-<!-- <ngx-smart-modal #myModal [customClass]="'popup'" identifier="myModal">
 
-  <div class="form">
-    <h1>Free Ebook</h1>
-    <h2>Get One!</h2>
-    <p>Subscribe to email list!</p>
-    <input type="email" name="email" #email placeholder="Email Address">
-    <input type="submit" (click)="addSubscribe(email.value)" value="Get It!">
-    <p>We will never spam you, unsubscribe anytime...</p>
-  </div>
-
-</ngx-smart-modal> -->
 
 <ng-template #subscriberModal>
   <div class="modal-header">

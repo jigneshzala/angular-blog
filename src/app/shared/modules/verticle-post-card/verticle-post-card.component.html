@@ -6,7 +6,7 @@
     <div class="post-block-wrapper clearfix">
       <div class="post-thumbnail">
         <a routerLink="/post/{{posts[0]?.slug}}">
-          <img class="img-fluid" [src]="posts[0]?.featureImage?.medium" [alt]="posts[0]?.title">
+          <img class="img-fluid" [defaultImage]="defaultImage" [lazyLoad]="posts[0]?.featureImage?.medium"  [alt]="posts[0]?.title">
         </a>
       </div>
 
@@ -33,7 +33,7 @@
     <div class="post-list-block">
       <div class="post-block-wrapper post-float clearfix" *ngFor="let post of posts | slice : 1:4;">
         <div class="post-thumbnail">
-          <img class="img-fluid" [src]="post.featureImage?.thumb" [alt]="post.title">
+          <img class="img-fluid"  [defaultImage]="defaultImage" [lazyLoad]="post.featureImage?.thumb" [alt]="post.title">
 
         </div>
 

@@ -15,7 +15,8 @@ import { UserService } from "../admin/manage/users/shared/user.service";
 import { BsModalService, BsModalRef } from "ngx-bootstrap/modal";
 import { NgxUiLoaderService } from "ngx-ui-loader";
 import { SeoService } from "../shared/services/seo.service";
-import { isPlatformBrowser } from '@angular/common';
+import { isPlatformBrowser } from "@angular/common";
+import { SessionStorageService } from "../shared/services/session-storage.service";
 declare const $: any;
 @Component({
   selector: "app-home",
@@ -23,6 +24,9 @@ declare const $: any;
 })
 export class HomeComponent implements OnInit, AfterViewInit {
   modalRef: BsModalRef;
+
+  defaultImage = "https://via.placeholder.com/400x200.png?text=Tutscoder";
+
   constructor(
     @Inject(PLATFORM_ID) private platform: Object,
     private postService: PostService,
@@ -33,6 +37,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
     private modalService: BsModalService,
     private ngxService: NgxUiLoaderService,
     private seoService: SeoService,
+    private sessionStorageService: SessionStorageService
   ) {
     this.seoService.setMetaTags({
       title: `TutsCoder - Programming Blog & Web Development Tutorials`,
@@ -50,7 +55,6 @@ export class HomeComponent implements OnInit, AfterViewInit {
   devPosts: any = [];
   nodePosts: any = [];
   popularPosts: any = [];
-  
 
   @ViewChild("subscriberModal") elementView: ElementRef;
 
@@ -63,18 +67,26 @@ export class HomeComponent implements OnInit, AfterViewInit {
     this.getPostByCategory("web-development");
   }
 
-  
   private getLatestPosts() {
-    let reqData = {
-      limit: 4,
-      page:1
-    };
-    this.postService.getPosts(reqData).subscribe((response) => {
-      this.latestPosts = response["data"];
-    });
+    if (this.sessionStorageService.getSessionStorage("latestPosts")) {
+      this.latestPosts = JSON.parse(
+        this.sessionStorageService.getSessionStorage("latestPosts")
+      );
+    } else {
+      let reqData = {
+        limit: 4,
+        page: 1,
+      };
+      this.postService.getPosts(reqData).subscribe((response) => {
+        this.latestPosts = response["data"];
+        this.sessionStorageService.setSessionStorage(
+          "latestPosts",
+          JSON.stringify(response["data"])
+        );
+      });
+    }
   }
-  
-  
+
   private getPostByCategory(category) {
     let reqData = {
       limit: 5,
@@ -97,12 +109,10 @@ export class HomeComponent implements OnInit, AfterViewInit {
       if (category == "web-development") {
         this.devPosts = response["data"];
       }
-
     });
   }
 
   addSubscribe(email) {
-    
     let reqData = {
       email: email,
     };
@@ -113,45 +123,44 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit() {
     if (isPlatformBrowser(this.platform)) {
+      $(".nav.navbar-nav li a").on("click", function () {
+        $(this).parent("li").find(".dropdown-menu").slideToggle();
+        $(this).find("li i").toggleClass("fa-angle-down fa-angle-up");
+      });
 
-    $(".nav.navbar-nav li a").on("click", function () {
-      $(this).parent("li").find(".dropdown-menu").slideToggle();
-      $(this).find("li i").toggleClass("fa-angle-down fa-angle-up");
-    });
-
-    /* ----------------------------------------------------------- */
-    /*  Site search
+      /* ----------------------------------------------------------- */
+      /*  Site search
 	/* ----------------------------------------------------------- */
 
-    $("#search").on("click", function () {
-      $(".site-search").addClass("visible");
-      $("#searchInput").focus();
-    });
-    $(".search-close").on("click", function () {
-      $(".site-search").removeClass("visible");
-    });
+      $("#search").on("click", function () {
+        $(".site-search").addClass("visible");
+        $("#searchInput").focus();
+      });
+      $(".search-close").on("click", function () {
+        $(".site-search").removeClass("visible");
+      });
 
-    /* ----------------------------------------------------------- */
-    /*  Scroll To Top
+      /* ----------------------------------------------------------- */
+      /*  Scroll To Top
 	/* ----------------------------------------------------------- */
-    $(window).scroll(function () {
-      if ($(this).scrollTop() > 500) {
-        $(".scroll-to-top").fadeIn();
-      } else {
-        $(".scroll-to-top").fadeOut();
-      }
-    });
+      $(window).scroll(function () {
+        if ($(this).scrollTop() > 500) {
+          $(".scroll-to-top").fadeIn();
+        } else {
+          $(".scroll-to-top").fadeOut();
+        }
+      });
 
-    // scroll body to 0px on click
-    $(".scroll-to-top").on("click", function () {
-      $("body,html").animate(
-        {
-          scrollTop: 0,
-        },
-        500
-      );
-      return false;
-    });
-  }
+      // scroll body to 0px on click
+      $(".scroll-to-top").on("click", function () {
+        $("body,html").animate(
+          {
+            scrollTop: 0,
+          },
+          500
+        );
+        return false;
+      });
+    }
   }
 }
