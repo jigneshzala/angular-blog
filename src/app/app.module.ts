@@ -3,7 +3,6 @@ import { NgModule } from "@angular/core";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { FormsModule } from "@angular/forms";
 import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
-import { TransferHttpCacheModule } from '@nguniversal/common';
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 
@@ -29,19 +28,22 @@ import { ResourcesModule } from "./resources/resources.module";
 import { DealsComponent } from "./deals/deals.component";
 import { DealService } from "./admin/manage/deals/shared/deal.service";
 import { CommanService } from "./shared/services/comman.service";
-import { NgProgressModule } from 'ngx-progressbar';
-import { NgProgressHttpModule } from 'ngx-progressbar/http';
-import { AdsenseModule } from 'ng2-adsense';
+import { NgProgressModule } from "ngx-progressbar";
+import { NgProgressHttpModule } from "ngx-progressbar/http";
+import { AdsenseModule } from "ng2-adsense";
 import { NgxUiLoaderModule } from "ngx-ui-loader";
-
-
-
+import { BrowserStateInterceptor } from "./browserstate.interceptor";
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, FooterComponent,ContactComponent,DealsComponent],
+  declarations: [
+    AppComponent,
+    HeaderComponent,
+    FooterComponent,
+    ContactComponent,
+    DealsComponent,
+  ],
   imports: [
     BrowserModule.withServerTransition({ appId: "serverApp" }),
-    TransferHttpCacheModule,
     BrowserAnimationsModule,
     AppRoutingModule,
     AuthModule,
@@ -73,6 +75,11 @@ import { NgxUiLoaderModule } from "ngx-ui-loader";
     {
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptor,
+      multi: true,
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: BrowserStateInterceptor,
       multi: true,
     },
   ],
