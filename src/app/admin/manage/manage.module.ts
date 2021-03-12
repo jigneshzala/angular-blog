@@ -7,6 +7,8 @@ import { ModalModule } from "ngx-bootstrap/modal";
 import { ImageUploadModule } from "../../shared/modules/image-upload/image-upload.module";
 import { EditableModule } from "../../shared/modules/editable/editable.module";
 import { UiSwitchModule } from "ngx-toggle-switch";
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+
 
 import { ManageComponent } from "./manage.component";
 import { AllSnippetComponent } from "./snippets/all-snippet/all-snippet.component";
@@ -107,6 +109,7 @@ const routes: Routes = [
     UiSwitchModule,
     EditorModule,
     TagInputModule,
+    BsDatepickerModule.forRoot(),
     ModalModule.forRoot(),
     RouterModule.forChild(routes),
   ],

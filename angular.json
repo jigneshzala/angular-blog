@@ -49,6 +49,8 @@
               "src/google39769de9b635625e.html",
               "src/manifest.webmanifest",
               "src/robots.txt",
+              "src/sitemap.xml",
+              "src/rss",
               "src/e0fabaf12bf265c1623de7399d91ed87.txt"
             ],
             "styles": [
@@ -56,6 +58,7 @@
               "node_modules/font-awesome/css/font-awesome.min.css",
               "node_modules/tinymce/skins/lightgray/skin.min.css",
               "node_modules/tinymce/skins/lightgray/content.min.css",
+              "node_modules/ngx-bootstrap/datepicker/bs-datepicker.css",
               "src/styles.scss",
               "src/assets/css/style.scss",
               "src/assets/css/responsive.scss"

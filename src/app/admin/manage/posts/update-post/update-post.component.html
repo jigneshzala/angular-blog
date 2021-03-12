@@ -63,6 +63,11 @@
           </div>
 
           <div class="form-group">
+            <label for="title">Publish Date</label>
+            <input type="text" placeholder="Datepicker" [(ngModel)]="newPost.publishAt" name="publishAt" class="form-control" bsDatepicker [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD' }">
+          </div>
+
+          <div class="form-group">
             <button type="button" (click)="openModal(addImageTemplate)" class="btn bwm-btn-main">Add Image
             </button>
           </div>

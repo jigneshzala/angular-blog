@@ -10,7 +10,9 @@ import { makeStateKey, TransferState } from "@angular/platform-browser";
 import * as memoryCache from "memory-cache";
 import { of } from "rxjs";
 
-@Injectable()
+@Injectable({
+  providedIn: "root",
+})
 export class ServerStateInterceptor implements HttpInterceptor {
   constructor(private transferState: TransferState, private ngZone: NgZone) {}
 

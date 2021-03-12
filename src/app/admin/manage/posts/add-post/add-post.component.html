@@ -12,7 +12,7 @@
             <label for="title">Slug</label>
             <input [(ngModel)]="newPost.slug" name="slug" required type="text" class="form-control" id="slug">
           </div>
-      
+
           <div class="form-group">
             <label for="title">Meta description</label>
             <input [(ngModel)]="newPost.meta_description" name="meta_description" required type="text"
@@ -27,7 +27,7 @@
 
           <div class="form-group">
             <label for="category">Category</label>
-            
+
             <tag-input [(ngModel)]="newPost.categories" [identifyBy]="'slug'" [displayBy]="'name'" name="categories">
 
               <tag-input-dropdown [showDropdownIfEmpty]="true" [displayBy]="'name'" [identifyBy]="'slug'"
@@ -39,11 +39,11 @@
 
             </tag-input>
 
-        
+
           </div>
           <div class="form-group">
             <label for="category">Tags</label>
-            
+
             <tag-input [(ngModel)]="newPost.tags" [identifyBy]="'slug'" [displayBy]="'name'" name="tags">
 
               <tag-input-dropdown [showDropdownIfEmpty]="true" [displayBy]="'name'" [identifyBy]="'slug'"
@@ -55,13 +55,17 @@
 
             </tag-input>
 
-        
+
           </div>
 
           <div class="form-group">
             <label for="title">Excerpt</label>
-            <input [(ngModel)]="newPost.excerpt" name="excerpt" required type="text"
-              class="form-control" id="excerpt">
+            <input [(ngModel)]="newPost.excerpt" name="excerpt" required type="text" class="form-control" id="excerpt">
+          </div>
+          
+          <div class="form-group">
+            <label for="title">Publish Date</label>
+            <input type="text" placeholder="Datepicker" [(ngModel)]="newPost.publishAt" name="publishAt" class="form-control" bsDatepicker [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD' }">
           </div>
 
           <div class="form-group">

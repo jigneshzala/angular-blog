@@ -44,7 +44,7 @@ export function app() {
     request(options).pipe(res);
   });  */
   
-  server.all("/sitemap.xml", function (req, res) {
+  /* server.all("/sitemap.xml", function (req, res) {
     // we need to redirect the sitemap request directly to the backend
     var options = {
       url: sitemapUrl,
@@ -55,7 +55,7 @@ export function app() {
 
     request(options).pipe(res);
   });
-
+ */
 
   // Example Express Rest API endpoints
   // server.get('/api/**', (req, res) => { });
