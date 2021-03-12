@@ -6,6 +6,8 @@
     "start": "npm run serve:ssr",
     "build": "npm run build:ssr",
     "test": "ng test",
+    "sitemap": "node sitemap.js",
+    "feed": "node feed.js",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "dev:ssr": "ng run nodeblog:serve-ssr",
