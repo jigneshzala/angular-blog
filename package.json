@@ -14,7 +14,8 @@
     "serve:ssr": "node dist/server/main.js",
     "build:ssr": "ng build --prod && ng run nodeblog:server:production",
     "prerender": "ng run nodeblog:prerender",
-    "gzip":"gzipper compress ./dist ./dist-gzip && rm -rf ./dist"
+    "gzi2p":"gzipper compress ./dist/browser ./dist/browser-gzip && rm -rf ./dist/browser && mv ./dist/browser-gzip ./dist/browser",
+    "gzip":"gzipper compress ./dist/browser ./browser-gzip/browser --output-file-format [filename].[ext]"
   },
   "private": true,
   "dependencies": {

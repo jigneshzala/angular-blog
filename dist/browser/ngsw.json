@@ -1,0 +1,153 @@
+{
+  "configVersion": 1,
+  "timestamp": 1617112006706,
+  "index": "/index.html",
+  "assetGroups": [
+    {
+      "name": "TutsCoder",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "/favicon.ico",
+        "/index.html",
+        "/main-es2015.10a442a0d1ec87e56549.js",
+        "/main-es5.10a442a0d1ec87e56549.js",
+        "/manifest.webmanifest",
+        "/polyfills-es2015.75c375c674ece37157aa.js",
+        "/polyfills-es5.2c28da0b30d2b25ffb4c.js",
+        "/runtime-es2015.a4dadbc03350107420a4.js",
+        "/runtime-es5.a4dadbc03350107420a4.js",
+        "/scripts.6f38ec9d086434247807.js",
+        "/styles.32594927bcc332d045a4.css"
+      ],
+      "patterns": []
+    },
+    {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "/anchor.04e4c334928b32d7e8ba.gif",
+        "/assets/css/responsive.scss",
+        "/assets/css/style.scss",
+        "/assets/icons/apple-touch-icon.png",
+        "/assets/icons/icon-128x128.png",
+        "/assets/icons/icon-144x144.png",
+        "/assets/icons/icon-152x152.png",
+        "/assets/icons/icon-192x192.png",
+        "/assets/icons/icon-384x384.png",
+        "/assets/icons/icon-512x512.png",
+        "/assets/icons/icon-72x72.png",
+        "/assets/icons/icon-96x96.png",
+        "/assets/images/aweber-logo.png",
+        "/assets/images/bluehost-logo.png",
+        "/assets/images/coffee.png",
+        "/assets/images/digitalOcean-logo.png",
+        "/assets/images/godaddy-logo.png",
+        "/assets/images/grammarly-logo.png",
+        "/assets/images/hostgator-logo.png",
+        "/assets/images/mailChimp-logo.png",
+        "/assets/images/mailerLite-logo.png",
+        "/assets/images/semrush-logo.png",
+        "/assets/images/themeForest-logo.png",
+        "/assets/images/tutscoder_logo.png",
+        "/assets/images/udemy-logo.png",
+        "/fontawesome-webfont.1e59d2330b4c6deb84b3.ttf",
+        "/fontawesome-webfont.20fd1704ea223900efa9.woff2",
+        "/fontawesome-webfont.8b43027f47b20503057d.eot",
+        "/fontawesome-webfont.c1e38fd9e0e74ba58f7a.svg",
+        "/fontawesome-webfont.f691f37e57f04c152e23.woff",
+        "/loader.0406bcb895265a43377d.gif",
+        "/object.8848145d46e1253c0b68.gif",
+        "/tinymce-small.4d989c2c7a53e2afa18f.svg",
+        "/tinymce-small.afc8a0139a615b13b363.ttf",
+        "/tinymce-small.dc0cabeec3bedef24494.eot",
+        "/tinymce-small.eff1de88dccf6ab88986.woff",
+        "/tinymce.46a08624681d4feb46d2.eot",
+        "/tinymce.adca71018fcf641285aa.svg",
+        "/tinymce.e40528a87201c4f2980c.ttf",
+        "/tinymce.fd5cb316e603dc153b2f.woff"
+      ],
+      "patterns": []
+    }
+  ],
+  "dataGroups": [],
+  "hashTable": {
+    "/anchor.04e4c334928b32d7e8ba.gif": "94f8e44b364eb00e6f691f92dc069fd64b17fc61",
+    "/assets/css/responsive.scss": "d4f394d1a88afcf149b85e9f22ad57befc557f87",
+    "/assets/css/style.scss": "d3943226385193383baf29a2a2ae529b1b57cc36",
+    "/assets/icons/apple-touch-icon.png": "0cdcb9331cb46236b173b65cafa73f565cb4b07b",
+    "/assets/icons/icon-128x128.png": "7285242dc21748bf015252d29764a971dac904bf",
+    "/assets/icons/icon-144x144.png": "685c4bb7817f7f75d13a8cc2e42b74a3103c80bd",
+    "/assets/icons/icon-152x152.png": "ab94f0fc7de62c4319a99f9d964ed24109106d44",
+    "/assets/icons/icon-192x192.png": "3e6f0c26747969e32b6e3bec0ef23de632a86ae9",
+    "/assets/icons/icon-384x384.png": "b892b6563094ac2ebfc97beceb635cc652b7b5ab",
+    "/assets/icons/icon-512x512.png": "974eadba701e43832220e5ae5df05a207cbebd14",
+    "/assets/icons/icon-72x72.png": "004b9d5e949c1413a0e01ed3360b4906acc3510b",
+    "/assets/icons/icon-96x96.png": "ba95c603cc12f8121f59251670e29239d632a906",
+    "/assets/images/aweber-logo.png": "eda2f0fa77ab5c8e267b88c5ad93a44f0cfe221d",
+    "/assets/images/bluehost-logo.png": "11c4ac3b0504f281e7187ad84ef8ccf74b81e5b0",
+    "/assets/images/coffee.png": "13419473916a988b6baf8b94b2cd62fe241f7d89",
+    "/assets/images/digitalOcean-logo.png": "b75af98dbbdb3594fa71f2a27766b1d607200248",
+    "/assets/images/godaddy-logo.png": "963b5b8d0a1fdeb6a73122ec1b8904389524cf1a",
+    "/assets/images/grammarly-logo.png": "3b18600b34a839aaef9407db7c4ea11b1e69d285",
+    "/assets/images/hostgator-logo.png": "049cff4878103faad0c7cbe76438ea5be427769f",
+    "/assets/images/mailChimp-logo.png": "28c2963b68247507fae0521c41eb5de868b16124",
+    "/assets/images/mailerLite-logo.png": "59604dda2e8c74637cd371e77f3a06b63514d5d6",
+    "/assets/images/semrush-logo.png": "d306af3ea6d1b4fad36d430afe3001be3b68cadb",
+    "/assets/images/themeForest-logo.png": "425f5ae81fd3fd46eddb4de29ccb369d715ced5d",
+    "/assets/images/tutscoder_logo.png": "4c3aa1e7eb65d9a6754eb36f664f66507578f6ad",
+    "/assets/images/udemy-logo.png": "a9bbf4d7567789d7c8a3d310bf31cb47190e0134",
+    "/favicon.ico": "502f55e659ba44e41e93356b5f08cd19250bd866",
+    "/fontawesome-webfont.1e59d2330b4c6deb84b3.ttf": "13b1eab65a983c7a73bc7997c479d66943f7c6cb",
+    "/fontawesome-webfont.20fd1704ea223900efa9.woff2": "d6f48cba7d076fb6f2fd6ba993a75b9dc1ecbf0c",
+    "/fontawesome-webfont.8b43027f47b20503057d.eot": "d980c2ce873dc43af460d4d572d441304499f400",
+    "/fontawesome-webfont.c1e38fd9e0e74ba58f7a.svg": "98a8aa5cf7d62c2eff5f07ede8d844b874ef06ed",
+    "/fontawesome-webfont.f691f37e57f04c152e23.woff": "28b782240b3e76db824e12c02754a9731a167527",
+    "/index.html": "315990074ed04cea1fc4e74b38d6e41363dcd331",
+    "/loader.0406bcb895265a43377d.gif": "5640ea4d0eba1c390f587ec69463c9a5196b7fa2",
+    "/main-es2015.10a442a0d1ec87e56549.js": "cfc723681825d1ce881bd73ddb3b6aeade5d469a",
+    "/main-es5.10a442a0d1ec87e56549.js": "94b5f352610b35be315d1f4c9dde295da81a67c1",
+    "/manifest.webmanifest": "8fc2e79ab8587074155388dd84af631b87b30ed5",
+    "/object.8848145d46e1253c0b68.gif": "b523c9f648e2ae1c4ba7bde7739203bc6997755f",
+    "/polyfills-es2015.75c375c674ece37157aa.js": "65c537467564ee0ba776b629f71ed3413413a7cb",
+    "/polyfills-es5.2c28da0b30d2b25ffb4c.js": "cac5083c3460781ab1e2945e50f4d7c310007691",
+    "/runtime-es2015.a4dadbc03350107420a4.js": "a9aafcf49f49145093fc831efd9b8e2f6c71bb9c",
+    "/runtime-es5.a4dadbc03350107420a4.js": "a9aafcf49f49145093fc831efd9b8e2f6c71bb9c",
+    "/scripts.6f38ec9d086434247807.js": "b4f95b54409e80f48c6f11346e522dcef43ba12d",
+    "/styles.32594927bcc332d045a4.css": "128667b6ade0a33c998bea9748bc2553214d8e8e",
+    "/tinymce-small.4d989c2c7a53e2afa18f.svg": "8104b7171bd50e7e0a61ac4825c34d87a09622a8",
+    "/tinymce-small.afc8a0139a615b13b363.ttf": "65ad98649eb5051746bb48c60529cabc927b67a2",
+    "/tinymce-small.dc0cabeec3bedef24494.eot": "9092371fe1487289f1f5244637bace4de1bceed1",
+    "/tinymce-small.eff1de88dccf6ab88986.woff": "b35be779df340fe3336a5619165e965fb1b09970",
+    "/tinymce.46a08624681d4feb46d2.eot": "08084dedac98a6a46f1c1cdd6fd75fac8de9d026",
+    "/tinymce.adca71018fcf641285aa.svg": "1f35829543ad6404c0c677c34c521ee01ff4459b",
+    "/tinymce.e40528a87201c4f2980c.ttf": "0cbd6e7b8d6088f2aa2bc45eb1a83a1075e764d4",
+    "/tinymce.fd5cb316e603dc153b2f.woff": "3b120d1161795c9a31f769cf567fb576354e95d8"
+  },
+  "navigationUrls": [
+    {
+      "positive": true,
+      "regex": "^\\/.*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*\\.[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*\\/.*$"
+    }
+  ],
+  "navigationRequestStrategy": "performance"
+}
