@@ -13,7 +13,8 @@
     "dev:ssr": "ng run nodeblog:serve-ssr",
     "serve:ssr": "node dist/server/main.js",
     "build:ssr": "ng build --prod && ng run nodeblog:server:production",
-    "prerender": "ng run nodeblog:prerender"
+    "prerender": "ng run nodeblog:prerender",
+    "gzip":"gzipper compress ./dist ./dist-gzip && rm -rf ./dist"
   },
   "private": true,
   "dependencies": {
@@ -72,6 +73,7 @@
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "^12.11.1",
     "codelyzer": "^5.1.2",
+    "gulp-rename": "^2.0.0",
     "jasmine-core": "~3.4.0",
     "jasmine-spec-reporter": "~4.2.1",
     "karma": "~6.3.2",
