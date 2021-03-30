@@ -468,6 +468,8 @@ SOFTWARE.
 
 
 
+ngx-bootstrap/datepicker
+
 ngx-chips
 MIT
 

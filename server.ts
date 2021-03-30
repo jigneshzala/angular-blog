@@ -14,7 +14,9 @@ export function app() {
   const server = express();
   const distFolder = join(process.cwd(), "dist", "browser");
   const sitemapUrl = "https://nodeblog-api.herokuapp.com/sitemap.xml";
-  const rssUrl = "http://localhost:3000/rss/rssfeed.xml";
+  // const rssUrl = "https://nodeblog-api.herokuapp.com/rss.xml";
+  const rssUrl = "http://localhost:3000/feed/rss";
+  const atomUrl = "http://localhost:3000/feed/atom";
   // const distFolder = join(process.cwd(), 'dist/nodeblog/browser');
   const indexHtml = existsSync(join(distFolder, "index.original.html"))
     ? "index.original.html"
@@ -44,7 +46,7 @@ export function app() {
     request(options).pipe(res);
   });  */
   
-  /* server.all("/sitemap.xml", function (req, res) {
+   server.all("/sitemap.xml", function (req, res) {
     // we need to redirect the sitemap request directly to the backend
     var options = {
       url: sitemapUrl,
@@ -55,7 +57,29 @@ export function app() {
 
     request(options).pipe(res);
   });
- */
+   server.all("/rss.xml", function (req, res) {
+    // we need to redirect the sitemap request directly to the backend
+    var options = {
+      url: rssUrl,
+      headers: {
+        Accept: "application/xml",
+      },
+    };
+
+    request(options).pipe(res);
+  });
+   server.all("/atom", function (req, res) {
+    // we need to redirect the sitemap request directly to the backend
+    var options = {
+      url: atomUrl,
+      headers: {
+        Accept: "application/xml",
+      },
+    };
+
+    request(options).pipe(res);
+  });
+ 
 
   // Example Express Rest API endpoints
   // server.get('/api/**', (req, res) => { });
