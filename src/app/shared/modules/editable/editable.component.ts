@@ -1,5 +1,6 @@
-import { Component, Input, Output, EventEmitter } from "@angular/core";
+import { Component, Input, Output, EventEmitter, Directive } from "@angular/core";
 
+@Directive()
 export class EditableComponent {
   @Output("entityUpdated") entityUpdated = new EventEmitter();
 

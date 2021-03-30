@@ -1,17 +1,20 @@
 {
   "configVersion": 1,
-  "timestamp": 1615551193256,
+  "timestamp": 1617092208758,
   "index": "/index.html",
   "assetGroups": [
     {
       "name": "TutsCoder",
       "installMode": "prefetch",
       "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
       "urls": [
         "/favicon.ico",
         "/index.html",
-        "/main-es2015.5c03727a5dfa6f592a77.js",
-        "/main-es5.5c03727a5dfa6f592a77.js",
+        "/main-es2015.9cac44457924c44662ae.js",
+        "/main-es5.9cac44457924c44662ae.js",
         "/manifest.webmanifest",
         "/polyfills-es2015.09ee2f719bd21ab5c7b1.js",
         "/polyfills-es5.12b5c32d1603e35dd556.js",
@@ -26,6 +29,9 @@
       "name": "assets",
       "installMode": "lazy",
       "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
       "urls": [
         "/anchor.04e4c334928b32d7e8ba.gif",
         "/assets/css/responsive.scss",
@@ -104,10 +110,10 @@
     "/fontawesome-webfont.8b43027f47b20503057d.eot": "d980c2ce873dc43af460d4d572d441304499f400",
     "/fontawesome-webfont.c1e38fd9e0e74ba58f7a.svg": "98a8aa5cf7d62c2eff5f07ede8d844b874ef06ed",
     "/fontawesome-webfont.f691f37e57f04c152e23.woff": "28b782240b3e76db824e12c02754a9731a167527",
-    "/index.html": "c5de50a7c21bdd33fca50ad1dc28fe055710dcce",
+    "/index.html": "0895deb2bbae3bf3e464c22effdc1e906cf67a45",
     "/loader.0406bcb895265a43377d.gif": "5640ea4d0eba1c390f587ec69463c9a5196b7fa2",
-    "/main-es2015.5c03727a5dfa6f592a77.js": "c7e00004cfae6e8118b7621d8bd5c62b10c3a0a8",
-    "/main-es5.5c03727a5dfa6f592a77.js": "9aedb4951f1ab59a68f80cfed0f879c14688ce99",
+    "/main-es2015.9cac44457924c44662ae.js": "2f678c7c1de5b0119355770b41ec7e0f90c29e05",
+    "/main-es5.9cac44457924c44662ae.js": "dfe9a98fa30a0fc9c528b1d6a351ac8dd48de465",
     "/manifest.webmanifest": "8fc2e79ab8587074155388dd84af631b87b30ed5",
     "/object.8848145d46e1253c0b68.gif": "b523c9f648e2ae1c4ba7bde7739203bc6997755f",
     "/polyfills-es2015.09ee2f719bd21ab5c7b1.js": "72ad4ccc0a3916ae4598199447cdeadd6d380570",
@@ -142,5 +148,6 @@
       "positive": false,
       "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*\\/.*$"
     }
-  ]
+  ],
+  "navigationRequestStrategy": "performance"
 }
