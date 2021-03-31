@@ -1,7 +1,7 @@
 <div class="news-style-two">
-  <h3 class="news-title">
+  <h2 class="news-title">
     <span>{{title}}</span>
-  </h3>
+  </h2>
   <button class="view-all-button" routerLink="/category/{{slug}}" aria-label="Previous" type="button">All {{title}} Posts </button>
   <div class="row">
     <div class="col-md-6 col-sm-6">
@@ -13,9 +13,9 @@
         </div>
         <a class="post-category" routerLink="/category/{{slug}}">{{title}}</a>
         <div class="post-content">
-          <h2 class="post-title mt-3">
+          <h3 class="post-title mt-3">
             <a routerLink="/post/{{posts[0]?.slug}}">{{posts[0]?.title}}</a>
-          </h2>
+          </h3>
 
 
           <div class="post-meta mb-2">

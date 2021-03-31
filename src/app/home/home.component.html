@@ -4,9 +4,9 @@
       <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12">
 
         <div class="all-news-block">
-          <h3 class="news-title">
+          <h2 class="news-title">
             <span>Latest Articles</span>
-          </h3>
+          </h2>
           <button class="view-all-button" routerLink="/post" aria-label="Previous" type="button">View All</button>
           <div class="all-news">
 
@@ -22,9 +22,9 @@
                   <div class="post-content">
                     <a class="post-category"
                       routerLink="/category/{{post.categories[0]?.slug}}">{{post.categories[0]?.name}}</a>
-                    <h2 class="post-title mt-3">
+                    <h3 class="post-title mt-3">
                       <a routerLink="/post/{{post.slug}}">{{post.title}}</a>
-                    </h2>
+                    </h3>
                     <div class="post-meta">
                       <!-- <span class="posted-time">an hour ago</span> -->
                       <!--  <span class="post-author">by

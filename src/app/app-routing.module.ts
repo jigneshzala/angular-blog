@@ -9,7 +9,6 @@ import { ContactComponent } from "./contact/contact.component";
 import { VerificationComponent } from "./verification/verification.component";
 import { DealsComponent } from "./deals/deals.component";
 import { AboutComponent } from "./about/about.component";
-import { InterviewQuestionsComponent } from "./interview-questions/interview-questions.component";
 import { SitemapComponent } from "./sitemap/sitemap.component";
 
 const routes: Routes = [
@@ -106,7 +105,6 @@ const routes: Routes = [
     PageNotFoundComponent,
     VerificationComponent,
     AboutComponent,
-    InterviewQuestionsComponent,
     SitemapComponent,
   ],
 })
