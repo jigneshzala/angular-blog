@@ -11,26 +11,19 @@ export class VerificationComponent implements OnInit {
 
   constructor(private userService : UserService,private route :ActivatedRoute) { }
   responseText:any = '';
+  token:any = '';
+
   ngOnInit(): void {
-    this.route.params.subscribe((params) => {
-      
-      this.userService.verifySubscriber(params["token"]).subscribe((response) => {
-        
-        this.responseText = "Verification success!";
-      },(error)=>{
-        this.responseText = error.error.error;
-        
-      })
-      
-    });
-  }
-
-  verifySubscription() {
     
+    this.token = this.route.snapshot.params.token;
+    this.userService.verifySubscriber(this.route.snapshot.params.token).subscribe((response) => {
+        
+      this.responseText = "Verification success!";
+    },(error)=>{
+      this.responseText = error.error.error;
+      
+    })
 
-   /*  this.userService.verifySubscriber().subscribe((response) => {
-      console.log(response);
-    }); */
   }
 
 }

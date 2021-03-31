@@ -4,7 +4,7 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { FormsModule } from "@angular/forms";
 import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { TransferHttpCacheModule } from "@nguniversal/common";
-import { AppRoutingModule } from "./app-routing.module";
+import { AppRoutingModule,routedComponents } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 
 import { HighlightService } from "./shared/services/highlight.service";
@@ -37,6 +37,7 @@ import { BrowserStateInterceptor } from "./browserstate.interceptor";
 
 @NgModule({
   declarations: [
+    ...routedComponents,
     AppComponent,
     HeaderComponent,
     FooterComponent,

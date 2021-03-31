@@ -18,12 +18,22 @@ export class FooterComponent implements OnInit {
   ngOnInit(): void {
     this.getPopularPosts();
   }
+
+  error:any = '';
+  success:any = '';
   addSubscribe(email) {
     let reqData = {
       email: email,
     };
     this.userService.addSubscribe(reqData).subscribe((response) => {
-      console.log(response);
+      
+      this.error = '';
+      this.success='Verfication mail sent,please verify...'
+    },err=>{
+      
+      if(err.error.error.code===11000){
+        this.error='Email adresss already exists!'
+      }
     });
   }
 
