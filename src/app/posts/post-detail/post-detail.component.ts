@@ -37,7 +37,8 @@ export class PostDetailComponent implements OnInit, AfterViewChecked {
   hideme: any = {};
   relatedPosts: any = [];
   emailPattern = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-  defaultImage = "https://via.placeholder.com/700x400.png?text=Tutscoder";
+  // defaultImage = "https://via.placeholder.com/700x400.png?text=Tutscoder";
+  defaultImage = "./assets/images/700x400.png";
   /**
    * Highlight blog post when it's ready
    */

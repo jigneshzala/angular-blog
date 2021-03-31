@@ -18,7 +18,8 @@ export class SidebarComponent implements OnInit {
   categories: any = [];
   tagsList: any = [];
 
-  defaultImage = "https://via.placeholder.com/400x200.png?text=Tutscoder";
+  // defaultImage = "https://via.placeholder.com/400x200.png?text=Tutscoder";
+  defaultImage = "./assets/images/400x200.png";
 
   ngOnInit() {
     this.getFeaturedPosts();

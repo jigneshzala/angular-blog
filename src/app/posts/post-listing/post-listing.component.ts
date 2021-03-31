@@ -26,7 +26,8 @@ export class PostListingComponent implements OnInit {
   tagsList:any = [];
   errors:any;
   isLoaded:boolean = false;
-  defaultImage = "https://via.placeholder.com/700x400.png?text=Tutscoder";
+  // defaultImage = "https://via.placeholder.com/700x400.png?text=Tutscoder";
+  defaultImage = "./assets/images/700x400.png";
 
   ngOnInit() {
     

@@ -1,0 +1,26 @@
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Post Title</th>
+
+      <th scope="col">Created At</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let post of posts;let i= index;">
+      <th scope="row">{{i+1}}</th>
+      <td>{{post.title}}</td>
+      <td>{{post.created_at}}</td>
+
+      <td>
+
+        <a type="button" routerLink="/admin/manage/update-question/{{post.slug}}" class="btn btn-primary">Edit</a>
+        <button type="button" (click)="deleteQuestion(post._id)" class="btn btn-secondary ml-2">Delete</button>
+
+      </td>
+    </tr>
+
+  </tbody>
+</table>

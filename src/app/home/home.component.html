@@ -15,7 +15,7 @@
                 <div class="post-block-wrapper post-float-half clearfix">
                   <div class="post-thumbnail">
                     <a routerLink="/post/{{post.slug}}">
-                      <img class="img-fluid" [defaultImage]="defaultImage" [lazyLoad]="post.featureImage?.medium"
+                      <img class="img-fluid" [defaultImage]="defaultImage" width="400px" height="200px" [lazyLoad]="post.featureImage?.medium"
                         [alt]="post.title">
                     </a>
                   </div>

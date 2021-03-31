@@ -37,6 +37,11 @@ const routes: Routes = [
       import("./snippets/snippets.module").then((m) => m.SnippetsModule),
   },
   {
+    path: "interview-questions",
+    loadChildren: () =>
+      import("./questions/questions.module").then((m) => m.QuestionsModule),
+  },
+  {
     path: "resources",
     loadChildren: () =>
       import("./resources/resources.module").then((m) => m.ResourcesModule),
@@ -53,10 +58,6 @@ const routes: Routes = [
   {
     path: "sitemap",
     component: SitemapComponent,
-  },
-  {
-    path: "interview-questions/:slug",
-    component: InterviewQuestionsComponent,
   },
   {
     path: "about",

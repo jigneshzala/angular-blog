@@ -25,7 +25,9 @@ declare const $: any;
 export class HomeComponent implements OnInit, AfterViewInit {
   modalRef: BsModalRef;
 
-  defaultImage = "https://via.placeholder.com/400x200.png?text=Tutscoder";
+  // defaultImage = "https://via.placeholder.com/400x200.png?text=Tutscoder";
+  defaultImage = "./assets/images/400x200.png";
+
 
   constructor(
     @Inject(PLATFORM_ID) private platform: Object,

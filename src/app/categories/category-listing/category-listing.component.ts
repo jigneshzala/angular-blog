@@ -29,7 +29,8 @@ export class CategoryListingComponent implements OnInit {
   limit: any = 5;
   totalPage: any;
   isLoaded: boolean = false;
-  defaultImage = "https://via.placeholder.com/700x400.png?text=Tutscoder";
+  // defaultImage = "https://via.placeholder.com/700x400.png?text=Tutscoder";
+  defaultImage = "./assets/images/700x400.png";
 
   ngOnInit() {
     combineLatest([this.route.paramMap, this.route.queryParamMap]).subscribe(

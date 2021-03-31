@@ -33,7 +33,7 @@
     <div class="post-list-block">
       <div class="post-block-wrapper post-float clearfix" *ngFor="let post of posts | slice : 1:4;">
         <div class="post-thumbnail">
-          <img class="img-fluid"  [defaultImage]="defaultImage" [lazyLoad]="post.featureImage?.thumb" [alt]="post.title">
+          <img class="img-fluid"  [defaultImage]="defaultImage" width="400px" height="200px"  [lazyLoad]="post.featureImage?.thumb" [alt]="post.title">
 
         </div>
 

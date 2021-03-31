@@ -25,6 +25,9 @@ import { AllPageComponent } from "./pages/all-page/all-page.component";
 import { AddDealComponent } from "./deals/add-deal/add-deal.component";
 import { AllDealComponent } from "./deals/all-deal/all-deal.component";
 import { UpdateDealComponent } from "./deals/update-deal/update-deal.component";
+import { AllQuestionComponent } from "./questions/all-question/all-question.component";
+import { AddQuestionComponent } from "./questions/add-question/add-question.component";
+import { UpdateQuestionComponent } from "./questions/update-question/update-question.component";
 
 const routes: Routes = [
   {
@@ -42,6 +45,18 @@ const routes: Routes = [
       {
         path: "update-snippet/:slug",
         component: UpdateSnippetComponent,
+      },
+      {
+        path: "questions",
+        component: AllQuestionComponent,
+      },
+      {
+        path: "add-question",
+        component: AddQuestionComponent,
+      },
+      {
+        path: "update-question/:slug",
+        component: UpdateQuestionComponent,
       },
       { path: "posts", component: AllPostsComponent },
       {
@@ -94,6 +109,9 @@ const routes: Routes = [
     AllSnippetComponent,
     AddSnippetComponent,
     UpdateSnippetComponent,
+    AllQuestionComponent,
+    AddQuestionComponent,
+    UpdateQuestionComponent,
     AddPageComponent,
     UpdatePageComponent,
     AllPageComponent,
