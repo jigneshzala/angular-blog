@@ -6,11 +6,12 @@ import {
 } from "@angular/core";
 import { NgForm } from "@angular/forms";
 import { ActivatedRoute } from "@angular/router";
-import { UserService } from "src/app/admin/manage/users/shared/user.service";
+
 import { CategoryService } from "src/app/categories/shared/category.service";
 import { CommanService } from "src/app/shared/services/comman.service";
 import { HighlightService } from "src/app/shared/services/highlight.service";
 import { SeoService } from "src/app/shared/services/seo.service";
+import { UserService } from "src/app/shared/services/user.service";
 import { PostService } from "../shared/post.service";
 
 @Component({

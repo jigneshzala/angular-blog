@@ -1,5 +1,4 @@
 import { Component } from "@angular/core";
-import { AuthService } from "./auth/shared/auth.service";
 import { Router } from '@angular/router';
 
 @Component({
@@ -8,15 +7,11 @@ import { Router } from '@angular/router';
   styleUrls: ["./app.component.scss"],
 })
 export class AppComponent {
-  constructor(private auth: AuthService,public router : Router) {}
+  constructor(public router : Router) {}
 
   ngOnInit() {
 
-    
-   
-    this.auth.checkAuthentication();
-
-    
+  
 
   }
 

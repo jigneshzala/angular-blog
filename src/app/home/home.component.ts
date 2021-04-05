@@ -11,19 +11,20 @@ import {
 import { CategoryService } from "../categories/shared/category.service";
 import { PostService } from "../posts/shared/post.service";
 import { Meta, Title } from "@angular/platform-browser";
-import { UserService } from "../admin/manage/users/shared/user.service";
-import { BsModalService, BsModalRef } from "ngx-bootstrap/modal";
+
+// import { BsModalService, BsModalRef } from "ngx-bootstrap/modal";
 import { NgxUiLoaderService } from "ngx-ui-loader";
 import { SeoService } from "../shared/services/seo.service";
 import { isPlatformBrowser } from "@angular/common";
 import { SessionStorageService } from "../shared/services/session-storage.service";
+import { UserService } from "../shared/services/user.service";
 declare const $: any;
 @Component({
   selector: "app-home",
   templateUrl: "./home.component.html",
 })
 export class HomeComponent implements OnInit, AfterViewInit {
-  modalRef: BsModalRef;
+  // modalRef: BsModalRef;
 
   // defaultImage = "https://via.placeholder.com/400x200.png?text=Tutscoder";
   defaultImage = "./assets/images/400x200.png";
@@ -36,7 +37,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
     private meta: Meta,
     private title: Title,
     private userService: UserService,
-    private modalService: BsModalService,
+    // private modalService: BsModalService,
     private ngxService: NgxUiLoaderService,
     private seoService: SeoService,
     private sessionStorageService: SessionStorageService
@@ -58,7 +59,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
   nodePosts: any = [];
   popularPosts: any = [];
 
-  @ViewChild("subscriberModal") elementView: ElementRef;
+  // @ViewChild("subscriberModal") elementView: ElementRef;
 
   ngOnInit() {
     this.getLatestPosts();

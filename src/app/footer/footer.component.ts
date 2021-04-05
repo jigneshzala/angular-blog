@@ -1,7 +1,8 @@
 import { Component, OnInit } from "@angular/core";
-import { UserService } from "../admin/manage/users/shared/user.service";
+
 import { PostService } from "../posts/shared/post.service";
 import { LocalStorageService } from "../shared/services/local-storage.service";
+import { UserService } from "../shared/services/user.service";
 
 @Component({
   selector: "app-footer",

@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { NgForm } from "@angular/forms";
-import { UserService } from "../admin/manage/users/shared/user.service";
+import { UserService } from "../shared/services/user.service";
+
 
 @Component({
   selector: "app-contact",

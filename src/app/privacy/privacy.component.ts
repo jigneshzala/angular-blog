@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { PageService } from '../admin/manage/pages/shared/page.service';
+import { PageService } from '../shared/services/page.service';
+
 import { SeoService } from '../shared/services/seo.service';
 
 @Component({

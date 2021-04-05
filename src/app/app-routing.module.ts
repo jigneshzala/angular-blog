@@ -1,7 +1,6 @@
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
-import { LoginComponent } from "./auth/login/login.component";
-import { GuestGuard } from "./auth/shared/auth.guard";
+
 import { TermsComponent } from "./terms/terms.component";
 import { PrivacyComponent } from "./privacy/privacy.component";
 import { PageNotFoundComponent } from "./page-not-found/page-not-found.component";
@@ -45,11 +44,7 @@ const routes: Routes = [
     loadChildren: () =>
       import("./resources/resources.module").then((m) => m.ResourcesModule),
   },
-  {
-    path: "admin",
-    loadChildren: () =>
-      import("./admin/admin.module").then((m) => m.AdminModule),
-  },
+  
   {
     path: "contact",
     component: ContactComponent,
@@ -78,7 +73,6 @@ const routes: Routes = [
     path: "privacy-policy",
     component: PrivacyComponent,
   },
-  { path: "login", component: LoginComponent, canActivate: [GuestGuard] },
   { path: "404", component: PageNotFoundComponent },
   {
     path: "home",
