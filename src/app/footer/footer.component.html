@@ -25,7 +25,7 @@
               <h4 class="title">Most Viewed Posts</h4>
 
               <ul class="b">
-                <li *ngFor="let post of popularPosts">
+                <li *ngFor="let post of popularPosts" class="p-1">
 
                   <a routerLink="/post/{{post.slug}}">{{post.title}}</a>
                 </li>

@@ -3,7 +3,9 @@ import { Injectable, Inject } from "@angular/core";
 import { PLATFORM_ID } from "@angular/core";
 import { isPlatformBrowser } from "@angular/common";
 
-import "clipboard";
+// declare var hljs: any;
+
+/* import "clipboard";
 
 import "prismjs";
 import "prismjs/plugins/toolbar/prism-toolbar";
@@ -14,9 +16,16 @@ import "prismjs/components/prism-java";
 import "prismjs/components/prism-markup";
 import "prismjs/components/prism-typescript";
 import "prismjs/components/prism-sass";
-import "prismjs/components/prism-scss";
+import "prismjs/components/prism-scss"; */
+// import hljs from 'highlight.js';
+// import * as hljs from 'highlight.js';
+// import hljs from 'highlight.js/lib/core';
 
-declare var Prism: any;
+// import * as hljs from 'highlight.js';
+
+// declare var Prism: any;
+ declare var hljs: any;
+
 
 @Injectable()
 export class HighlightService {
@@ -24,7 +33,9 @@ export class HighlightService {
 
   highlightAll() {
     if (isPlatformBrowser(this.platformId)) {
-      Prism.highlightAll();
+      // Prism.highlightAll();
+      console.log(hljs);
+      hljs.highlightAll();
     }
   }
 }

@@ -44,10 +44,10 @@ export class PostDetailComponent implements OnInit, AfterViewChecked {
    * Highlight blog post when it's ready
    */
   ngAfterViewChecked() {
-    if (this.post && !this.highlighted) {
+    if (this.post.html && !this.highlighted) {
       this.highlightService.highlightAll();
       this.highlighted = true;
-    }
+    } 
   }
 
   ngOnInit() {

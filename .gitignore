@@ -9,6 +9,10 @@
 # dependencies
 /node_modules
 
+#sonar
+.scannerwork/*
+sonar-project.properties
+
 #server
 /server/config.env
 

@@ -163,12 +163,9 @@ p {
 }
 
 .widget-title .title::after {
-  background-color: #574790;
-}
-
-.widget-title .title::after {
   content: "";
   position: absolute;
+  background-color: #574790;
   left: 0;
   width: 31%;
   height: 2px;
@@ -217,14 +214,6 @@ p {
 .py-40 {
   clear: both;
   height: 40px;
-}
-
-.post-block-wrapper {
-  position: relative;
-}
-
-.post-block-wrapper .post-thumbnail {
-  margin-bottom: 20px;
 }
 
 a:link,
@@ -328,10 +317,6 @@ a.post-category {
   flex: 1;
 }
 
-.post-block-wrapper .post-content {
-  padding: 0;
-}
-
 .post-block-wrapper.post-float .post-title {
   margin-top: 0;
 }
@@ -381,12 +366,6 @@ a.post-category {
   }
 }
 
-.news-title span {
-  line-height: 28px;
-  padding-bottom: 14px;
-  position: relative;
-}
-
 .list-inline {
   padding-left: 0;
   list-style: none;
@@ -415,10 +394,6 @@ a.post-category {
   color: #fff;
 }
 
-.post-list-block {
-  margin-top: 30px;
-}
-
 .post-block-wrapper {
   position: relative;
 }
@@ -427,10 +402,6 @@ a.post-category {
   float: left;
   position: relative;
   z-index: 1;
-}
-
-.post-block-wrapper .post-category {
-  top: 10px;
 }
 
 .m-top-0 {
@@ -483,17 +454,15 @@ article {
   position: relative;
   display: block;
 }
+
 .aff-post .featured img {
   object-fit: cover !important;
-}
-.aff-post .featured img {
   display: block;
   width: 100%;
 }
+
 .lay_8_img_fea img {
   height: 450px;
-}
-.lay_8_img_fea img {
   position: initial !important;
 }
 .media-ratio .wp-post-image, .media-ratio>img {
@@ -526,23 +495,14 @@ article {
 }
 .aff-post-meta {
   font-size: 16px;
+  
 }
-.aff-post-meta>.is-title:first-child {
-  margin-top: 0 !important;
-}
-.aff-post-meta-c .aff-post-title-alt {
-  margin: 15px 0;
-  margin-bottom: 12px;
-  line-height: 1.3;
-}
+
+
 .aff-post-meta .aff-post-title-alt {
   padding: 0;
 }
-.aff-post-meta-c .aff-post-title-alt {
-  margin: 15px 0 12px;
-  line-height: 1.3;
-  text-align: left;
-}
+
 .aff-post-content h1, .aff-post-content h2, .aff-post-content h3, .aff-post-content h4, .aff-post-content h5, .aff-post-content h6 {
   font-weight: bolder;
   letter-spacing: -.01em;
@@ -554,50 +514,24 @@ article {
   text-transform: none;
   margin-bottom: 50px;
 }
-.aff-post-meta-c .aff-post-title-alt a {
-  margin: 15px 0;
-  margin-bottom: 12px;
-  line-height: 1.3;
-  font-weight: 700;
-}
+
 .post-title a, .aff-post-title-alt a {
   color: #111111;
 }
-.meta-title {
-  margin-bottom: 20px;
-}
+
 .aff-post-meta {
   line-height: 1.5;
-  /* text-transform: uppercase; */
-}
-.aff-post-meta-left {
-  text-align: left;
-}
-.aff-post-meta {
   font-size: 16px;
 }
-.aff-post-meta .aff-post-author, .aff-post-meta time, .aff-post-meta .aff-meta-item {
-  letter-spacing: .025em;
-}
+
+
 .aff-post-meta-c .aff-meta-item, .aff-post-meta-c .aff-post-author, .aff-post-meta-c time {
   font-weight: 400;
 }
-.aff-post-meta .aff-post-author, .aff-post-meta time, .aff-post-meta .aff-meta-item {
-  letter-spacing: .025em;
-  color: #111111;
-}
-article p, article a span, article span {
-  color: #333333;
-  font-size: 16px;
-}
+
 .aff-post-meta-c .by {
   font-style: inherit;
   text-transform: inherit;
-}
-.aff-post-meta-c .aff-post-author>a {
-  color: #ec0e0e;
-  font-weight: 600;
-  text-decoration: none;
 }
 
 .aff-post-meta .aff-meta-above {
@@ -606,28 +540,7 @@ article p, article a span, article span {
 .aff-meta-above {
   display: none;
 }
-.aff-post-meta .aff-cat-labels {
-  display: block;
-  margin-bottom: -5px;
-}
-.aff-post-meta .aff-cat-labels .category:last-child {
-  margin-right: 0;
-}
-.aff-post-meta .aff-cat-labels .category {
-  display: inline-flex;
-  margin-bottom: 5px;
-  background: #ec0e0e;
-  padding: 0 7px;
-  color: #fff;
-  font-size: 11px;
-  font-weight: 600;
-  text-transform: uppercase;
-  line-height: 22px;
-  -webkit-font-smoothing: antialiased;
-}
-.cat-label, .aff-post-meta .aff-cat-labels .category {
-  letter-spacing: .025em;
-}
+
 .aff-post-content p {
   margin-bottom: 10px;
 }
@@ -639,9 +552,7 @@ article p, article a span, article span {
   flex-wrap: wrap;
   width: 100%;
 }
-.aff-actions-button>span, .aff-actions>li, .aff-post, .aff-post-a .entry-image {
-  position: relative;
-}
+
 .aff-post-content1:nth-child(odd) {
   padding-right: 15px;
 }
@@ -658,9 +569,7 @@ article p, article a span, article span {
   min-width: 50%;
   padding-bottom: 25px;
 }
-.aff-entry-content {
-  font-size: 16px;
-}
+
 .text, .aff-post-content1, .textwidget {
   -webkit-font-smoothing: initial;
 }
@@ -696,18 +605,8 @@ figcaption {
   color: #999;
   -webkit-font-smoothing: antialiased;
 }
-.the-aff-post-meta {
-  position: relative;
-  display: inline-block;
-  word-wrap: break-word;
-  overflow: hidden;
-  /* max-height: 75px; */
-  line-height: 1.2em;
-  text-align: justify;
-}
-.aff-post-meta {
-  font-size: 16px;
-}
+
+
 .aff-post-meta>.is-title:first-child {
   margin-top: 0 !important;
 }
@@ -715,15 +614,21 @@ figcaption {
   margin: 15px 0;
   margin-bottom: 12px;
   line-height: 1.3;
+  margin: 15px 0 12px;
+  line-height: 1.3;
+  text-align: left;
+
+  a{
+    margin: 15px 0;
+    margin-bottom: 12px;
+    line-height: 1.3;
+    font-weight: 700;
+  }
 }
 .aff-post-meta .aff-post-title-alt {
   padding: 0;
 }
-.aff-post-meta-c .aff-post-title-alt {
-  margin: 15px 0 12px;
-  line-height: 1.3;
-  text-align: left;
-}
+
 .aff-post-content1 h1, .aff-post-content1 h2, .aff-post-content1 h3, .aff-post-content1 h4, .aff-post-content1 h5, .aff-post-content1 h6 {
   font-weight: 900;
   letter-spacing: -.01em;
@@ -735,15 +640,7 @@ figcaption {
   text-transform: none;
   margin-bottom: 50px;
 }
-.aff-post-meta-c .aff-post-title-alt a {
-  margin: 15px 0;
-  margin-bottom: 12px;
-  line-height: 1.3;
-  font-weight: 700;
-}
-.post-title a, .aff-post-title-alt a {
-  color: #111111;
-}
+
 .meta-title {
   margin-bottom: 20px;
 }
@@ -759,21 +656,12 @@ figcaption {
 }
 .aff-post-meta .aff-post-author, .aff-post-meta time, .aff-post-meta .aff-meta-item {
   letter-spacing: .025em;
-}
-.aff-post-meta-c .aff-meta-item, .aff-post-meta-c .aff-post-author, .aff-post-meta-c time {
-  font-weight: 400;
-}
-.aff-post-meta .aff-post-author, .aff-post-meta time, .aff-post-meta .aff-meta-item {
-  letter-spacing: .025em;
   color: #111111;
 }
+
 article p, article a span, article span {
   color: #333333;
   font-size: 16px;
-}
-.aff-post-meta-c .by {
-  font-style: inherit;
-  text-transform: inherit;
 }
 
 .aff-post-meta-c .aff-post-author>a {
@@ -782,16 +670,6 @@ article p, article a span, article span {
   text-decoration: none;
 }
 
-.aff-post-meta .aff-post-author, .aff-post-meta time, .aff-post-meta .aff-meta-item {
-  letter-spacing: .025em;
-}
-.aff-post-meta-c .aff-meta-item, .aff-post-meta-c .aff-post-author, .aff-post-meta-c time {
-  font-weight: 400;
-}
-
-.aff-post-meta .aff-meta-above {
-  margin-bottom: -1px;
-}
 .aff-post-meta .aff-cat-labels {
   display: block;
   margin-bottom: -5px;
@@ -812,6 +690,7 @@ article p, article a span, article span {
   line-height: 22px;
   -webkit-font-smoothing: antialiased;
 }
+
 .cat-label, .aff-post-meta .aff-cat-labels .category {
   letter-spacing: .025em;
 }
@@ -840,8 +719,6 @@ aside p, .post .aff-post-title a>span, aside ul li.widget, aside ul li a {
 .widget {
   padding: 10px 0 30px;
   list-style: none;
-}
-.widget {
   margin: 0 0 1.5em;
 }
 
