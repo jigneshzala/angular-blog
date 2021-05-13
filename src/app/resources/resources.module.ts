@@ -5,6 +5,7 @@ import { RouterModule, Routes } from "@angular/router";
 import { ToolsComponent } from "./tools/tools.component";
 import { CoursesComponent } from "./courses/courses.component";
 import { BooksComponent } from "./books/books.component";
+import { DevelopmentComponent } from './development/development.component';
 
 const routes: Routes = [
   {
@@ -23,6 +24,10 @@ const routes: Routes = [
         path: "books",
         component: BooksComponent,
       },
+      {
+        path: "devlopment-tools",
+        component: DevelopmentComponent,
+      },
     ],
   },
 ];
@@ -33,6 +38,7 @@ const routes: Routes = [
     ToolsComponent,
     CoursesComponent,
     BooksComponent,
+    DevelopmentComponent,
   ],
   imports: [CommonModule, RouterModule.forChild(routes)],
 })
