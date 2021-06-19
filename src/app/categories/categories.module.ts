@@ -6,6 +6,8 @@ import { RouterModule, Routes } from "@angular/router";
 import { CategoryService } from "./shared/category.service";
 import { SidebarModule } from "../shared/modules/sidebar.module";
 import { LazyLoadImageModule } from "ng-lazyload-image";
+import { NgxPaginationModule } from "ngx-pagination";
+
 
 const routes: Routes = [
   {
@@ -27,6 +29,7 @@ const routes: Routes = [
     SidebarModule,
     RouterModule.forChild(routes),
     LazyLoadImageModule,
+    NgxPaginationModule
   ],
 })
 export class CategoriesModule {}

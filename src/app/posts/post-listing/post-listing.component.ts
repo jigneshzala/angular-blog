@@ -23,6 +23,7 @@ export class PostListingComponent implements OnInit {
   limit: any = 5;
   firstPost:any
   totalPage:any;
+  totalItem:any;
   tagsList:any = [];
   errors:any;
   isLoaded:boolean = false;
@@ -43,6 +44,18 @@ export class PostListingComponent implements OnInit {
 
   }
 
+  count = 0;
+
+
+  onTableDataChange(event){
+    this.page = event;
+    
+    this.route.navigate(['/post'], { queryParams: { page: this.page } });
+    
+
+  }  
+
+
   private getAllTags() {
     this.categoryService.getAllTags().subscribe((response) => {
       this.tagsList = response["data"]["tags"];
@@ -59,7 +72,9 @@ export class PostListingComponent implements OnInit {
       this.posts = response["data"];
       this.firstPost = this.posts[0];
       this.totalPage = response['totalPages'];
+      this.totalItem = response['total'];
       this.isLoaded = true;
+      window.scrollTo(0, 0);
     },error=>{
       this.isLoaded = true;
       

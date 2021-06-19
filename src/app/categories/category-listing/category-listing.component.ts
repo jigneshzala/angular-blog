@@ -28,6 +28,7 @@ export class CategoryListingComponent implements OnInit {
   page: any = 1;
   limit: any = 5;
   totalPage: any;
+  totalItem:any;
   isLoaded: boolean = false;
   // defaultImage = "https://via.placeholder.com/700x400.png?text=Tutscoder";
   defaultImage = "./assets/images/700x400.png";
@@ -69,6 +70,7 @@ export class CategoryListingComponent implements OnInit {
       this.posts = response["data"];
       this.firstPost = this.posts[0];
       this.totalPage = response["totalPages"];
+      this.totalItem = response["total"];
       this.isLoaded = true;
     });
   }
@@ -86,4 +88,13 @@ export class CategoryListingComponent implements OnInit {
       queryParams: { page: this.page },
     });
   }
+  onTableDataChange(event){
+    this.page = event;
+    
+    this.router.navigate([`/category/${this.category}`], {
+      queryParams: { page: this.page },
+    });
+    
+  }  
+
 }

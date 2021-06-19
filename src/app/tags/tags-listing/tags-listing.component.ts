@@ -28,10 +28,11 @@ export class TagsListingComponent implements OnInit {
   page: any = 1;
   limit: any = 5;
   totalPage: any;
+  totalItem:any;
   ngOnInit() {
     combineLatest([this.route.paramMap, this.route.queryParamMap]).subscribe(
       ([pathParams, queryParams]) => {
-        this.ngxService.start();
+        
         this.tag = pathParams.get("slug");
 
         this.seoService.setMetaTags({
@@ -58,12 +59,14 @@ export class TagsListingComponent implements OnInit {
     let reqData = {
       tag: this.tag,
       limit: "5",
+      page: this.page,
     };
     this.categoryService.getPostByTag(reqData).subscribe((response) => {
-      this.ngxService.stop();
+      
       this.posts = response["data"];
       this.firstPost = this.posts[0];
       this.totalPage = response['totalPages'];
+      this.totalItem = response['total'];
     });
   }
   private getAllCategory() {
@@ -72,11 +75,14 @@ export class TagsListingComponent implements OnInit {
     });
   }
 
-  prevNextPosts(type) {
-    this.page = type == "next" ? this.page + 1 : this.page - 1;
-
+ 
+  onTableDataChange(event){
+    this.page = event;
+    
     this.router.navigate([`/tag/${this.tag}`], {
       queryParams: { page: this.page },
     });
-  }
+    
+
+  }  
 }

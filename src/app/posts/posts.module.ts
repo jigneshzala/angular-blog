@@ -14,7 +14,7 @@ import { ShareButtonsConfig } from 'ngx-sharebuttons';
 import { ShareButtonsModule } from 'ngx-sharebuttons/buttons';
 import { ShareIconsModule } from 'ngx-sharebuttons/icons';
 import { LazyLoadImageModule } from 'ng-lazyload-image'; 
-
+import {NgxPaginationModule} from 'ngx-pagination';
 
 const customConfig: ShareButtonsConfig = {
   include: ['facebook', 'twitter', 'pinterest','whatsapp','tumblr','reddit','telegram','email'],
@@ -46,6 +46,7 @@ const routes: Routes = [
     FormsModule,
     // AdsenseModule.forRoot(),
     LazyLoadImageModule,
+    NgxPaginationModule,
     ShareButtonsModule.withConfig(customConfig),
     ShareIconsModule,
     SharedPostModule,

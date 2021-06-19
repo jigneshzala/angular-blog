@@ -73,6 +73,7 @@
   }
 }
 
+
 .recommended-tool__text {
   font-size: 16px;
   color: #526d7a;
@@ -123,7 +124,7 @@
 
 .other-tools__image img {
   width: auto;
-  max-height: 70px;
+  max-height: 8vh;
 }
 
 .other-tools__title {
@@ -170,4 +171,11 @@
     font-size: 36px;
     font-weight: 700;
     text-align: center;
+}
+@media (max-width: 768px) {
+
+  .other-tools__image img {
+   
+    max-height: 10vh;
+  }
 }

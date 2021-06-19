@@ -29,23 +29,12 @@ export class CategoryService {
   }
   getPostByTag(reqData?) {
     
+   
     let params = new HttpParams();
 
     params = params.append('limit', reqData.limit);
-    //params = params.append('category', reqData.category);
+    params = params.append('page', reqData.page);
 
-   /*  for(let key of Object.keys(reqData[0])){
-      params= params.set(key, reqData[0][key]) ;
-  }
- */
-  /*   let query = '';
-    if(reqData.category){
-      query = `category=${reqData.category}`;
-    }
-    if(reqData.limit){
-      query = `limit=${reqData.limit}`;
-    }
-     */
     return this.http.get(`${this.API_URL}posts/by_tag/${reqData.tag}`,{params: params});
   }
   /*  createPost(newPost) {
