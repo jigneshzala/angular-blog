@@ -33,6 +33,16 @@ export class DevelopmentComponent implements OnInit {
       ],
     },
     {
+      title: "Design",
+      data: [
+        {
+          title: "Mockuper",
+          desc: "The free mockups generator",
+          link: "https://mockuper.net",
+        }
+      ],
+    },
+    {
       title: "SEO",
       data: [
         {
@@ -49,6 +59,11 @@ export class DevelopmentComponent implements OnInit {
           title: "Meta Tags",
           desc: "Meta Tags generator, preview how your webpage will look on Google, Facebook, Twitter, and more!",
           link: "https://metatags.io",
+        },
+        {
+          title: "Headline Analyzer",
+          desc: "Free Headline Analyzer",
+          link: "https://coschedule.com/headline-analyzer",
         },
         {
           title: "SEOptimer",
@@ -100,6 +115,11 @@ export class DevelopmentComponent implements OnInit {
           desc: "Collection of free design tools and resources for makers, developers and designers",
           link: "https://undesign.learn.uno",
         },
+        {
+          title: "Whatfontis",
+          desc: "Find any font from any image",
+          link: "https://www.whatfontis.com",
+        },
       ],
     },
     {
@@ -124,6 +144,21 @@ export class DevelopmentComponent implements OnInit {
           title: "Css generator",
           desc: "Css Code generator",
           link: "https://css3generator.com",
+        },
+        {
+          title: "Ultimate CSS Generator",
+          desc: "The Ultimate CSS Generators",
+          link: "https://webcode.tools/generators/css",
+        },
+        {
+          title: "Css Gradient Generator",
+          desc: "Free css gradient generator tool",
+          link: "https://cssgradient.io",
+        },
+        {
+          title: "Css Grid",
+          desc: "Learn the CSS Grid",
+          link: "https://griddy.io",
         },
       ],
     },
@@ -189,9 +224,25 @@ export class DevelopmentComponent implements OnInit {
           title: "Keycode",
           desc: "Press any key to get the javascript event keycode",
           link: "https://keycode.info",
+        }
+      ],
+    },
+    {
+      title: "Code",
+      data: [
+        {
+          title: "This vs That",
+          desc: "The difference between frontend terms",
+          link: "https://thisthat.dev",
+        },
+        {
+          title: "Htmldom",
+          desc: "Manage HTML DOM with vanilla JavaScript",
+          link: "https://htmldom.dev",
         },
       ],
     },
+
     {
       title: "Automation",
       data: [
@@ -221,6 +272,12 @@ export class DevelopmentComponent implements OnInit {
           link: "https://regex101.com",
         },
         {
+          title: "iHateRegex",
+          desc: "The Regex Cheat Sheet",
+          link: "https://ihateregex.io",
+        },
+
+        {
           title: "JSON Editor Online",
           desc: "JSON Editor Online is a web-based tool to view, edit, format, transform, and diff JSON documents.",
           link: "https://jsoneditoronline.org",
@@ -239,6 +296,11 @@ export class DevelopmentComponent implements OnInit {
           title: "Cloudcraft",
           desc: "Visualize your cloud architecture like a pro, Create smart AWS diagrams",
           link: "https://www.cloudcraft.co",
+        },
+        {
+          title: "Ray.so",
+          desc: "Turn your code into beautiful images.",
+          link: "https://ray.so",
         },
       ],
     },
