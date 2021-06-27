@@ -43,6 +43,10 @@ export class PostListingComponent implements OnInit {
 
     })
 
+    this.activeRoute.queryParamMap.subscribe(data=>{
+      console.log('map',data)
+    });
+
   }
 
   count = 0;
@@ -69,7 +73,7 @@ export class PostListingComponent implements OnInit {
       page: this.page,
     };
     this.postService.getPosts(reqData).subscribe((response) => {
-      console.log('3',response);
+      console.log('3');
       this.posts = response["data"];
 
 
