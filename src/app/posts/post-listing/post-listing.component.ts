@@ -31,13 +31,14 @@ export class PostListingComponent implements OnInit {
   defaultImage = "./assets/images/700x400.png";
 
   ngOnInit() {
-    
-    this.getAllCategory();
-    this.getAllTags();
 
     this.activeRoute.queryParams.subscribe(queryParams  =>{
       
       this.page =  queryParams['page'] ? +queryParams['page'] : 1;
+      
+      this.getAllCategory();
+      
+      this.getAllTags();
       
       this.getAllPost();
 
@@ -103,11 +104,4 @@ export class PostListingComponent implements OnInit {
     });
   }
 
-  prevNextPosts(type) {
-    
-    this.page = (type == "next") ? this.page + 1 : this.page - 1
-
-    this.route.navigate(['/post'], { queryParams: { page: this.page } });
-    
-  }
 }
