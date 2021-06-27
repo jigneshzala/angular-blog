@@ -10,7 +10,11 @@ import { HTTP_INTERCEPTORS } from "@angular/common/http";
 import { ServerStateInterceptor } from "./serverstate.interceptor";
 
 @NgModule({
-  imports: [AppModule, ServerModule, ServerTransferStateModule],
+  imports: [
+    AppModule, 
+    ServerModule, 
+    ServerTransferStateModule
+  ],
   providers: [{
     provide: HTTP_INTERCEPTORS,
     useClass: ServerStateInterceptor,
