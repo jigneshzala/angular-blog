@@ -38,4 +38,8 @@ export class PageService {
   deletePage(id) {
     return this.http.delete(`${this.API_URL}pages/${id}`);
   }
+
+  getToolsByGroup() {
+    return this.http.get(`${this.API_URL}tools/by-group`);
+  }
 }
