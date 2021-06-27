@@ -1,8 +1,8 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, Inject, OnInit, PLATFORM_ID } from "@angular/core";
 import { CategoryService } from "src/app/categories/shared/category.service";
 import { PostService } from "../shared/post.service";
 import { ActivatedRoute, Router } from "@angular/router";
-import { NgxUiLoaderService } from "ngx-ui-loader";
+import { isPlatformBrowser } from '@angular/common';
 @Component({
   selector: "app-post-listing",
   templateUrl: "./post-listing.component.html",
@@ -10,11 +10,11 @@ import { NgxUiLoaderService } from "ngx-ui-loader";
 })
 export class PostListingComponent implements OnInit {
   constructor(
+    @Inject(PLATFORM_ID) private platform: Object,
     private activeRoute: ActivatedRoute,
     private route: Router,
     private postService: PostService,
-    private categoryService: CategoryService,
-    private ngxService: NgxUiLoaderService
+    private categoryService: CategoryService
   ) {}
 
   posts: any = [];
@@ -31,14 +31,14 @@ export class PostListingComponent implements OnInit {
   defaultImage = "./assets/images/700x400.png";
 
   ngOnInit() {
-    console.log('Post list');
+    
     this.getAllCategory();
     this.getAllTags();
 
     this.activeRoute.queryParams.subscribe(queryParams  =>{
-      console.log('Post list 2 ');
+      
       this.page =  queryParams['page'] ? +queryParams['page'] : 1;
-      console.log('Post list 3',this.page);
+      
       this.getAllPost();
 
     })
@@ -75,7 +75,10 @@ export class PostListingComponent implements OnInit {
       this.totalPage = response['totalPages'];
       this.totalItem = response['total'];
       this.isLoaded = true;
-      window.scrollTo(0, 0);
+      if (isPlatformBrowser(this.platform)) {
+        window.scrollTo(0, 0);
+      }
+      
     },error=>{
       this.isLoaded = true;
       
