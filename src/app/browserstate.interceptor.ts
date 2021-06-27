@@ -13,9 +13,9 @@ export class BrowserStateInterceptor implements HttpInterceptor {
     req: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
-    if (req.method !== "GET") {
+    /* if (req.method !== "GET") {
       return next.handle(req);
-    }
+    } */
 
     const storedResponse: string = this.transferState.get(
       makeStateKey(req.url),

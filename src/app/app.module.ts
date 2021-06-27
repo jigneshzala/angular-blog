@@ -3,7 +3,7 @@ import { NgModule } from "@angular/core";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { FormsModule } from "@angular/forms";
 import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
-// import { TransferHttpCacheModule } from "@nguniversal/common";
+import { TransferHttpCacheModule } from "@nguniversal/common";
 import { AppRoutingModule,routedComponents } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 
@@ -45,7 +45,7 @@ import { BrowserStateInterceptor } from "./browserstate.interceptor";
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: "serverApp" }),
-    // TransferHttpCacheModule,
+    TransferHttpCacheModule,
     BrowserAnimationsModule,
     AppRoutingModule,
     FormsModule,
