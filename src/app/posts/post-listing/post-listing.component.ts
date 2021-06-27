@@ -31,13 +31,14 @@ export class PostListingComponent implements OnInit {
   defaultImage = "./assets/images/700x400.png";
 
   ngOnInit() {
-    
+    console.log('Post list');
     this.getAllCategory();
     this.getAllTags();
 
     this.activeRoute.queryParams.subscribe(queryParams  =>{
-      
+      console.log('Post list 2 ');
       this.page =  queryParams['page'] ? +queryParams['page'] : 1;
+      console.log('Post list 3',this.page);
       this.getAllPost();
 
     })
