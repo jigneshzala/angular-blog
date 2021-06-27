@@ -74,9 +74,9 @@ export class PostListingComponent implements OnInit {
 
     console.log('req',reqData);
     this.postService.getPosts(reqData).subscribe((response) => {
-      
+      console.log('Before=====>',this.posts);
       this.posts = response["data"];
-
+      console.log('After======>',this.posts);
       if(this.posts.length){
         this.firstPost = this.posts[0];
         this.totalPage = response['totalPages'];
