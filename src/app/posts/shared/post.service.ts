@@ -14,7 +14,7 @@ export class PostService {
 
     params = params.append("limit", reqData.limit);
     params = params.append("page", reqData.page);
-
+    console.log(`${this.API_URL}posts`);
     return this.http.get(`${this.API_URL}posts`, { params: params });
   }
   getAllPosts(reqData?) {

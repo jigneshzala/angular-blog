@@ -73,7 +73,8 @@ export class PostListingComponent implements OnInit {
     };
 
     console.log('req',reqData);
-    this.postService.getPosts(reqData).subscribe((response) => {
+    this.postService.getPosts(reqData).subscribe(response => {
+      console.log('response===>', response);
       console.log('Before=====>',this.posts);
       this.posts = response["data"];
       console.log('After======>',this.posts);
