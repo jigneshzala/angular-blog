@@ -31,21 +31,19 @@ export class PostListingComponent implements OnInit {
   defaultImage = "./assets/images/700x400.png";
 
   ngOnInit() {
-    console.log('1');
+    
     this.getAllCategory();
     this.getAllTags();
 
     this.activeRoute.queryParams.subscribe(queryParams  =>{
       
       this.page =  queryParams['page'] ? +queryParams['page'] : 1;
-      console.log('2',this.page);
+      
       this.getAllPost();
 
     })
 
-    this.activeRoute.queryParamMap.subscribe(data=>{
-      console.log('map',data)
-    });
+ 
 
   }
 
@@ -72,10 +70,11 @@ export class PostListingComponent implements OnInit {
       limit: this.limit,
       page: this.page,
     };
-    this.postService.getPosts(reqData).subscribe((response) => {
-      console.log('3');
-      this.posts = response["data"];
 
+    console.log('req',reqData);
+    this.postService.getPosts(reqData).subscribe((response) => {
+      
+      this.posts = response["data"];
 
       if(this.posts.length){
         this.firstPost = this.posts[0];
