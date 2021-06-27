@@ -31,14 +31,14 @@ export class PostListingComponent implements OnInit {
   defaultImage = "./assets/images/700x400.png";
 
   ngOnInit() {
-    
+    console.log('1');
     this.getAllCategory();
     this.getAllTags();
 
     this.activeRoute.queryParams.subscribe(queryParams  =>{
       
       this.page =  queryParams['page'] ? +queryParams['page'] : 1;
-      
+      console.log('2',this.page);
       this.getAllPost();
 
     })
@@ -69,12 +69,20 @@ export class PostListingComponent implements OnInit {
       page: this.page,
     };
     this.postService.getPosts(reqData).subscribe((response) => {
-      
+      console.log('3',response);
       this.posts = response["data"];
-      this.firstPost = this.posts[0];
-      this.totalPage = response['totalPages'];
-      this.totalItem = response['total'];
+
+
+      if(this.posts.length){
+        this.firstPost = this.posts[0];
+        this.totalPage = response['totalPages'];
+        this.totalItem = response['total'];
+
+      }  
+      
+
       this.isLoaded = true;
+
       if (isPlatformBrowser(this.platform)) {
         window.scrollTo(0, 0);
       }
