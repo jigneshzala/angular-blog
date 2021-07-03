@@ -1,5 +1,5 @@
 import { BrowserModule } from "@angular/platform-browser";
-import { NgModule } from "@angular/core";
+import { ErrorHandler, NgModule } from "@angular/core";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { FormsModule } from "@angular/forms";
 import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
@@ -33,7 +33,7 @@ import { NgProgressHttpModule } from "ngx-progressbar/http";
 import { AdsenseModule } from "ng2-adsense";
 import { NgxUiLoaderModule } from "ngx-ui-loader";
 import { BrowserStateInterceptor } from "./browserstate.interceptor";
-
+import { SentryErrorHandler } from './error.service';
 @NgModule({
   declarations: [
     ...routedComponents,
@@ -74,6 +74,10 @@ import { BrowserStateInterceptor } from "./browserstate.interceptor";
       useClass: BrowserStateInterceptor,
       multi: true,
     },
+    {
+      provide: ErrorHandler,
+      useClass: SentryErrorHandler,
+      },
   ],
   bootstrap: [AppComponent],
 })
