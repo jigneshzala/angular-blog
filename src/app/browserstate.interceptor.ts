@@ -13,11 +13,16 @@ export class BrowserStateInterceptor implements HttpInterceptor {
     req: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
-    //To Allow callin GET METHOD
+    
     console.log('mthod=>',req);
-     if (req.method !== "GETE") {
+     if (req.method !== "GET") {
       return next.handle(req);
     } 
+//To Allow callin GET METHOD
+    if(req.method === "GET" && req.url=='https://nodeblog-admin.herokuapp.com/api/v1/posts'){
+      console.log(req.url);
+      return next.handle(req);
+    }
 
     const storedResponse: string = this.transferState.get(
       makeStateKey(req.url),
