@@ -62,7 +62,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
   // @ViewChild("subscriberModal") elementView: ElementRef;
 
   ngOnInit() {
-    this.getLatestPostsa();
+    this.getLatestPosts();
     this.getPostByCategory("angular");
     this.getPostByCategory("nodejs");
     this.getPostByCategory("javascript");
